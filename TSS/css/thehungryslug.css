@@ -1,0 +1,87 @@
+html {
+	height: 100%;
+}
+
+body {
+/*	padding-top: 70px;
+*/	font-family: 'Lobster', cursive;
+	background-image: url(../photos/hero.png);
+	background-size: cover;
+	background-position: center;
+	background-repeat: none;
+	color: white;
+}
+
+.image {
+	width: 25px;
+	height: 20px;
+	background-size: cover;
+	background-position: center center;
+}
+
+.image1 {
+	background-image: url(../photos/logo.png);
+}
+
+/*.hero {
+	background-image: url(../photos/hero.png);
+}*/
+
+#logo {
+	float: left;
+	margin-right: 5px;
+}
+
+.navbar-default {
+	background-color: rgba(0,0,0,.35);
+	border: none;
+}
+
+.navbar-default .navbar-brand {
+	color: white;
+}
+
+.navbar-default .navbar-brand:hover {
+	color: lightgrey;
+}
+
+.navbar-default .navbar-nav>li>a:link {
+	color: white;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+	color: lightgrey;
+}
+
+#content {
+	text-align: center;
+	padding-top: 25%;
+	text-shadow: 0px 4px 3px rgba(0,0,0,.4),
+				 0px 8px 13px rgba(0,0,0,.1),
+				 0px 18px 23px rgba(0,0,0,.1);
+}
+
+.btn-default {
+	border: none;
+}
+
+.btn-default:hover {
+	color: white;
+	background-color: rgba(0,0,0,.35);
+}
+
+h1 {
+	font-size: 5em;
+}
+
+h3 {
+	font-size: 2.5em;
+}
+
+hr {
+	width: 400px;
+	border-top: 1px solid #f8f8f8;
+	border-bottom: 1px solid rgba(0,0,0,.2); 
+	max-width: 90%;
+
+}

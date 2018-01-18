@@ -19,7 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "css/bootstrap.min.css",
+        "css/theStarvingSlug.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

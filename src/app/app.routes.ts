@@ -1,11 +1,20 @@
 import {Routes, RouterModule} from '@angular/router';
 import {NgModule, ModuleWithProviders} from '@angular/core';
 
-import { LandingPageComponent } from './components/pages/'
+import { LandingPageComponent, LoginComponent } from './components/pages/'
 
 export const routes: Routes = [
 	{
 		path: '',
-		component: LandingPageComponent
+		children: [
+			{
+				path: 'login',
+				component: LoginComponent
+			},
+			{
+				path: '',
+				component: LandingPageComponent
+			}
+		]
 	}
 ]

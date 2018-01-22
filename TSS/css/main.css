@@ -1,0 +1,22 @@
+/* navbar css */
+.bg-light {
+	background-color: rgba(0,0,0,.35) !important;
+	border: none;
+}
+
+.navbar-light .navbar-brand {
+	color: white;
+}
+
+.navbar-light .navbar-brand:hover {
+	color: lightgrey;
+}
+
+.navbar-light .navbar-nav .nav-link {
+	color: white;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+	color: lightgrey;
+}
+/* end navbar css */

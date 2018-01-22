@@ -5,8 +5,10 @@
 	<meta charset="utf-8">
 
 	<title>The Starving Slug</title>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/theStarvingSlug.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
 	<script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
 
 	<!-- font --> 
@@ -17,34 +19,44 @@
 <body>
 
 	<!-- navbar -->
-	<nav class="navbar navbar-default navbar-fixed-top"> 
-		<div class="container">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class = "container">
+			<!-- brand -->
+			<a class="navbar-brand" href="index.html">Starving Slug</a>
 
-			<!-- hamburger for mobile --> 
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#hamburger" aria-expanded="false">
-				<span class="sr-only">Toggle navigation</span>
-				<i class="fas fa-chevron-circle-down"></i>
+			<!-- hamburger --> 
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
 			</button>
 
-			<!-- navbar logo --> 
-			<div class="navbar-header">
-				<a class="navbar-brand header" href="grid.html"><div class="image image1" id="logo" title="the hungry slug"></div>Starving Slug</a>
-			</div>
+			<!-- hamburger content -->
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="#"><i class="far fa-comments"></i> About</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#"><i class="fas fa-phone"></i> Contact</a>
+					</li>
 
-			<!-- hamburger dropdown --> 
-			<div class="collapse navbar-collapse" id="hamburger">
-				<ul class="nav navbar-nav">
-					<li><a href="www.google.com"><i class="far fa-comments"></i> About</a></li>
-					<li><a href="www.google.com"><i class="fas fa-phone"></i> Contact</a></li>
+					<li class="nav-item">
+						<a class="nav-link" href="./SignUp/signUp.html"><i class="fas fa-user"></i> Sign up</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="./login/login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+					</li>
+
 				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="www.google.com"><i class="fas fa-user"></i> Sign up</a></li>
-					<li><a href="www.google.com"><i class="fas fa-sign-in-alt"></i> Login</a></li>
-				</ul>
+				
+				<form class="form-inline my-2 my-lg-0">
+					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				</form>
+
 			</div>
 		</div>
 	</nav>
-	<!-- end navbar --> 
+	<!-- end navbar -->
 
 	<!-- hero image -->
 	<div class="container">
@@ -64,10 +76,11 @@
 	<!-- end hero image -->
 
 
-	<!-- jQuery and javaScript -->
-	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<!-- end jQuery and javaScript -->
+	<!-- bootstrap js --> 
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<!--- end boostrap js --> 
 
 </body>
 </html>

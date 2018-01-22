@@ -2,7 +2,12 @@ body {
   padding-top: 40px;
   padding-bottom: 40px;
   background-color: #eee;
-  background: url("login.jpg") no-repeat fixed center;
+  background-image: url(../photos/login.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+
 }
 .login-container{
     position: relative;

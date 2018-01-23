@@ -9,7 +9,7 @@ body {
 	background-size: cover;
 	background-position: center;
 	background-repeat: none;
-	color: white;
+	color: black;
 }
 
 .image {
@@ -108,3 +108,66 @@ hr {
 	color: lightgrey;
 }
 /* end navbar css */
+
+/* signin page CSS */
+.login__login-container{
+    position: relative;
+    width: 400px;
+    margin: 80px auto;
+    padding: 20px 40px 40px;
+    text-align: center;
+    background: #fff;
+    border: 2px solid #ccc;
+}
+.login__form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.login__form-signin .form-signin-heading,
+.login__form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.login__form-signin .checkbox {
+  font-weight: 400;
+}
+.login__form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.login__form-signin .form-control:focus {
+  z-index: 2;
+}
+.login__form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.login__form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+/* end signin CSS */
+
+/* signup page CSS */
+.signup__card-header {
+	text-align: center;
+}
+
+.signup__card-title {
+	text-align: center;
+}
+
+.signup__info {
+	margin: 0px 0px 10px 0px;
+}
+
+#signup__main {
+	margin: 6% 25%;
+	opacity: 0.90;
+}
+/* end signup CSS */

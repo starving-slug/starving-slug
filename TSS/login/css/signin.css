@@ -1,13 +1,35 @@
+html, body {
+  height: 100%;
+}
+
 body {
-  padding-bottom: 130px;
-  background-color: #eee;
+  font-family: 'Lobster', cursive;
   background-image: url(../photos/login.jpg);
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
 
 
 }
+.card-header {
+  text-align: center;
+}
+
+.card-title {
+  text-align: center;
+}
+
+.info {
+  margin: 0px 0px 10px 0px;
+}
+
+#main {
+  margin: 6% 25%;
+  opacity: 0.90;
+  display: none;
+}
+
 .login-container{
     position: relative;
     width: 400px;
@@ -17,18 +39,22 @@ body {
     background: #fff;
     border: 2px solid #ccc;
 }
+
 .form-signin {
   max-width: 330px;
   padding: 15px;
   margin: 0 auto;
 }
+
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
   margin-bottom: 10px;
 }
+
 .form-signin .checkbox {
   font-weight: 400;
 }
+
 .form-signin .form-control {
   position: relative;
   box-sizing: border-box;
@@ -36,14 +62,17 @@ body {
   padding: 10px;
   font-size: 16px;
 }
+
 .form-signin .form-control:focus {
   z-index: 2;
 }
+
 .form-signin input[type="email"] {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
+
 .form-signin input[type="password"] {
   margin-bottom: 10px;
   border-top-left-radius: 0;

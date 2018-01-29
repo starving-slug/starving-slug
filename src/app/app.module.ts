@@ -9,6 +9,8 @@ import { HeaderComponent } from './components/nav';
 import { LandingPageComponent } from './components/pages';
 import { LoginComponent } from './components/pages/login/login.component';
 import { SignupComponent } from './components/pages/signup/signup.component';
+import { ProfilePageComponent } from './components/pages/profile-page/profile-page.component';
+import { RecipeCardComponent } from './components/ui/recipe-card/recipe-card.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { SignupComponent } from './components/pages/signup/signup.component';
     HeaderComponent,
     LandingPageComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    ProfilePageComponent,
+    RecipeCardComponent
   ],
   imports: [
     BrowserModule,

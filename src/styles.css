@@ -9,6 +9,7 @@ body {
 	background-size: cover;
 	background-position: center;
 	background-repeat: none;
+	background-attachment: fixed;
 	color: black;
 }
 
@@ -171,3 +172,29 @@ hr {
 	opacity: 0.90;
 }
 /* end signup CSS */
+
+/* Profile page CSS */
+.profile__container {
+	padding-top: 3em;
+	margin: 0 5% 0em 5%;
+	background: #FFFFFF
+}
+
+.profile__description {
+	margin: 0 2em 0 2em;
+}
+
+.profile__big-avatar {
+	width: 10rem;
+	height: 10rem;
+}
+
+.profile__recipes h3 {
+	margin-left: .5em;
+}
+
+.profile__recipe {
+	margin-left: 2em;
+	background: #AAAAAA
+}
+/* */

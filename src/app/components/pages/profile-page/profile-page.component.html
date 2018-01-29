@@ -1,0 +1,39 @@
+<div class="profile__container">
+  <div class="row profile__description">
+    <div class="col-sm-4">
+      <img src="../../../../assets/photos/dog.png" class="profile__big-avatar">
+    </div>
+    <div class="col-sm-8">
+      <h3>{{name}}</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="profile__recipes col-sm-8">
+      <h3>Recipes and Stuff :D</h3>
+      <app-recipe-card *ngFor="let rcp of recipes" [recipe]="rcp"></app-recipe-card>
+    </div>
+    <div class="col-sm-4">
+      <h3>Column 2</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- <div class="row">
+  <div class="col-sm-8">
+    <h3>Recipes and Stuff :D</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+  </div>
+  <div class="col-sm-4">
+    <h3>Column 2</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+  </div>
+  end
+</div> -->

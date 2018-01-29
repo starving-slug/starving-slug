@@ -181,6 +181,7 @@ hr {
 }
 
 .profile__description {
+	padding-bottom: 3em;
 	margin: 0 2em 0 2em;
 }
 

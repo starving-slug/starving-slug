@@ -1,0 +1,201 @@
+html {
+	height: 100%;
+}
+
+body {
+/*	padding-top: 70px;
+*/	font-family: 'Lobster', cursive;
+	background-image: url(./assets/photos/hero.png);
+	background-size: cover;
+	background-position: center;
+	background-repeat: none;
+	background-attachment: fixed;
+	color: black;
+}
+
+.image {
+	width: 25px;
+	height: 20px;
+	background-size: cover;
+	background-position: center center;
+}
+
+.image1 {
+	background-image: url(./assets/photos/logo.png);
+}
+
+/*.hero {
+	background-image: url(../photos/hero.png);
+}*/
+
+#logo {
+	float: left;
+	margin-right: 5px;
+}
+
+.navbar-default {
+	background-color: rgba(0,0,0,.35);
+	border: none;
+}
+
+.navbar-default .navbar-brand {
+	color: white;
+}
+
+.navbar-default .navbar-brand:hover {
+	color: lightgrey;
+}
+
+.navbar-default .navbar-nav>li>a:link {
+	color: white;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+	color: lightgrey;
+}
+
+#content {
+	text-align: center;
+	padding-top: 25%;
+	text-shadow: 0px 4px 3px rgba(0,0,0,.4),
+				 0px 8px 13px rgba(0,0,0,.1),
+				 0px 18px 23px rgba(0,0,0,.1);
+}
+
+.btn-default {
+	border: none;
+}
+
+.btn-default:hover {
+	color: white;
+	background-color: rgba(0,0,0,.35);
+}
+
+h1 {
+	font-size: 5em;
+}
+
+h3 {
+	font-size: 2.5em;
+}
+
+hr {
+	width: 400px;
+	border-top: 1px solid #f8f8f8;
+	border-bottom: 1px solid rgba(0,0,0,.2);
+	max-width: 90%;
+
+}
+
+/* navbar css */
+.bg-light {
+	background-color: rgba(0,0,0,.35) !important;
+	border: none;
+}
+
+.navbar-light .navbar-brand {
+	color: white;
+}
+
+.navbar-light .navbar-brand:hover {
+	color: lightgrey;
+}
+
+.navbar-light .navbar-nav .nav-link {
+	color: white;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+	color: lightgrey;
+}
+/* end navbar css */
+
+/* signin page CSS */
+.login__login-container{
+    position: relative;
+    width: 400px;
+    margin: 80px auto;
+    padding: 20px 40px 40px;
+    text-align: center;
+    background: #fff;
+    border: 2px solid #ccc;
+}
+.login__form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.login__form-signin .form-signin-heading,
+.login__form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.login__form-signin .checkbox {
+  font-weight: 400;
+}
+.login__form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.login__form-signin .form-control:focus {
+  z-index: 2;
+}
+.login__form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.login__form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+/* end signin CSS */
+
+/* signup page CSS */
+.signup__card-header {
+	text-align: center;
+}
+
+.signup__card-title {
+	text-align: center;
+}
+
+.signup__info {
+	margin: 0px 0px 10px 0px;
+}
+
+#signup__main {
+	margin: 6% 25%;
+	opacity: 0.90;
+}
+/* end signup CSS */
+
+/* Profile page CSS */
+.profile__container {
+	padding-top: 3em;
+	margin: 0 5% 0em 5%;
+	background: #FFFFFF
+}
+
+.profile__description {
+	padding-bottom: 3em;
+	margin: 0 2em 0 2em;
+}
+
+.profile__big-avatar {
+	width: 10rem;
+	height: 10rem;
+}
+
+.profile__recipes h3 {
+	margin-left: .5em;
+}
+
+.profile__recipe {
+	margin-left: 2em;
+	background: #AAAAAA
+}
+/* */

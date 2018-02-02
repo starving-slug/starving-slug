@@ -1,8 +1,10 @@
 import {Routes, RouterModule} from '@angular/router';
 import {NgModule, ModuleWithProviders} from '@angular/core';
 
+import { UserResolver } from './utils';
+
 // Import page components
-import { LandingPageComponent, LoginComponent, SignupComponent, ProfilePageComponent } from './components/pages/'
+import { LandingPageComponent, LoginComponent, SignupComponent, ProfilePageComponent } from './components/pages/';
 
 export const routes: Routes = [
 	{
@@ -17,8 +19,11 @@ export const routes: Routes = [
 				component: SignupComponent
 			},
 			{
-				path: 'user',
-				component: ProfilePageComponent
+				path: 'user/:username',
+				component: ProfilePageComponent,
+				resolve: {
+					user: UserResolver
+				}
 			},
 			{
 				path: '',

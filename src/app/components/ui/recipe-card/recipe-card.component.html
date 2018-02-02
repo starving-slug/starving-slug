@@ -1,4 +1,14 @@
 <div class="profile__recipe">
-  <h4>{{name}}</h4>
-  <p>{{description}}</p>
+  <div class="row">
+
+    <div class="col-sm-8 recipe-card__title">
+      <h4>{{recipe.name}}</h4>
+    </div>
+    <div class="col-sm-4 recipe-card__author" *ngIf="show_author">
+      <h6>{{recipe.author}}</h6>
+    </div>
+  </div>
+  <div class="recipe-card__description">
+    <p>{{recipe.description}}</p>
+  </div>
 </div>

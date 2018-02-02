@@ -13,6 +13,9 @@ import { SignupComponent } from './components/pages/signup/signup.component';
 import { ProfilePageComponent } from './components/pages/profile-page/profile-page.component';
 import { RecipeCardComponent } from './components/ui/recipe-card/recipe-card.component';
 
+import { Recipe } from './models/recipe.model';
+import { User } from './models/user.model';
+import { UserResolver } from './utils';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,9 @@ import { RecipeCardComponent } from './components/ui/recipe-card/recipe-card.com
     ),
     FormsModule
   ],
-  providers: [],
+  providers: [
+    UserResolver
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

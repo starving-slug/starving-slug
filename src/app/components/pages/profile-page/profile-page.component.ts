@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { User } from '../../../models'
 
 @Component({
   selector: 'app-profile-page',
@@ -6,26 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile-page.component.css']
 })
 export class ProfilePageComponent implements OnInit {
+  user: User;
 
-  private name: string;
-  private recipes = [
-    {
-      name: 'Barbeque Bat Eyeball',
-      description: 'This tasty dish from Western Fanglovia is a succulent mix of savory and fruity'
-    },
-    {
-      name: 'Shrieking Pancake',
-      description: 'Don\'t let the name fool you, this delectible recipe has no equal'
-    },
-    {
-      name: 'Knuckle Sandwich',
-      description: 'An old Bungleburg classic, this sandwich was popular during the late 80s'
-    }
-  ]
+  constructor(private route: ActivatedRoute) { // this is all currently filler junk
+    this.user = new User();
 
-  constructor() {
-    this.name = 'Test User'
-    this.recipes.map((rcp) => {console.log(rcp['name']); })
+    let routeData = route.data.subscribe((data) => { // pulls bogus user out of the user resolver
+      this.user = data['user'];
+      console.log(this.user);
+    });
   }
 
   ngOnInit() {

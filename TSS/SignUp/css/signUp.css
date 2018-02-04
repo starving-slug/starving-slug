@@ -1,0 +1,30 @@
+html, body {
+	height: 100%;
+}
+
+body {
+	font-family: 'Lobster', cursive;
+	background-image: url(../photos/Christmas.png);
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.card-header {
+	text-align: center;
+}
+
+.card-title {
+	text-align: center;
+}
+
+.info {
+	margin: 0px 0px 10px 0px;
+}
+
+#main {
+	margin: 6% 25%;
+	opacity: 0.90;
+	display: none;
+}

@@ -11,8 +11,12 @@ import { LandingPageComponent } from './components/pages';
 import { LoginComponent } from './components/pages/login/login.component';
 import { SignupComponent } from './components/pages/signup/signup.component';
 import { ProfilePageComponent } from './components/pages/profile-page/profile-page.component';
+import { RecipePageComponent } from './components/pages/recipe-page/recipe-page.component';
 import { RecipeCardComponent } from './components/ui/recipe-card/recipe-card.component';
 
+import { Recipe } from './models/recipe.model';
+import { User } from './models/user.model';
+import { UserResolver } from './utils';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,8 @@ import { RecipeCardComponent } from './components/ui/recipe-card/recipe-card.com
     LoginComponent,
     SignupComponent,
     ProfilePageComponent,
-    RecipeCardComponent
+    RecipeCardComponent,
+    RecipePageComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +37,9 @@ import { RecipeCardComponent } from './components/ui/recipe-card/recipe-card.com
     ),
     FormsModule
   ],
-  providers: [],
+  providers: [
+    UserResolver
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

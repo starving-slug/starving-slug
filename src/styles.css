@@ -1,201 +1,484 @@
 html {
-	height: 100%;
+    height: 100%;
 }
 
 body {
-/*	padding-top: 70px;
-*/	font-family: 'Lobster', cursive;
-	background-image: url(./assets/photos/hero.png);
-	background-size: cover;
-	background-position: center;
-	background-repeat: none;
-	background-attachment: fixed;
-	color: black;
+/*  padding-top: 70px;
+*/  font-family: 'Lobster', cursive;
+    background-image: url(./assets/photos/hero.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: none;
+    background-attachment: fixed;
+    color: black;
 }
 
 .image {
-	width: 25px;
-	height: 20px;
-	background-size: cover;
-	background-position: center center;
+    width: 25px;
+    height: 20px;
+    background-size: cover;
+    background-position: center center;
 }
 
 .image1 {
-	background-image: url(./assets/photos/logo.png);
+    background-image: url(./assets/photos/logo.png);
 }
 
 /*.hero {
-	background-image: url(../photos/hero.png);
+    background-image: url(../photos/hero.png);
 }*/
 
 #logo {
-	float: left;
-	margin-right: 5px;
+    float: left;
+    margin-right: 5px;
 }
 
 .navbar-default {
-	background-color: rgba(0,0,0,.35);
-	border: none;
+    background-color: rgba(0,0,0,.35);
+    border: none;
 }
 
 .navbar-default .navbar-brand {
-	color: white;
+    color: white;
 }
 
 .navbar-default .navbar-brand:hover {
-	color: lightgrey;
+    color: lightgrey;
 }
 
 .navbar-default .navbar-nav>li>a:link {
-	color: white;
+    color: white;
 }
 
 .navbar-default .navbar-nav>li>a:hover {
-	color: lightgrey;
+    color: lightgrey;
 }
 
 #content {
-	text-align: center;
-	padding-top: 25%;
-	text-shadow: 0px 4px 3px rgba(0,0,0,.4),
-				 0px 8px 13px rgba(0,0,0,.1),
-				 0px 18px 23px rgba(0,0,0,.1);
+    text-align: center;
+    padding-top: 25%;
+    text-shadow: 0px 4px 3px rgba(0,0,0,.4),
+                 0px 8px 13px rgba(0,0,0,.1),
+                 0px 18px 23px rgba(0,0,0,.1);
 }
 
 .btn-default {
-	border: none;
+    border: none;
 }
 
 .btn-default:hover {
-	color: white;
-	background-color: rgba(0,0,0,.35);
+    color: white;
+    background-color: rgba(0,0,0,.35);
 }
 
 h1 {
-	font-size: 5em;
+    font-size: 5em;
 }
 
 h3 {
-	font-size: 2.5em;
+    font-size: 2.5em;
 }
 
 hr {
-	width: 400px;
-	border-top: 1px solid #f8f8f8;
-	border-bottom: 1px solid rgba(0,0,0,.2);
-	max-width: 90%;
+    width: 400px;
+    border-top: 1px solid #f8f8f8;
+    border-bottom: 1px solid rgba(0,0,0,.2);
+    max-width: 90%;
 
 }
 
 /* navbar css */
 .bg-light {
-	background-color: rgba(0,0,0,.35) !important;
-	border: none;
+    background-color: rgba(0,0,0,.35) !important;
+    border: none;
 }
 
 .navbar-light .navbar-brand {
-	color: white;
+    color: white;
 }
 
 .navbar-light .navbar-brand:hover {
-	color: lightgrey;
+    color: lightgrey;
 }
 
 .navbar-light .navbar-nav .nav-link {
-	color: white;
+    color: white;
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
-	color: lightgrey;
+    color: lightgrey;
 }
 /* end navbar css */
 
 /* signin page CSS */
-.login__login-container{
-    position: relative;
-    width: 400px;
-    margin: 80px auto;
-    padding: 20px 40px 40px;
+.signin__card-header {
     text-align: center;
-    background: #fff;
-    border: 2px solid #ccc;
 }
-.login__form-signin {
-  max-width: 330px;
-  padding: 15px;
-  margin: 0 auto;
+
+.signin__card-title {
+    text-align: center;
 }
-.login__form-signin .form-signin-heading,
-.login__form-signin .checkbox {
-  margin-bottom: 10px;
+
+.signin__info {
+    margin: 0px 0px 10px 0px;
 }
-.login__form-signin .checkbox {
-  font-weight: 400;
-}
-.login__form-signin .form-control {
-  position: relative;
-  box-sizing: border-box;
-  height: auto;
-  padding: 10px;
-  font-size: 16px;
-}
-.login__form-signin .form-control:focus {
-  z-index: 2;
-}
-.login__form-signin input[type="email"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-.login__form-signin input[type="password"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+
+#signin__main {
+    margin: 6% 25%;
+    opacity: 0.90;
 }
 /* end signin CSS */
 
 /* signup page CSS */
 .signup__card-header {
-	text-align: center;
+    text-align: center;
 }
 
 .signup__card-title {
-	text-align: center;
+    text-align: center;
 }
 
 .signup__info {
-	margin: 0px 0px 10px 0px;
+    margin: 0px 0px 10px 0px;
 }
 
 #signup__main {
-	margin: 6% 25%;
-	opacity: 0.90;
+    margin: 6% 25%;
+    opacity: 0.90;
 }
 /* end signup CSS */
 
 /* Profile page CSS */
 .profile__container {
-	padding-top: 3em;
-	margin: 0 5% 0em 5%;
-	background: #FFFFFF
+    padding-top: 3em;
+    margin: 0 5% 0em 5%;
+    background: #FFFFFF;
+}
+
+.card.hovercard {
+    position: center;
+    padding-top: 0;
+    overflow: hidden;
+    text-align: center;
+    background-color: #FFFFFF;
+    width: 1080px;
+    height: 800px;
+
+}
+
+.card.hovercard .cardheader {
+    background:url("https://foodimentaryguy.files.wordpress.com/2011/06/background-pattern.gif");
+    background-size: cover;
+    height: 300px;
+}
+
+.card.hovercard .avatar img {
+    width: 200px;
+    height: 200px;
+    max-width: 200px;
+    max-height: 200px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255,255,255,0.5);
+}
+
+.card.people .card-info .desc {
+    display: block;
+    margin: 8px 14px 0 14px;
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 16px;
+    color: #737373;
+    text-overflow: ellipsis;
+}
+
+.card.hovercard .info .desc {
+    overflow: hidden;
+    font-size: 25px;
+    line-height: 20px;
+    color: #262626;
+    text-overflow: ellipsis;
+    padding-bottom: 20px;
+}
+
+
+
+/*.card {
+    padding-top: 20px;
+    margin: 10px 0 20px 0;
+    background-color: rgba(214, 224, 226, 0.2);
+    border-top-width: 0;
+    border-bottom-width: 2px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-top: 3em;
+    margin: 0 5% 0em 5%;
+}
+*/
+.card .card-heading {
+    padding: 0 20px;
+    margin: 0;
+}
+
+.card .card-heading.simple {
+    font-size: 20px;
+    font-weight: 300;
+    color: #777;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.card .card-heading.image img {
+    display: inline-block;
+    width: 46px;
+    height: 46px;
+    margin-right: 15px;
+    vertical-align: top;
+    border: 0;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.card .card-heading.image .card-heading-header {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.card .card-heading.image .card-heading-header h3 {
+    margin: 0;
+    font-size: 14px;
+    line-height: 16px;
+    color: #262626;
+}
+
+.card .card-heading.image .card-heading-header span {
+    font-size: 12px;
+    color: #999999;
+}
+
+.card .card-body {
+    padding: 0 20px;
+    margin-top: 20px;
+}
+
+.card .card-media {
+    padding: 0 20px;
+    margin: 0 -14px;
+}
+
+.card .card-media img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.card .card-actions {
+    min-height: 30px;
+    padding: 0 20px 20px 20px;
+    margin: 20px 0 0 0;
+}
+
+.card .card-comments {
+    padding: 20px;
+    margin: 0;
+    background-color: #f8f8f8;
+}
+
+.card .card-comments .comments-collapse-toggle {
+    padding: 0;
+    margin: 0 20px 12px 20px;
+}
+
+.card .card-comments .comments-collapse-toggle a,
+.card .card-comments .comments-collapse-toggle span {
+    padding-right: 5px;
+    overflow: hidden;
+    font-size: 12px;
+    color: #999;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.card-comments .media-heading {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.card.people {
+    position: relative;
+    display: inline-block;
+    width: 170px;
+    height: 300px;
+    padding-top: 0;
+    margin-left: 20px;
+    overflow: hidden;
+    vertical-align: top;
+}
+
+.card.people:first-child {
+    margin-left: 0;
+}
+
+.card.people .card-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 170px;
+    height: 150px;
+    background-color: #ffffff;
+}
+
+.card.people .card-top.green {
+    background-color: #53a93f;
+}
+
+.card.people .card-top.blue {
+    background-color: #427fed;
+}
+
+.card.people .card-info {
+    position: absolute;
+    top: 150px;
+    display: inline-block;
+    width: 100%;
+    height: 101px;
+    overflow: hidden;
+    background: #ffffff;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.card.people .card-info .title {
+    display: block;
+    margin: 8px 14px 0 14px;
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 18px;
+    color: #404040;
+}
+
+.card.people .card-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    padding: 10px 20px;
+    line-height: 29px;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.card.hovercard .avatar {
+    position: relative;
+    top: -50px;
+    margin-bottom: -50px;
+}
+
+.card.hovercard .avatar img {
+    width: 200px;
+    height: 200px;
+    max-width: 200px;
+    max-height: 200px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 5px solid rgba(255,255,255,0.5);
+}
+
+.card.hovercard .info {
+    padding: 4px 8px 10px;
+}
+
+.card.hovercard .info .title {
+    margin-bottom: 4px;
+    font-size: 40px;
+    line-height: 1;
+    color: #262626;
+    vertical-align: middle;
+}
+
+.card.hovercard .bottom {
+    padding: 0 20px;
+    margin-bottom: 17px;
+}
+
+.btn1{ border-radius: 50%; width:32px; height:32px; line-height:18px;  }
+
+.profile__container {
+    padding-top: 3em;
+    margin: 0 5% 0em 5%;
+    background: #FFFFFF
 }
 
 .profile__description {
-	padding-bottom: 3em;
-	margin: 0 2em 0 2em;
+    padding-bottom: 3em;
+    margin: 0 2em 0 2em;
 }
 
 .profile__big-avatar {
-	width: 10rem;
-	height: 10rem;
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    position: center;
 }
 
 .profile__recipes h3 {
-	margin-left: .5em;
+    margin-left: .5em;
 }
 
 .profile__recipe {
-	margin-left: 2em;
-	background: #AAAAAA
+    margin-left: 2em;
+    background: #AAAAAA
 }
-/* */
+
+
+/* Recipe Page CSS */
+.recipe__container {
+    padding-top: 3em;
+    margin: 0 5% 0em 5%;
+    background: #FFFFFF
+}
+
+.recipe__header {
+    padding-bottom: 2em;
+    border-bottom: 3px solid black;
+    margin: 0 2em 0 2em;
+}
+
+.recipe__picture {
+    width: 15rem;
+    height: 15rem;
+}
+
+.recipe__ingredients {
+    margin-left: 2.5em;
+    padding: 1em 0 2em 0;
+}
+
+.recipe__directions {
+    padding: 1em 0 2em 0;
+}
+
+.recipe__tags {
+    padding: 1em 0 1em 0;
+    margin: 0 2em 0 2em;
+    border-top: 2px solid gray;
+}
+
+.recipe__tags a {
+    margin-left: 1em;
+}
+/* End of Recipe Page CSS */

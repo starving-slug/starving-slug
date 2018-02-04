@@ -1,39 +1,26 @@
 <div class="profile__container">
+  <hr/>
   <div class="row profile__description">
     <div class="col-sm-4">
-      <img src="../../../../assets/photos/dog.png" class="profile__big-avatar">
+      <img [src]="user.photo" class="profile__big-avatar" />
     </div>
     <div class="col-sm-8">
-      <h3>{{name}}</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+      <h3>{{user.name}}</h3>
+      <p>{{user.description}}</p>
     </div>
   </div>
+  <hr/>
   <div class="row">
     <div class="profile__recipes col-sm-8">
       <h3>Recipes and Stuff :D</h3>
-      <app-recipe-card *ngFor="let rcp of recipes" [recipe]="rcp"></app-recipe-card>
+      <app-recipe-card *ngFor="let recipe of user.recipes" [recipe]="recipe" [show_author]="true"></app-recipe-card>
     </div>
     <div class="col-sm-4">
-      <h3>Column 2</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+      <h3>Liked Recipes</h3>
+      <p *ngFor="let like of user.likes"><a routerLink="{{like.path}}">{{like.text}}</a></p>
+      <hr/>
+      <h3>Friends</h3>
+      <p *ngFor="let friend of user.friends"><a routerLink="/user/{{friend}}">{{friend}}</a></p>
     </div>
   </div>
-
 </div>
-
-
-<!-- <div class="row">
-  <div class="col-sm-8">
-    <h3>Recipes and Stuff :D</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-  </div>
-  <div class="col-sm-4">
-    <h3>Column 2</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-  </div>
-  end
-</div> -->

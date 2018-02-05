@@ -468,8 +468,18 @@ hr {
     padding: 1em 0 2em 0;
 }
 
+.recipe__ingredients p {
+    margin: 0;
+}
+
+.recipe__ingredients-amount {
+    margin: 0 0.5em 0 2em;
+    width: 1.25em;
+    text-align: right;
+}
+
 .recipe__directions {
-    padding: 1em 0 2em 0;
+    padding: 1em 0 2em 1.5em;
 }
 
 .recipe__tags {

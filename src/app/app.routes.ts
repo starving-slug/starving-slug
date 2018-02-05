@@ -2,6 +2,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {NgModule, ModuleWithProviders} from '@angular/core';
 
 import { UserResolver } from './utils';
+import { RecipeResolver } from './utils';
 
 // Import page components
 import { LandingPageComponent, LoginComponent, SignupComponent, ProfilePageComponent, RecipePageComponent } from './components/pages/';
@@ -27,7 +28,10 @@ export const routes: Routes = [
 			},
 			{
 				path: 'recipe',
-				component: RecipePageComponent
+				component: RecipePageComponent,
+				resolve: {
+					recipe: RecipeResolver
+				}
 			},
 			{
 				path: '',

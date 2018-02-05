@@ -1,39 +1,37 @@
 <div class="recipe__container">
     <div class="recipe__header row">
         <div class="col-sm-8">
-            <h3>Recipe Name</h3>
-            <h4>Author</h4>
-            <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec velit mauris, aliquam quis euismod sed, ultrices sit amet dui. Vestibulum non ligula pellentesque, consequat dui et, molestie nunc. Donec malesuada mi id eros congue sagittis. Maecenas in ex nec nibh finibus mattis. Fusce id ullamcorper augue, quis ultrices leo. Curabitur viverra pharetra imperdiet. Mauris laoreet vulputate volutpat. Curabitur et eleifend erat.
-            </p>
+            <h3>{{recipe.name}}</h3>
+            <h4>{{recipe.author}}</h4>
+            <p>{{recipe.description}}</p>
         </div>
 
         <div class="col-sm-4">
-            <img src="../../../../assets/photos/logo.png" class="recipe__picture">
+            <img [src]="recipe.photo" class="recipe__picture">
         </div>
     </div>
     <div class="row">
         <div class="recipe__ingredients col-sm-3">
             <h4>Ingredients</h4>
-            <ul style="list-style-type:none">
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-            </ul>
+            <div class="row" *ngFor="let ingredient of recipe.ingredients">
+                <div class="recipe__ingredients-amount">
+                    <p>{{ingredient.amount}}</p>
+                </div>
+                <div>
+                    <p>{{ingredient.text}}</p>
+                </div>
+            </div>
         </div>
         <div class="recipe__directions col-sm-8">
             <h4>Directions</h4>
-            <h5>Step 1</h5>
-            <p>Prep</p>
-            <h5>Step 2</h5>
-            <p>Cook</p>
-            <h5>Step 3</h5>
-            <p>Eat</p>
+            <div *ngFor="let direction of recipe.directions; let i = index" [attr.data-index]="i">
+                <h5>Step {{i + 1}}</h5>
+                <p>{{direction}}</p>
+            </div>
         </div>
     </div>
     <div class="recipe__tags row">
         <h5>Categories</h5>
-        <a href="/recipe">Tag 1</a>
-        <a href="/recipe">Tag 2</a>
-        <a href="/recipe">Tag 3</a>
+        <p *ngFor="let tag of recipe.tags"><a routerLink="/search/{{tag.path}}">{{tag.text}}</a></p>
     </div>
 </div>

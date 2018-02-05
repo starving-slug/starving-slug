@@ -17,6 +17,7 @@ import { RecipeCardComponent } from './components/ui/recipe-card/recipe-card.com
 import { Recipe } from './models/recipe.model';
 import { User } from './models/user.model';
 import { UserResolver } from './utils';
+import { RecipeResolver } from './utils';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { UserResolver } from './utils';
     FormsModule
   ],
   providers: [
-    UserResolver
+    UserResolver,
+    RecipeResolver
   ],
   bootstrap: [AppComponent]
 })

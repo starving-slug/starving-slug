@@ -1,26 +1,25 @@
-<div class="profile__container">
-  <hr/>
-  <div class="row profile__description">
-    <div class="col-sm-4">
-      <img [src]="user.photo" class="profile__big-avatar" />
-    </div>
-    <div class="col-sm-8">
-      <h3>{{user.name}}</h3>
-      <p>{{user.description}}</p>
-    </div>
-  </div>
-  <hr/>
-  <div class="row">
-    <div class="profile__recipes col-sm-8">
-      <h3>Recipes and Stuff :D</h3>
-      <app-recipe-card *ngFor="let recipe of user.recipes" [recipe]="recipe" [show_author]="true"></app-recipe-card>
-    </div>
-    <div class="col-sm-4">
-      <h3>Liked Recipes</h3>
-      <p *ngFor="let like of user.likes"><a routerLink="{{like.path}}">{{like.text}}</a></p>
-      <hr/>
-      <h3>Friends</h3>
-      <p *ngFor="let friend of user.friends"><a routerLink="/user/{{friend}}">{{friend}}</a></p>
-    </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-sm-6">
+            <div class="card hovercard">
+                <div class="cardheader">
+                </div>
+                <div class="avatar">
+                    <img alt="" src="http://www.thehindu.com/sci-tech/technology/internet/article17759222.ece/alternates/FREE_660/02th-egg-person">
+                </div>
+                <div class="info">
+                    <div class="title">
+                        <a target="_blank" href="http://scripteden.com/">Name</a>
+                    </div>
+                    <div class="desc">Discription Card</div>
+                </div>
+                 </div>
+                    <div class="card hovercard_bottom">
+                      <div class="recipe_text">Recipe1</div>
+                      <div class="recipe_text">Recipe2</div>
+                      <div class="recipe_text">Recipe3</div>
+                    </div>
+                 </div>
   </div>
 </div>

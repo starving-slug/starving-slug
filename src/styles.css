@@ -3,14 +3,20 @@ html {
 }
 
 body {
-/*  padding-top: 70px;
-*/  font-family: 'Lobster', cursive;
-    background-image: url(./assets/photos/hero.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: none;
-    background-attachment: fixed;
-    color: black;
+  font-family: 'Roboto', sans-serif;
+	background-image: url(./assets/photos/hero.png);
+	background-size: cover;
+	background-position: center;
+	background-repeat: none;
+	background-attachment: fixed;
+	color: black;
+}
+
+html, body {
+   height: 100%;
+   width: 100%;
+   margin: 0;
+   padding: 0;
 }
 
 .image {
@@ -24,42 +30,19 @@ body {
     background-image: url(./assets/photos/logo.png);
 }
 
-/*.hero {
-    background-image: url(../photos/hero.png);
-}*/
-
 #logo {
     float: left;
     margin-right: 5px;
 }
 
-.navbar-default {
-    background-color: rgba(0,0,0,.35);
-    border: none;
-}
-
-.navbar-default .navbar-brand {
-    color: white;
-}
-
-.navbar-default .navbar-brand:hover {
-    color: lightgrey;
-}
-
-.navbar-default .navbar-nav>li>a:link {
-    color: white;
-}
-
-.navbar-default .navbar-nav>li>a:hover {
-    color: lightgrey;
-}
-
 #content {
-    text-align: center;
-    padding-top: 25%;
-    text-shadow: 0px 4px 3px rgba(0,0,0,.4),
-                 0px 8px 13px rgba(0,0,0,.1),
-                 0px 18px 23px rgba(0,0,0,.1);
+	font-family: 'Lobster', cursive;
+	color: white;
+	text-align: center;
+	padding-top: 25%;
+	text-shadow: 0px 4px 3px rgba(0,0,0,.4),
+				 0px 8px 13px rgba(0,0,0,.1),
+				 0px 18px 23px rgba(0,0,0,.1);
 }
 
 .btn-default {
@@ -94,7 +77,8 @@ hr {
 }
 
 .navbar-light .navbar-brand {
-    color: white;
+	color: white;
+	font-family: 'Lobster',cursive;
 }
 
 .navbar-light .navbar-brand:hover {
@@ -112,20 +96,20 @@ hr {
 
 /* signin page CSS */
 .signin__card-header {
-    text-align: center;
+	text-align: center;
 }
 
 .signin__card-title {
-    text-align: center;
+	text-align: center;
 }
 
 .signin__info {
-    margin: 0px 0px 10px 0px;
+	margin: 0px 0px 10px 0px;
 }
 
 #signin__main {
-    margin: 6% 25%;
-    opacity: 0.90;
+	margin: 6% 25%;
+	opacity: 0.90;
 }
 /* end signin CSS */
 
@@ -150,9 +134,9 @@ hr {
 
 /* Profile page CSS */
 .profile__container {
-    padding-top: 3em;
-    margin: 0 5% 0em 5%;
-    background: #FFFFFF;
+	padding-top: 3em;
+	margin: 0 5% 0em 5%;
+	background: #FFFFFF;
 }
 
 .card.hovercard {
@@ -161,7 +145,7 @@ hr {
     overflow: hidden;
     text-align: center;
     background-color: #FFFFFF;
-    width: 1080px;
+    width: 100%;
     height: 400px;
     border-style: groove;
     border-color:  #cc6600;
@@ -172,8 +156,8 @@ hr {
     overflow: hidden;
     text-align: center;
     background-color:#FFFFFF;
-    width: 1080px;
-    height: 800px;
+    width: 100%;
+    height: 50%;
     border-style: groove;
     border-color:  #cc6600;
 }
@@ -185,10 +169,10 @@ hr {
 }
 
 .card.hovercard .avatar img {
-    width: 150px;
-    height: 150px;
-    max-width: 200px;
-    max-height: 200px;
+    width: 15rem;
+    height: 15rem;
+    max-width: 20rem;
+    max-height: 20rem;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
@@ -211,7 +195,7 @@ hr {
     line-height: 20px;
     color: #262626;
     text-overflow: ellipsis;
-    padding-bottom: 20px;
+    padding-bottom: 2rem;
 }
 
 .card .card-heading {
@@ -322,8 +306,8 @@ hr {
     top: 0;
     left: 0;
     display: inline-block;
-    width: 170px;
-    height: 150px;
+    width: 17rem;
+    height: 15rem;
     background-color: #ffffff;
 }
 
@@ -340,7 +324,7 @@ hr {
     top: 150px;
     display: inline-block;
     width: 100%;
-    height: 101px;
+    height: 10rem;
     overflow: hidden;
     background: #ffffff;
     -webkit-box-sizing: border-box;
@@ -412,35 +396,7 @@ hr {
    padding-left: 20px;
    padding-top:20px;
 }
-
-.btn1{ border-radius: 50%; width:32px; height:32px; line-height:18px;  }
-
-.profile__container {
-    padding-top: 3em;
-    margin: 0 5% 0em 5%;
-    background: #FFFFFF
-}
-
-.profile__description {
-    padding-bottom: 3em;
-    margin: 0 2em 0 2em;
-}
-
-.profile__big-avatar {
-    width: 12rem;
-    height: 12rem;
-    border-radius: 50%;
-    position: center;
-}
-
-.profile__recipes h3 {
-    margin-left: .5em;
-}
-
-.profile__recipe {
-    margin-left: 2em;
-    background: #AAAAAA
-}
+/* end Profile CSS */
 
 
 /* Recipe Page CSS */
@@ -513,3 +469,4 @@ hr {
     margin-left: 1em;
 }
 /* End of Recipe Page CSS */
+

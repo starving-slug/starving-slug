@@ -26,7 +26,7 @@ export class Recipe implements RecipeItem {
       this.name = recipe.name;
       this.author = recipe.author;
       this.description = recipe.description;
-    this.photo = recipe.photo;
+      this.photo = recipe.photo;
       this.recipe_id = recipe.recipe_id;
       this.ingredients = recipe.ingredients;
       this.directions = recipe.directions;

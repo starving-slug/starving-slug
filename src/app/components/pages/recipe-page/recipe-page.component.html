@@ -4,6 +4,7 @@
             <h3>{{recipe.name}}</h3>
             <h4>{{recipe.author}}</h4>
             <p>{{recipe.description}}</p>
+            <button class="recipe__button">Save to Library</button>
         </div>
 
         <div class="col-sm-4">
@@ -24,7 +25,7 @@
         </div>
         <div class="recipe__directions col-sm-8">
             <h4>Directions</h4>
-            <div *ngFor="let direction of recipe.directions; let i = index" [attr.data-index]="i">
+            <div class="recipe__steps" *ngFor="let direction of recipe.directions; let i = index" [attr.data-index]="i">
                 <h5>Step {{i + 1}}</h5>
                 <p>{{direction}}</p>
             </div>

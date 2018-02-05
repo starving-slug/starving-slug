@@ -157,24 +157,36 @@ hr {
 
 .card.hovercard {
     position: center;
-    padding-top: 0;
+    padding-bottom: 0px;
     overflow: hidden;
     text-align: center;
     background-color: #FFFFFF;
     width: 1080px;
+    height: 400px;
+    border-style: groove;
+    border-color:  #cc6600;
+}
+.hovercard_bottom {
+    position: center;
+    padding-top: 50px;
+    overflow: hidden;
+    text-align: center;
+    background-color:#FFFFFF;
+    width: 1080px;
     height: 800px;
-
+    border-style: groove;
+    border-color:  #cc6600;
 }
 
 .card.hovercard .cardheader {
     background:url("https://foodimentaryguy.files.wordpress.com/2011/06/background-pattern.gif");
     background-size: cover;
-    height: 300px;
+    height: 200px;
 }
 
 .card.hovercard .avatar img {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     max-width: 200px;
     max-height: 200px;
     -webkit-border-radius: 50%;
@@ -202,27 +214,6 @@ hr {
     padding-bottom: 20px;
 }
 
-
-
-/*.card {
-    padding-top: 20px;
-    margin: 10px 0 20px 0;
-    background-color: rgba(214, 224, 226, 0.2);
-    border-top-width: 0;
-    border-bottom-width: 2px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding-top: 3em;
-    margin: 0 5% 0em 5%;
-}
-*/
 .card .card-heading {
     padding: 0 20px;
     margin: 0;
@@ -415,6 +406,13 @@ hr {
     margin-bottom: 17px;
 }
 
+.recipe_text{
+   text-align: left;
+   font-size: 20px;
+   padding-left: 20px;
+   padding-top:20px;
+}
+
 .btn1{ border-radius: 50%; width:32px; height:32px; line-height:18px;  }
 
 .profile__container {
@@ -458,13 +456,28 @@ hr {
     margin: 0 2em 0 2em;
 }
 
+.recipe__button {
+    margin-top: 3em;
+    background: #E33D26;
+    color: white;
+    padding: 0.3em 0.8em;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+.recipe__button:hover {
+    color: #E33D26;
+    background-color: #FFFFFF;
+    border: solid 1px #E33D26;
+}
+
 .recipe__picture {
     width: 15rem;
     height: 15rem;
 }
 
 .recipe__ingredients {
-    margin-left: 2.5em;
+    margin-left: 2.7em;
     padding: 1em 0 2em 0;
 }
 
@@ -480,6 +493,14 @@ hr {
 
 .recipe__directions {
     padding: 1em 0 2em 1.5em;
+}
+
+.recipe__steps {
+    margin: 0 1em 0 1em;
+}
+
+.recipe__steps p {
+    margin-top: -0.4em;
 }
 
 .recipe__tags {

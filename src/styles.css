@@ -480,6 +480,10 @@ hr {
 .recipe__tags a {
     margin-left: 1em;
 }
+
+/* End of Recipe page CSS */
+
+/* Rating system CSS */
 .rating {
     float:left;
 }
@@ -539,4 +543,22 @@ label.star:hover { transform: rotate(-15deg) scale(1.3); }
 label.star:before {
   content: '\f006';
   font-family: FontAwesome;
+}
+
+/* End of Rating system CSS */
+
+/* Recipe Form CSS */
+.recipe-form__button {
+    margin: 0.5em 0 1.5em 0;
+    background: #E33D26;
+    color: white;
+    padding: 0.3em 0.8em;
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+.recipe-form__button:hover {
+    color: #E33D26;
+    background-color: #FFFFFF;
+    border: solid 1px #E33D26;
 }

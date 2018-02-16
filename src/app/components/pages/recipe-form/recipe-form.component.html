@@ -1,0 +1,38 @@
+<div class="container col-md-6 offset-md-3" id="signup__main">
+    <div class="card">
+        <div class="signup__card-header">
+            <h2>Add a new recipe</h2>
+        </div>
+        <div class="card-body">
+            <hr>
+            <p class="card-text">Recipe Name</p>
+            <input type="text" class="form-control signup__info">
+
+            <p class="card-text">Description</p>
+            <textarea rows="4" cols="50" class="form-control signup__info"></textarea>
+
+            <p class="card-text">Ingredients</p>
+            <div id="ingredients">
+                <input type="text" class="form-control signup__info">
+            </div>
+            <button class="recipe-form__button">Add another ingredient</button>
+
+            <p class="card-text">Directions</p>
+            <div id="directions">
+                <textarea rows="3" cols="50" class="form-control signup__info">Step 1</textarea>
+            </div>
+            <button class="recipe-form__button">Add another step</button>
+
+            <p class="card-text">Add a photo</p>
+            <input type="file" id="photo-input" class="form-control signup__info" accept="image/*">
+            <button class="recipe-form__button">Submit Photo</button>
+            <br>
+
+            <button type="submit" class="recipe-form__button btn-lg" style="background:#1177EB">Add Recipe</button>
+            <button routerLink="/user/TEST" class="recipe-form__button btn-lg" style="background:#AAA">Cancel</button>
+            <hr>
+
+        </div>
+    </div>
+</div>
+

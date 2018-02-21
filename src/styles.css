@@ -169,7 +169,7 @@ hr {
     text-align: center;
     background-color:#FFFFFF;
     width: 100%;
-    height: 40%;
+    height: 550px;
     border-style: groove;
     border-color:  #cc6600;
 }
@@ -539,4 +539,24 @@ label.star:hover { transform: rotate(-15deg) scale(1.3); }
 label.star:before {
   content: '\f006';
   font-family: FontAwesome;
+}
+.sub_button{
+    font-family:'lobster';
+    width:100px;height:50px;    
+    font-size: 20px;color: white;     
+    background: #E33D26;     
+    border-radius: 0.5em;
+    padding-top: 5px;
+    left:5px;
+}
+.profile_comment{
+    padding-left: 15px;
+    padding-bottom: 5px;
+    width:100%;
+}
+.button_box{
+    padding-top: 0px;
+    padding-left: 10px;
+    display: inline;
+    float:left;
 }

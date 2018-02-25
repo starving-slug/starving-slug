@@ -5,13 +5,21 @@
      </div>
     <div class="card-body">
         <hr>
+        <google-signin
+          [clientId]="myClientId"
+          [width]="myWidth"
+          [theme]="myTheme"
+          [scope]="myScope"
+          [longTitle]="myLongTitle"
+          (googleSignInSuccess)="onGoogleSignInSuccess($event)">
+        </google-signin>
         <p class="card-text">Email</p>
         <input type="Email" class="form-control signin__info">
         <p class="card-text">Password</p>
         <input type="Password" class="form-control signin__info">
-        
+
         <button type="submit" class="btn btn-primary btn-lg btn-block" style="color: black">Login!</button>
         <hr>
     </div>
   </div>
-</div>  
+</div>

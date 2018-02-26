@@ -12,12 +12,9 @@ export class ProfilePageComponent implements OnInit {
   user: User;
 
   constructor(private route: ActivatedRoute) { // this is all currently filler junk
-    this.user = new User();
-
-    let routeData = route.data.subscribe((data) => { // pulls bogus user out of the user resolver
-      this.user = data['user'];
-      console.log(this.user);
-    });
+    console.log(route.snapshot.data)
+    this.user = route.snapshot.data['user'];
+    console.log(this.user);
   }
 
   ngOnInit() {

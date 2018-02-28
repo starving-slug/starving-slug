@@ -5,7 +5,7 @@ import { UserResolver } from './utils';
 import { RecipeResolver } from './utils';
 
 // Import page components
-import { LandingPageComponent, LoginComponent, SignupComponent, ProfilePageComponent, RecipePageComponent } from './components/pages/';
+import { LandingPageComponent, LoginComponent, SignupComponent, ProfilePageComponent, RecipePageComponent, SearchPageComponent } from './components/pages/';
 
 export const routes: Routes = [
 	{
@@ -18,6 +18,10 @@ export const routes: Routes = [
 			{
 				path: 'signup',
 				component: SignupComponent
+			},
+			{
+				path: 'search',
+				component: SearchPageComponent
 			},
 			{
 				path: 'user/:username',

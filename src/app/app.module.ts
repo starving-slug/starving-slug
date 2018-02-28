@@ -19,6 +19,7 @@ import { Recipe } from './models/recipe.model';
 import { User } from './models/user.model';
 import { UserResolver, RecipeResolver } from './utils';
 import { ApiService } from './utils';
+import { SearchPageComponent } from './components/pages/search-page/search-page.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ApiService } from './utils';
     SignupComponent,
     ProfilePageComponent,
     RecipeCardComponent,
-    RecipePageComponent
+    RecipePageComponent,
+    SearchPageComponent
   ],
   imports: [
     BrowserModule,

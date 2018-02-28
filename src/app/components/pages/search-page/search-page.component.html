@@ -1,0 +1,99 @@
+<div class="container col-md-6 offset-md-3" id="signin__main">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <form (ngSubmit)="onSubmit()" #f="ngForm">
+                        <small>
+                            Refine by:
+                            <input type="checkbox"> Author
+                            <input class="authorFilter" type="text" placeholder="enter author" ngModel name="author">
+                            <input type="checkbox"> Tag
+                            <input class="tagFilter" type="text" placeholder="enter tag" ngModel name="tag">
+                            <input type="checkbox"> Name
+                            <input class="nameFilter" type="text" placeholder="enter recipe name" ngModel name="name">
+                            <button type="submit">Filter</button>
+                            </small>
+                    </form>
+                </div>
+
+                <!-- TODO get the initial search to filter by what's been typed in -->
+                <div class="col-md-12 searchResults">
+                    <div class="recipes">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <!-- TODO get recipe name from database -->
+                                <h4>Chicken Fried Steak</h4>
+                                <!-- TODO get author name from database -->
+                                <small>Recipe by | Justin</small>
+                                <!-- TODO get rating from database -->
+                                <p>Rating: * * * * *</p>
+                                <!-- TODO get recipe description from database -->
+                                <p>Pork loin tail pig sirloin adipisicing laboris venison dolore lorem flank fatback doner nisi. Pork chop id elit enim. Pancetta tenderloin fugiat, ea do esse sed dolore turducken nisi short ribs labore occaecat duis laborum.
+                                    Ground round chuck ham boudin ad. Beef t-bone capicola dolore consectetur turducken aute sunt prosciutto sed. Non jerky meatloaf tenderloin nostrud dolore.</p>
+                            </div>
+                            <div class="recipeImage col-md-4">
+                                <!-- TODO get image for found recipe from database -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recipes">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <!-- TODO get recipe name from database -->
+                                <h4>Chicken Fried Steak</h4>
+                                <!-- TODO get author name from database -->
+                                <small>Recipe by | Justin</small>
+                                <!-- TODO get rating from database -->
+                                <p>Rating: * * * * *</p>
+                                <!-- TODO get recipe description from database -->
+                                <p>Pork loin tail pig sirloin adipisicing laboris venison dolore lorem flank fatback doner nisi. Pork chop id elit enim. Pancetta tenderloin fugiat, ea do esse sed dolore turducken nisi short ribs labore occaecat duis laborum.
+                                    Ground round chuck ham boudin ad. Beef t-bone capicola dolore consectetur turducken aute sunt prosciutto sed. Non jerky meatloaf tenderloin nostrud dolore.</p>
+                            </div>
+                            <div class="recipeImage col-md-4">
+                                <!-- TODO get image for found recipe from database -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recipes">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <!-- TODO get recipe name from database -->
+                                <h4>Chicken Fried Steak</h4>
+                                <!-- TODO get author name from database -->
+                                <small>Recipe by | Justin</small>
+                                <!-- TODO get rating from database -->
+                                <p>Rating: * * * * *</p>
+                                <!-- TODO get recipe description from database -->
+                                <p>Pork loin tail pig sirloin adipisicing laboris venison dolore lorem flank fatback doner nisi. Pork chop id elit enim. Pancetta tenderloin fugiat, ea do esse sed dolore turducken nisi short ribs labore occaecat duis laborum.
+                                    Ground round chuck ham boudin ad. Beef t-bone capicola dolore consectetur turducken aute sunt prosciutto sed. Non jerky meatloaf tenderloin nostrud dolore.</p>
+                            </div>
+                            <div class="recipeImage col-md-4">
+                                <!-- TODO get image for found recipe from database -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recipes">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <!-- TODO get recipe name from database -->
+                                <h4>Chicken Fried Steak</h4>
+                                <!-- TODO get author name from database -->
+                                <small>Recipe by | Justin</small>
+                                <!-- TODO get rating from database -->
+                                <p>Rating: * * * * *</p>
+                                <!-- TODO get recipe description from database -->
+                                <p>Pork loin tail pig sirloin adipisicing laboris venison dolore lorem flank fatback doner nisi. Pork chop id elit enim. Pancetta tenderloin fugiat, ea do esse sed dolore turducken nisi short ribs labore occaecat duis laborum.
+                                    Ground round chuck ham boudin ad. Beef t-bone capicola dolore consectetur turducken aute sunt prosciutto sed. Non jerky meatloaf tenderloin nostrud dolore.</p>
+                            </div>
+                            <div class="recipeImage col-md-4">
+                                <!-- TODO get image for found recipe from database -->
+                            </div>
+                        </div>
+                    </div>
+                    <button style="float: right" class="btn btn-primary">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

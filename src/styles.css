@@ -470,3 +470,47 @@ hr {
 }
 /* End of Recipe Page CSS */
 
+/* SearchPage CSS */
+.recipes {
+    border-top: 1px solid #e4e4e4;
+    margin-top: 20px;
+}
+
+h4 {
+    padding-top: 10px;
+}
+
+.authorFilter {
+    display: none;
+}
+
+.tagFilter {
+    display: none;
+}
+
+.nameFilter {
+    display: none;
+}
+
+input[type='checkbox']:checked + input[type='text'].authorFilter{
+    display: block;
+    float: right;
+}
+
+input[type='checkbox']:checked + input[type='text'].tagFilter{
+    display: block;
+    float: right;
+}
+
+input[type='checkbox']:checked + input[type='text'].nameFilter{
+    display: block;
+    float: right;
+}
+
+.recipeImage {
+    border: 3px solid black;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/* End of Search Page CSS */

@@ -26,10 +26,14 @@
           </form>
 
           <li class="nav-item" *ngIf="!testlogin">
-            <a routerLink="/signup" class="nav-link"><i class="fas fa-user"></i> Sign up</a>
-          </li>
-          <li class="nav-item" *ngIf="!testlogin">
-            <a routerLink="/login" class="nav-link"><i class="fas fa-sign-in-alt"></i> Login</a>
+            <google-signin
+              [clientId]="myClientId"
+              [width]="myWidth"
+              [theme]="myTheme"
+              [scope]="myScope"
+              [longTitle]="'Sign In With Google'"
+              (googleSignInSuccess)="onGoogleSignInSuccess($event)">
+            </google-signin>
           </li>
           <li class="nav-item" *ngIf="testlogin">
             <a routerLink="/user/shashank_odyssey" class="nav-link">Profile</a>

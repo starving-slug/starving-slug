@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ApiService } from '../../../utils/apiService'
 
 @Component({
   selector: 'app-header',
@@ -8,11 +9,16 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class HeaderComponent implements OnInit {
   testlogin: boolean = false;
+  searchField = '!';
 
-  constructor() {
+  constructor(private api: ApiService) {
   }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+
   }
 
 }

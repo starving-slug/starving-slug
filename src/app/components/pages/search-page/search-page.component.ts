@@ -14,7 +14,8 @@ export class SearchPageComponent implements OnInit {
   @ViewChild('f') searchFilter: NgForm;
   recipes: Recipe[] = [];
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService) {
+  }
 
   ngOnInit() {
     this.recipes.push(new Recipe({

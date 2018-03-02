@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm  } from '@angular/forms';
 import { ApiService } from '../../../utils/apiService'
 import { Recipe } from '../../../models/recipe.model'
+import { HeaderComponent } from '../../nav/header/header.component'
 
 @Component({
   selector: 'app-search-page',
@@ -55,9 +56,7 @@ export class SearchPageComponent implements OnInit {
 
 
   onSubmit() {
-      // console.log(this.searchFilter);
-      // console.log(this.searchFilter.value);
-    this.api.getUser("shashank_oddessey").subscribe((res) => {
+    this.api.getUser("{Pizza Pie}").subscribe((res) => {
       console.log(res);
       // (parse the response?) depending on format it might need to be constructed into recipe objects
       // assign the parsed response to this.recipes

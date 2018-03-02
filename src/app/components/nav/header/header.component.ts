@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { ApiService } from '../../../utils/apiService'
+import { ApiService } from '../../../utils/apiService';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +9,8 @@ import { ApiService } from '../../../utils/apiService'
 })
 export class HeaderComponent implements OnInit {
   testlogin: boolean = false;
-  searchField = '!';
+  search = '';
+  @ViewChild('f') searchTest: NgForm;
 
   constructor(private api: ApiService) {
   }
@@ -18,7 +19,8 @@ export class HeaderComponent implements OnInit {
   }
 
   onSubmit() {
-
+      this.search = searchField.value;
+      console.log(this.search)
   }
 
 }

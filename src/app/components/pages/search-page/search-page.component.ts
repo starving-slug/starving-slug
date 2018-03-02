@@ -22,7 +22,9 @@ export class SearchPageComponent implements OnInit {
   onSubmit(){
       // console.log(this.searchFilter);
       // console.log(this.searchFilter.value);
-      console.log(this.api.getUser("shashank_oddessey"))
+    this.api.getUser("shashank_oddessey").subscribe((res) => {
+      console.log(res)
+    })
   }
 
 }

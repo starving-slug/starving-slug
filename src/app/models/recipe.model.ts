@@ -17,6 +17,7 @@ export class Recipe implements RecipeItem {
   public description: string;
   public photo: string;
   public recipe_id: number;
+  public rating: number;
 
   public ingredients: Object[];
   public directions: string[];
@@ -39,7 +40,7 @@ export class Recipe implements RecipeItem {
   getRating(): string {
     console.log(this.name, this.rating);
     let stars = "";
-    for(let i = 0; i < this.rating, i++) {
+    for(let i = 0; i < this.rating; i++) {
       console.log(stars)
       stars += "*";
       if (i+1 !== this.rating)

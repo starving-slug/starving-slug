@@ -17,86 +17,25 @@
                     </form>
                 </div>
                 <!-- TODO get the initial search to filter by what's been typed in -->
-                <div class="col-md-12 searchResults">
+                <div *ngFor="let recipe of recipes" class="col-md-12 searchResults">
                     <div class="recipes">
                         <div class="row">
                             <div class="col-md-8">
                                 <!-- TODO get recipe name from database -->
-                                <h4>Chicken Fried Steak</h4>
+                                <h4>{{recipe.name}}</h4>
                                 <!-- TODO get author name from database -->
-                                <small>Recipe by | Justin</small>
+                                <small>Recipe by | {{recipe.author}}</small>
                                 <!-- TODO get rating from database -->
-                                <p>Rating: * * * * *</p>
+                                <p>Rating: {{recipe.getRating()}}</p>
                                 <!-- TODO get recipe description from database -->
-                                <p>Pork loin tail pig sirloin adipisicing laboris venison dolore lorem flank fatback doner nisi. Pork chop id elit enim. Pancetta tenderloin fugiat, ea do esse sed dolore turducken nisi short ribs labore occaecat duis laborum.
-                                    Ground round chuck ham boudin ad. Beef t-bone capicola dolore consectetur turducken aute sunt prosciutto sed. Non jerky meatloaf tenderloin nostrud dolore.</p>
+                                <p>{{recipe.description}}</p>
                             </div>
                             <div class="recipeImage col-md-4">
                                 <!-- TODO get image for found recipe from database -->
+                                <img src="{{recipe.photo}}">
                             </div>
                         </div>
                     </div>
-                <!-- TODO get the initial search to filter by what's been typed in -->
-                <div class="col-md-12 searchResults">
-                    <div class="recipes">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <!-- TODO get recipe name from database -->
-                                <h4>Chicken Fried Steak</h4>
-                                <!-- TODO get author name from database -->
-                                <small>Recipe by | Justin</small>
-                                <!-- TODO get rating from database -->
-                                <p>Rating: * * * * *</p>
-                                <!-- TODO get recipe description from database -->
-                                <p>Pork loin tail pig sirloin adipisicing laboris venison dolore lorem flank fatback doner nisi. Pork chop id elit enim. Pancetta tenderloin fugiat, ea do esse sed dolore turducken nisi short ribs labore occaecat duis laborum.
-                                    Ground round chuck ham boudin ad. Beef t-bone capicola dolore consectetur turducken aute sunt prosciutto sed. Non jerky meatloaf tenderloin nostrud dolore.</p>
-                            </div>
-                            <div class="recipeImage col-md-4">
-                                <!-- TODO get image for found recipe from database -->
-                            </div>
-                        </div>
-                    </div>
-                <!-- TODO get the initial search to filter by what's been typed in -->
-                <div class="col-md-12 searchResults">
-                    <div class="recipes">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <!-- TODO get recipe name from database -->
-                                <h4>Chicken Fried Steak</h4>
-                                <!-- TODO get author name from database -->
-                                <small>Recipe by | Justin</small>
-                                <!-- TODO get rating from database -->
-                                <p>Rating: * * * * *</p>
-                                <!-- TODO get recipe description from database -->
-                                <p>Pork loin tail pig sirloin adipisicing laboris venison dolore lorem flank fatback doner nisi. Pork chop id elit enim. Pancetta tenderloin fugiat, ea do esse sed dolore turducken nisi short ribs labore occaecat duis laborum.
-                                    Ground round chuck ham boudin ad. Beef t-bone capicola dolore consectetur turducken aute sunt prosciutto sed. Non jerky meatloaf tenderloin nostrud dolore.</p>
-                            </div>
-                            <div class="recipeImage col-md-4">
-                                <!-- TODO get image for found recipe from database -->
-                            </div>
-                        </div>
-                    </div>
-                <!-- TODO get the initial search to filter by what's been typed in -->
-                <div class="col-md-12 searchResults">
-                    <div class="recipes">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <!-- TODO get recipe name from database -->
-                                <h4>Chicken Fried Steak</h4>
-                                <!-- TODO get author name from database -->
-                                <small>Recipe by | Justin</small>
-                                <!-- TODO get rating from database -->
-                                <p>Rating: * * * * *</p>
-                                <!-- TODO get recipe description from database -->
-                                <p>Pork loin tail pig sirloin adipisicing laboris venison dolore lorem flank fatback doner nisi. Pork chop id elit enim. Pancetta tenderloin fugiat, ea do esse sed dolore turducken nisi short ribs labore occaecat duis laborum.
-                                    Ground round chuck ham boudin ad. Beef t-bone capicola dolore consectetur turducken aute sunt prosciutto sed. Non jerky meatloaf tenderloin nostrud dolore.</p>
-                            </div>
-                            <div class="recipeImage col-md-4">
-                                <!-- TODO get image for found recipe from database -->
-                            </div>
-                        </div>
-                    </div>
-                    <button style="float: right" class="btn btn-primary">Next</button>
                 </div>
             </div>
         </div>

@@ -7,7 +7,8 @@ export interface RecipeItem {
   ingredients: Object[],
   tags: Object[],
   directions: string[],
-  recipe_id: number;
+  recipe_id: string;
+  rating: number;
 }
 
 export class Recipe implements RecipeItem {
@@ -31,6 +32,20 @@ export class Recipe implements RecipeItem {
       this.ingredients = recipe.ingredients;
       this.directions = recipe.directions;
       this.tags = recipe.tags;
+      this.rating = recipe.rating;
     }
+  }
+
+  getRating(): string {
+    console.log(this.name, this.rating);
+    let stars = "";
+    for(let i = 0; i < this.rating, i++) {
+      console.log(stars)
+      stars += "*";
+      if (i+1 !== this.rating)
+        stars += " ";
+    }
+    console.log(stars);
+    return stars;
   }
 }

@@ -10,6 +10,10 @@ export class ApiService {
 
   }
 
+  signIn(username: string, id_token: any) {
+    console.log(string, id_token);
+  }
+
   getUser(username: string): Observable<any> {
     console.log(`Fetching user ${username}`)
     return this.http.get(`${apiurl}/profile/${username}`);

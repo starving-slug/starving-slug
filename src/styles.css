@@ -153,11 +153,13 @@ hr {
 .hovercard_bottom {
     position: center;
     padding-top: 50px;
+    padding-bottom: 2rem;
+    margin-bottom: 20px;
     overflow: hidden;
     text-align: center;
     background-color:#FFFFFF;
     width: 100%;
-    height: 50%;
+    min-height: 50%;
     border-style: groove;
     border-color:  #cc6600;
 }
@@ -393,8 +395,12 @@ hr {
 .recipe_text{
    text-align: left;
    font-size: 20px;
-   padding-left: 20px;
-   padding-top:20px;
+   margin-left: 20px;
+   margin-right: 20px;
+   margin-top:20px;
+   padding: 1rem;
+   border: 1px solid #111111;
+   box-shadow: rgba(0, 0, 0, 0.5) 0 5px 25px;
 }
 /* end Profile CSS */
 
@@ -469,4 +475,3 @@ hr {
     margin-left: 1em;
 }
 /* End of Recipe Page CSS */
-

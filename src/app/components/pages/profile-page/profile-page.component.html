@@ -15,6 +15,11 @@
                 </div>
             </div>
             <div class="card hovercard_bottom">
+                <div class="recipe_text" *ngFor="let r of user['recipes']">
+                  <a routerLink="/recipe/{{r._id}}"><h2>{{r.name}}</h2></a>
+                  <br>
+                  <h4>{{r.description}}</h4>
+                </div>
                 <div class="recipe_text">Recipe1</div>
                 <div class="recipe_text">Recipe2</div>
                 <div class="recipe_text">Recipe3</div>

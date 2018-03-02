@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
-
 import { GoogleSignInComponent } from 'angular-google-signin';
 
 import { routes } from './app.routes';

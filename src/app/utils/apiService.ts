@@ -12,7 +12,12 @@ export class ApiService {
 
   getUser(username: string): Observable<any> {
     console.log(`Fetching user ${username}`)
-    return this.http.get(`${apiurl}/getUser/${username}`);
+    return this.http.get(`${apiurl}/profile/${username}`);
+  }
+
+  getRecipe(id: string): Observable<any> {
+    console.log(`Fetching recipe ${id}`);
+    return this.http.get(`${apiurl}/recipe/${id}`);
   }
 
 }

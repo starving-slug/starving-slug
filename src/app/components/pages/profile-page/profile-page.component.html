@@ -5,16 +5,21 @@
             <div class="card hovercard">
                 <div class="cardheader"></div>
                 <div class="avatar">
-                    <img alt="" src="http://www.thehindu.com/sci-tech/technology/internet/article17759222.ece/alternates/FREE_660/02th-egg-person">
+                    <img alt="" src="{{user.photo}}">
                 </div>
                 <div class="info">
                     <div class="title">
-                        <a target="_blank" href="http://scripteden.com/">Name</a>
+                        <a target="_blank" href="http://scripteden.com/">{{user.name}}</a>
                     </div>
-                    <div class="desc">Description Card</div>
+                    <div class="desc">{{user.description}}</div>
                 </div>
             </div>
             <div class="card hovercard_bottom">
+                <div class="recipe_text" *ngFor="let r of user['recipes']">
+                  <a routerLink="/recipe/{{r._id}}"><h2>{{r.name}}</h2></a>
+                  <br>
+                  <h4>{{r.description}}</h4>
+                </div>
                 <div class="recipe_text">Recipe1</div>
                 <div class="recipe_text">Recipe2</div>
                 <div class="recipe_text">Recipe3</div>

@@ -13,14 +13,16 @@
                     <div class="title">
                         <a target="_blank" href="http://scripteden.com/">{{user.name}}</a>
                     </div>
-                    <div class="desc">{{user.description}}</div>
+                    <div class="desc" style= "font-family: lobster">{{user.description}}</div>
                 </div>
             </div>
             <div class="card hovercard_bottom">
                 <div class="recipe_text" *ngFor="let r of user['recipes']">
-                  <a routerLink="/recipe/{{r._id}}"><h2>{{r.name}}</h2></a>
+                  <a routerLink="/recipe/{{r._id}}">
+                    <h2 style= "font-family:lobster, sans-serif">{{r.name}}</h2>
+                 </a>
                   <br>
-                  <h4>{{r.description}}</h4>
+                  <h4 style= "font-family:Comic Sans MS, cursive, sans-serif">{{r.description}}</h4>
                 </div>
             </div>
             <div class="card rating_box">
@@ -39,7 +41,7 @@
                     </form>
                 <h3 style= "font-family: 'Lobster'">Comment:</h3>
                 <div class="profile_comment">
-                    <textarea rows="10" cols="120" ng-model="submitted.title"></textarea>
+                    <textarea style = " background-color: #ff9966; border-style: inset; border-color: black"rows="10" cols="80" ng-model="submitted.title"></textarea>
                     <button class = "sub_button"ng-click="submitComment()">Submit</button>
                 </div>
         </div>

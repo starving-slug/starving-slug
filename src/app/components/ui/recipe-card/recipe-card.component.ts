@@ -10,9 +10,9 @@ import { Recipe } from '../../../models';
 export class RecipeCardComponent implements OnInit {
   private _recipe: Recipe;
   private _show_author: boolean;
-  private name: string;
+  name: string;
   private author: string;
-  private description: string;
+  description: string;
 
   @Input() set recipe(r: Recipe) {
     console.log(r);
@@ -40,4 +40,3 @@ export class RecipeCardComponent implements OnInit {
   ngOnInit() {
   }
 }
-

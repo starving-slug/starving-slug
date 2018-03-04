@@ -146,9 +146,9 @@ hr {
     text-align: center;
     background-color: #FFFFFF;
     width: 100%;
-    height: 55%;
+    height: 25%;
     border-style: groove;
-    border-color:  #cc6600;
+    border-color:  none;
 }
 .hovercard_bottom {
     position: center;
@@ -157,11 +157,11 @@ hr {
     margin-bottom: 20px;
     overflow: hidden;
     text-align: center;
-    background-color:#FFFFFF;
+    background-color:  #ffbb99;
     width: 100%;
-    height: 100%;
+    height: 80%;
     border-style: groove;
-    border-color:  #cc6600;
+    border-color: none;
 }
 
 .rating_box {
@@ -169,11 +169,11 @@ hr {
     padding-top: 50px;
     overflow: hidden;
     text-align: center;
-    background-color:#FFFFFF;
+    background-color:#ffbb99;
     width: 100%;
     height: 550px;
     border-style: groove;
-    border-color:  #cc6600;
+    border-color:  none;
 }
 
 .card.hovercard .cardheader {
@@ -569,3 +569,6 @@ label.star:before {
 }
 
 /* End of Recipe Page CSS */
+
+/*Comment box*/
+

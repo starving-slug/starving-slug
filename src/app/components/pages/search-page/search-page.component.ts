@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm  } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router'
+
 import { ApiService } from '../../../utils/apiService'
 import { Recipe } from '../../../models/recipe.model'
 import { HeaderComponent } from '../../nav/header/header.component'
@@ -15,10 +17,12 @@ export class SearchPageComponent implements OnInit {
   @ViewChild('f') searchFilter: NgForm;
   recipes: Recipe[] = [];
 
-  constructor(private api: ApiService) {
+  constructor(private api: ApiService,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    console.log(this.route);
     this.recipes.push(new Recipe({
       name: "Test Title",
       author: "Mock Author",
@@ -56,7 +60,7 @@ export class SearchPageComponent implements OnInit {
 
 
   onSubmit() {
-    this.api.getUser("{Pizza Pie}").subscribe((res) => {
+    this.api.getUser("shashank_odyssey").subscribe((res) => {
       console.log(res);
       // (parse the response?) depending on format it might need to be constructed into recipe objects
       // assign the parsed response to this.recipes

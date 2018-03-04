@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Component, OnInit} from '@angular/core';
+import { FormGroup, FormControl, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ApiService } from '../../../utils/apiService';
 
 @Component({
@@ -10,17 +11,17 @@ import { ApiService } from '../../../utils/apiService';
 export class HeaderComponent implements OnInit {
   testlogin: boolean = false;
   search = '';
-  @ViewChild('f') searchTest: NgForm;
 
-  constructor(private api: ApiService) {
+  constructor(private api: ApiService,
+              private router: Router) {
   }
 
   ngOnInit() {
   }
 
-  onSubmit() {
-      this.search = searchField.value;
-      console.log(this.search)
+  onSubmit(form: NgForm) {
+      this.search = JSON.stringify(form.value);
+      let searchField = JSON.parse(this.search);
+      this.router.navigate(['/search'], {queryParams: {name: searchField.name}});
   }
-
 }

@@ -17,6 +17,7 @@ export class SearchPageComponent implements OnInit, OnDestroy {
     @ViewChild('f') searchFilter: NgForm;
     recipes: Recipe[] = [];
     private sub: any;
+    name: string;
 
     constructor(private api: ApiService,
         private route: ActivatedRoute) {
@@ -25,53 +26,13 @@ export class SearchPageComponent implements OnInit, OnDestroy {
     ngOnInit() {
         // subscribe to route and pull from the search q
         // console.log(this.route);
-        this.sub = this.route.params.subscribe(params => {
-            console.log("THIS IS THE PARAM!" + params['name']);
-            //make api q
-            //sub to api call
-            //inside that update the list
-            //angular subscriptions
-            this.api.getUser(params['name']).subscribe((res) => {
+        this.sub = this.route.queryParams.subscribe(params => {
+            this.api.getSearch(params['name']).subscribe((res) => {
                 console.log(res);
-                // (parse the response?) depending on format it might need to be constructed into recipe objects
-                // assign the parsed response to this.recipes
             }, (err) => {
                 console.error(err.message);
             });
 
-
-            // this.recipes.push(new Recipe({
-            //     name: "Test Title",
-            //     author: "Mock Author",
-            //     description: "Mock Description",
-            //     photo: "https://images.encyclopediadramatica.rs/a/a0/Doritopods.jpg",
-            //     ingredients: [
-            //         {
-            //             "amount": "2",
-            //             "text": "slices of bread",
-            //         },
-            //         {
-            //             "amount": "1.5",
-            //             "text": "tablespoons of barbeque sauce",
-            //         },
-            //         {
-            //             "amount": "5",
-            //             "text": "knuckles",
-            //         },
-            //         {
-            //             "amount": "1",
-            //             "text": "cup of cheese",
-            //         },
-            //         {
-            //             "amount": "1",
-            //             "text": "Pinch of salt",
-            //         }
-            //     ],
-            //     tags: [],
-            //     directions: ["Make it", "You fool"],
-            //     recipe_id: 6,
-            //     rating: 5,
-            // }));
         });
     }
 

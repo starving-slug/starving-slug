@@ -22,9 +22,11 @@ export class RecipeFormComponent implements OnInit {
       author: ['theShaGu'],
       description: ['', Validators.required],
       photo: [''],
+      price: ['0.00'],
+      rating: 0,
       ingredients: this._fb.array([this.initIngredients()]),
       directions: this._fb.array([['', Validators.required]]),
-      tags: this._fb.array([this.initTags()])
+      tags: this._fb.array([['', Validators.required]])
     });
   }
 
@@ -32,13 +34,6 @@ export class RecipeFormComponent implements OnInit {
     return this._fb.group({
       amount: [''],
       text: ['', Validators.required]
-    });
-  }
-
-  initTags() {
-    return this._fb.group({
-      text: ['', Validators.required],
-      path: ['']
     });
   }
 
@@ -54,7 +49,7 @@ export class RecipeFormComponent implements OnInit {
 
   addTag() {
     const control = <FormArray>this.recipeForm.controls['tags'];
-    control.push(this.initTags());
+    control.push(this._fb.control(['']));
   }
 
   removeIngredient(i: number) {
@@ -75,9 +70,6 @@ export class RecipeFormComponent implements OnInit {
   onSubmit(recipeForm: NgForm) {
     if (recipeForm.valid) {
       let body = recipeForm.value;
-      for (let i = 0; i < body.tags.length; i++) {
-          body.tags[i]['path'] = "/" + body.tags[i]['text'];
-      }
       /*let recipe = new Recipe({
         name: body.name,
         author: "theShaGu",
@@ -88,6 +80,12 @@ export class RecipeFormComponent implements OnInit {
         tags: body.tags
       });*/
       console.log(body);
+      var regex  = /^\d+(?:\.\d{0,2})$/;
+      console.log(regex.test(body.price));
+      if (!regex.test(body.price)) {
+        console.log("Invalid price");
+        return;
+      }
       for (let dir of body.directions) {
           if (dir == "") {
               console.log("Invalid Form");

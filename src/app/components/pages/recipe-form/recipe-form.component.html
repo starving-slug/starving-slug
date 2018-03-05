@@ -6,11 +6,11 @@
         <div class="card-body">
             <hr>
             <form [formGroup]="recipeForm" novalidate (ngSubmit)="onSubmit(recipeForm)">
-                <p class="card-text">Recipe Name</p>
+                <p class="card-text">Recipe Name<span style="color: red">*</span></p>
                 <input type="text" class="form-control signup__info" formControlName="name" required>
                 <small *ngIf="!recipeForm.controls.name.valid" class="text-danger">Name is required.</small>
 
-                <p class="card-text">Description</p>
+                <p class="card-text">Description<span style="color: red">*</span></p>
                 <input type="text" class="form-control signup__info" formControlName="description">
                 <small *ngIf="!recipeForm.controls.description.valid" class="text-danger">Description is required.</small>
 
@@ -19,7 +19,14 @@
                 <input type="text" class="form-control signup__info" formControlName="photo" placeholder="Image url">
                 <br>
 
-                <p class="card-text">Ingredients</p>
+                <p class="card-text">Recipe Cost<span style="color: red">*</span></p>
+                <div class="form-row">
+                  <span class="col-sm-1" style="text-align:right">$</span>
+                  <input type="text" class="form-control signup__info col-sm-11" formControlName="price">
+                </div>
+                <small *ngIf="!recipeForm.controls.price.valid" class="text-danger">Price is required.</small>
+
+                <p class="card-text">Ingredients<span style="color: red">*</span></p>
                 <div formArrayName="ingredients">
                   <div *ngFor="let ing of recipeForm.controls.ingredients.controls; let i=index">
                     <div [formGroupName]="i">
@@ -40,7 +47,7 @@
                 </div>
                 <button (click)="addIngredient()" type="button" class="recipe-form__button">Add another ingredient</button>
 
-                <p class="card-text">Directions</p>
+                <p class="card-text">Directions<span style="color: red">*</span></p>
                 <div formArrayName="directions">
                   <div *ngFor="let dir of recipeForm.controls.directions.controls; let i=index">
                     <div class="form-row">
@@ -56,20 +63,18 @@
                 </div>
                 <button (click)="addStep()" type="button" class="recipe-form__button">Add another step</button>
 
-                <p class="card-text">Tags</p>
+                <p class="card-text">Tags<span style="color: red">*</span></p>
                 <div formArrayName="tags">
                   <div *ngFor="let tag of recipeForm.controls.tags.controls; let i=index">
-                    <div [formGroupName]="i">
-                      <div class="form-row">
-                        <div class="form-group col-sm-11">
-                          <input type="text" class="form-control signup__info" formControlName="text" placeholder="Tag {{i+1}}" required>
-                        </div>
-                        <div class="form-group col-sm-1">
-                          <span *ngIf="recipeForm.controls.tags.controls.length > 1" (click)="removeTag(i)">X</span>
-                        </div>
+                    <div class="form-row">
+                      <div class="form-group col-sm-11">
+                        <input type="text" class="form-control signup__info" formControlName="{{i}}" placeholder="Tag {{i+1}}" required>
                       </div>
-                      <small [hidden]="recipeForm.controls.tags.controls[i].controls.text.valid" class="text-danger">Tag is required.</small>
+                      <div class="form-group col-sm-1">
+                        <span *ngIf="recipeForm.controls.tags.controls.length > 1" (click)="removeTag(i)">X</span>
+                      </div>
                     </div>
+                    <small *ngIf="recipeForm.controls.tags.controls[i].value == ''" class="text-danger">Tag is required.</small>
                   </div>
                 </div>
                 <button (click)="addTag()" type="button" class="recipe-form__button">Add another tag</button>

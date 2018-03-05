@@ -5,10 +5,11 @@ export interface RecipeItem {
   description: string,
   photo: string,
   ingredients: Object[],
-  tags: Object[],
+  tags: string[],
   directions: string[],
-  recipe_id: string;
-  rating: number;
+  recipe_id: string,
+  rating: number,
+  price: string
 }
 
 export class Recipe implements RecipeItem {
@@ -17,11 +18,12 @@ export class Recipe implements RecipeItem {
   public description: string;
   public photo: string;
   public recipe_id: string;
+  public price: string;
   public rating: number;
 
   public ingredients: Object[];
   public directions: string[];
-  public tags: Object[];
+  public tags: string[];
 
   constructor(recipe?) {
     if(recipe) {
@@ -34,6 +36,7 @@ export class Recipe implements RecipeItem {
       this.directions = recipe.directions;
       this.tags = recipe.tags;
       this.rating = recipe.rating;
+      this.price = recipe.price;
     }
   }
 

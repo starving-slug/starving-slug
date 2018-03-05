@@ -19,7 +19,7 @@ import { RecipeCardComponent } from './components/ui/recipe-card/recipe-card.com
 import { Recipe } from './models/recipe.model';
 import { User } from './models/user.model';
 import { UserResolver, RecipeResolver } from './utils';
-import { ApiService } from './utils';
+import { ApiService, SessionService } from './utils';
 
 @NgModule({
   declarations: [
@@ -46,6 +46,7 @@ import { ApiService } from './utils';
     UserResolver,
     RecipeResolver,
     ApiService,
+    SessionService,
   ],
   bootstrap: [AppComponent]
 })

@@ -27,7 +27,7 @@ export const routes: Routes = [
 				}
 			},
 			{
-				path: 'recipe',
+				path: 'recipe/:id',
 				component: RecipePageComponent,
 				resolve: {
 					recipe: RecipeResolver

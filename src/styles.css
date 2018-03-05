@@ -414,6 +414,17 @@ hr {
    border: 1px solid #111111;
    box-shadow: rgba(0, 0, 0, 0.5) 0 5px 25px;
 }
+.comment_box{
+     background-color: #ff9966; 
+     border-style: inset; 
+     border-color: black
+}
+.profile_desc{
+    font-family: Comic Sans MS, cursive, sans-serif;
+}
+.profile_name{
+   font-family:lobster, sans-serif;
+}
 /* end Profile CSS */
 
 

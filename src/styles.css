@@ -146,20 +146,22 @@ hr {
     text-align: center;
     background-color: #FFFFFF;
     width: 100%;
-    height: 55%;
+    height: 25%;
     border-style: groove;
-    border-color:  #cc6600;
+    border-color:  none;
 }
 .hovercard_bottom {
     position: center;
     padding-top: 50px;
+    padding-bottom: 2rem;
+    margin-bottom: 20px;
     overflow: hidden;
     text-align: center;
-    background-color:#FFFFFF;
+    background-color:  #ffbb99;
     width: 100%;
-    height: 100%;
+    height: 80%;
     border-style: groove;
-    border-color:  #cc6600;
+    border-color: none;
 }
 
 .rating_box {
@@ -167,11 +169,11 @@ hr {
     padding-top: 50px;
     overflow: hidden;
     text-align: center;
-    background-color:#FFFFFF;
+    background-color:#ffbb99;
     width: 100%;
-    height: 40%;
+    height: 550px;
     border-style: groove;
-    border-color:  #cc6600;
+    border-color:  none;
 }
 
 .card.hovercard .cardheader {
@@ -405,8 +407,23 @@ hr {
 .recipe_text{
    text-align: left;
    font-size: 20px;
-   padding-left: 20px;
-   padding-top:20px;
+   margin-left: 20px;
+   margin-right: 20px;
+   margin-top:20px;
+   padding: 1rem;
+   border: 1px solid #111111;
+   box-shadow: rgba(0, 0, 0, 0.5) 0 5px 25px;
+}
+.comment_box{
+     background-color: #ff9966; 
+     border-style: inset; 
+     border-color: black
+}
+.profile_desc{
+    font-family: Comic Sans MS, cursive, sans-serif;
+}
+.profile_name{
+   font-family:lobster, sans-serif;
 }
 /* end Profile CSS */
 
@@ -591,6 +608,27 @@ label.star:before {
   font-family: FontAwesome;
 }
 
+.sub_button{
+    font-family:'lobster';
+    width:100px;height:50px;    
+    font-size: 20px;color: white;     
+    background: #E33D26;     
+    border-radius: 0.5em;
+    padding-top: 5px;
+    left:5px;
+}
+.profile_comment{
+    padding-left: 15px;
+    padding-bottom: 5px;
+    width:100%;
+}
+.button_box{
+    padding-top: 0px;
+    padding-left: 10px;
+    display: inline;
+    float:left;
+}
+
 /* End of Rating system CSS */
 
 /* Recipe Form CSS */
@@ -609,3 +647,4 @@ label.star:before {
     background-color: #FFFFFF;
 }
 
+/* End of Recipe Form CSS */

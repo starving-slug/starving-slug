@@ -7,25 +7,24 @@
             <div class="card hovercard">
                 <div class="cardheader"></div>
                 <div class="avatar">
-                    <img alt="" src="{{user.photo}}">
+                    <img alt="" src="{{user.image}}">
                 </div>
                 <div class="info">
                     <div class="title">
-                        <a target="_blank" href="http://scripteden.com/">{{user.name}}</a>
+                        <a target="_blank" class = "profile_name" href="http://scripteden.com/">{{user.name}}</a>
                     </div>
-                    <div class="desc">{{user.description}}</div>
+                    <div class="profile_name desc" >{{user.description}}</div>
                 </div>
             </div>
             <div class="card hovercard_bottom">
                 <a routerLink="/recipe/create">Add a new recipe</a>
                 <div class="recipe_text" *ngFor="let r of user['recipes']">
-                  <a routerLink="/recipe/{{r._id}}"><h2>{{r.name}}</h2></a>
+                  <a routerLink="/recipe/{{r._id}}">
+                    <h2 class = "profile_name">{{r.name}}</h2>
+                 </a>
                   <br>
-                  <h4>{{r.description}}</h4>
+                  <h4 class = "profile_desc">{{r.description}}</h4>
                 </div>
-                <div class="recipe_text">Recipe1</div>
-                <div class="recipe_text">Recipe2</div>
-                <div class="recipe_text">Recipe3</div>
             </div>
             <div class="card rating_box">
                 <div class="stars">
@@ -41,8 +40,11 @@
                         <input class="star star-1" id="star-1" type="radio" name="star"/>
                         <label class="star star-1" for="star-1"></label>
                     </form>
+                <h3 style= "font-family: 'Lobster'">Comment:</h3>
+                <div class="profile_comment">
+                    <textarea class = "comment_box"rows="10" cols="80" ng-model="submitted.title"></textarea>
+                    <button class = "sub_button"ng-click="submitComment()">Submit</button>
                 </div>
-            </div>
         </div>
     </div>
 </div>

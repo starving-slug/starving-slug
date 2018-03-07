@@ -22,7 +22,7 @@ export class User {
   constructor (user?) {
     if (user) {
       this.email = user.email;
-      this.name = user.name;
+      this.name = user.username;
       this.description = user.description;
       this.photo = user.photo;
       this.recipes = user.recipes;

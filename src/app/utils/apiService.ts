@@ -25,4 +25,9 @@ export class ApiService {
     return this.http.post(`${apiurl}/recipe`, res, {headers: headers, responseType: 'text'});
   }
 
+  deleteRecipe(id: string): Observable<any> {
+    console.log(id);
+    return this.http.delete(`${apiurl}/recipe/delete/${id}`);
+  }
+
 }

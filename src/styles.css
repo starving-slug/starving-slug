@@ -414,6 +414,17 @@ hr {
    border: 1px solid #111111;
    box-shadow: rgba(0, 0, 0, 0.5) 0 5px 25px;
 }
+.comment_box{
+     background-color: #ff9966; 
+     border-style: inset; 
+     border-color: black
+}
+.profile_desc{
+    font-family: Comic Sans MS, cursive, sans-serif;
+}
+.profile_name{
+   font-family:lobster, sans-serif;
+}
 /* end Profile CSS */
 
 
@@ -437,12 +448,12 @@ hr {
     padding: 0.3em 0.8em;
     border-radius: 0.5em;
     cursor: pointer;
+    border: solid 1px #E33D26;
 }
 
 .recipe__button:hover {
     color: #E33D26;
     background-color: #FFFFFF;
-    border: solid 1px #E33D26;
 }
 
 .recipe__picture {
@@ -460,8 +471,8 @@ hr {
 }
 
 .recipe__ingredients-amount {
-    margin: 0 0.5em 0 2em;
-    width: 1.25em;
+    margin: 0 0.5em 0 1.5em;
+    width: 2em;
     text-align: right;
 }
 
@@ -486,7 +497,56 @@ hr {
 .recipe__tags a {
     margin-left: 1em;
 }
+/* End of Recipe page CSS */
 
+/* SearchPage CSS */
+.recipes {
+    border-top: 1px solid #e4e4e4;
+    margin-top: 20px;
+}
+
+h4 {
+    padding-top: 10px;
+}
+
+.authorFilter {
+    display: none;
+}
+
+.tagFilter {
+    display: none;
+}
+
+.nameFilter {
+    display: none;
+}
+
+input[type='checkbox']:checked + input[type='text'].authorFilter{
+    display: block;
+    float: right;
+}
+
+input[type='checkbox']:checked + input[type='text'].tagFilter{
+    display: block;
+    float: right;
+}
+
+input[type='checkbox']:checked + input[type='text'].nameFilter{
+    display: block;
+    float: right;
+}
+
+.recipeImage {
+    border: 3px solid black;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 225px;
+    height: 225px;
+}
+
+/* End of Search Page CSS */
+
+/* Rating system CSS */
 .rating {
     float:left;
 }
@@ -547,6 +607,7 @@ label.star:before {
   content: '\f006';
   font-family: FontAwesome;
 }
+
 .sub_button{
     font-family:'lobster';
     width:100px;height:50px;    
@@ -568,7 +629,22 @@ label.star:before {
     float:left;
 }
 
-/* End of Recipe Page CSS */
+/* End of Rating system CSS */
 
-/*Comment box*/
+/* Recipe Form CSS */
+.recipe-form__button {
+    margin: 0.5em 0 1.5em 0;
+    background: #E33D26;
+    color: white;
+    padding: 0.3em 0.8em;
+    border-radius: 0.5em;
+    cursor: pointer;
+    border: solid 1px #E33D26;
+}
 
+.recipe-form__button:hover {
+    color: #E33D26;
+    background-color: #FFFFFF;
+}
+
+/* End of Recipe Form CSS */

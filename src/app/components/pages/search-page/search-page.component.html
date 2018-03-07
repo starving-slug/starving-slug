@@ -1,0 +1,43 @@
+<div class="container col-md-6 offset-md-3" id="signin__main">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <form (ngSubmit)="onSubmit()" #f="ngForm">
+                        <small>
+                            Refine by:
+                            <input type="checkbox"> Author
+                            <input class="authorFilter" type="text" placeholder="enter author" ngModel name="author">
+                            <input type="checkbox"> Tag
+                            <input class="tagFilter" type="text" placeholder="enter tag" ngModel name="tag">
+                            <input type="checkbox"> Name
+                            <input class="nameFilter" type="text" placeholder="enter recipe name" ngModel name="name">
+                            <button type="submit">Filter</button>
+                        </small>
+                    </form>
+                </div>
+                <!-- TODO get the initial search to filter by what's been typed in -->
+                <div *ngFor="let recipe of recipes" class="col-md-12 searchResults">
+                    <div class="recipes">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <!-- TODO get recipe name from database -->
+                                <h4>{{recipe.name}}</h4>
+                                <!-- TODO get author name from database -->
+                                <small>Recipe by | {{recipe.author}}</small>
+                                <!-- TODO get rating from database -->
+                                <p>Rating: {{recipe.getRating()}}</p>
+                                <!-- TODO get recipe description from database -->
+                                <p>{{recipe.description}}</p>
+                            </div>
+                            <div class="recipeImage col-md-4">
+                                <!-- TODO get image for found recipe from database -->
+                                <img src="{{recipe.photo}}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -29,7 +29,7 @@ export class SearchPageComponent implements OnInit, OnDestroy {
                 console.log(res);
                 console.log(res.length);
                 for (let i = 0; i < res.length; i++) {
-                    this.recipes.push(res[i]);
+                    this.recipes.push(new Recipe(res[i]));
                 }
             }, (err) => {
                 console.error(err.message);

@@ -2,6 +2,8 @@ import { Component, OnInit} from '@angular/core';
 import { FormGroup, FormControl, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from '../../../utils/apiService';
+import { SearchPageComponent } from '../../pages/search-page/search-page.component'
+import { Recipe } from '../../../models/recipe.model'
 
 @Component({
   selector: 'app-header',

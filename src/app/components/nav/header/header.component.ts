@@ -23,10 +23,16 @@ export class HeaderComponent implements OnInit {
     let googleUser: gapi.auth2.GoogleUser = event.googleUser;
     let id: string = googleUser.getId();
     let profile: gapi.auth2.BasicProfile = googleUser.getBasicProfile();
-    console.log('ID: ' +
-      profile
-        .getId()); // Do not send to your backend! Use an ID token instead.
-    console.log('Name: ' + profile.getName());
+    var id_token = googleUser.getAuthResponse().id_token;
+    console.log("idtoken=\n" + id_token);
+
+    // var xhr = new XMLHttpRequest();
+    // xhr.open('POST', 'https://localhost:3000/users/');
+    // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    // xhr.onload = function() {
+    //   console.log('Signed in as: ' + xhr.responseText);
+    // };
+    // xhr.send('idtoken=' + id_token);
   }
 
 }

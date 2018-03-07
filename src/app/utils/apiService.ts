@@ -10,8 +10,14 @@ export class ApiService {
 
   }
 
-  signIn(username: string, id_token: any) {
-    console.log(string, id_token);
+  signIn(profile: gapi.auth2.BasicProfile, id_token: string) {
+    console.log(profile, id_token);
+    let body = {
+      id_token: id_token,
+      username: profile.getName(),
+      // image: profile.given_name
+    }
+    return this.http.post(`${apiurl}/users`, body);
   }
 
   getUser(username: string): Observable<any> {

@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { GoogleSignInSuccess } from 'angular-google-signin';
-import { BehaviorSubject } from 'rxjs'
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { ApiService } from './apiService';
 
@@ -10,28 +10,39 @@ export class SessionService {
   private _signedIn: boolean;
   signedIn$: BehaviorSubject<any>;
 
-  constructor() {
+  constructor(private api: ApiService, private ngZone: NgZone) {
     this.signedIn$ = new BehaviorSubject(null);
   }
 
   signIn(event: GoogleSignInSuccess) {
+    console.log('Signing In');
     let googleUser: gapi.auth2.GoogleUser = event.googleUser;
     let id: string = googleUser.getId();
     let profile: gapi.auth2.BasicProfile = googleUser.getBasicProfile();
     let id_token = googleUser.getAuthResponse().id_token;
 
+    this.api.signIn(profile, id_token).subscribe((res) => {
+      let session = {
+        username: profile.getName(),
+        image: profile.getImageUrl(),
+      }
+      this.ngZone.run(() => this.signedIn$.next(session));
+    }, (error) => {
+      console.log(error.message);
+    });
+
     // console.log('ID: ' +
     //   profile
     //     .getId()); // Do not send to your backend! Use an ID token instead.
     // console.log('Name: ' + profile.getName());
-    this.signedIn$.next({name: profile.getName, id_token: id_token});
   }
 
   signOut() {
+    console.log('Clicked sign out button')
     let auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(() => {
       console.log('Signed out');
-      this.signedIn$.next(null);
+      this.ngZone.run(() => this.signedIn$.next(null));
     })
   }
 }

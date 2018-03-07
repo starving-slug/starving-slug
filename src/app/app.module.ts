@@ -37,7 +37,7 @@ import { ApiService, SessionService } from './utils';
     BrowserModule,
     RouterModule.forRoot(
       routes,
-      { enableTracing: true } // <-- debugging purposes only
+      { enableTracing: false } // <-- debugging purposes only
     ),
     FormsModule,
     HttpClientModule

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
 import { SessionService } from '../../../utils';
@@ -12,20 +12,26 @@ import { ApiService } from '../../../utils/apiService';
 })
 
 export class HeaderComponent implements OnInit {
-  testlogin: boolean = false;
+
   private myClientId = environment.GClientId;
-  private _status: boolean = false;
+  private _user = null;
+
+  @Input() set user(user) {
+    console.log(user);
+    this._user = user;
+  };
+
+  get user() {
+    return this._user;
+  };
+
+  get activeSession() {
+    console.log(this._user !== null);
+    return this._user !== null;
+  }
 
   constructor(private api: ApiService, private session: SessionService) {
     console.log(environment)
-    this.session.signIn$.subscribe((user) => {
-      if(user) {
-        // this.api.signIn(user.username, user.id_token)
-        this._status = true;
-      } else {
-        this._status = false;
-      }
-    })
   }
 
   ngOnInit() {
@@ -48,6 +54,7 @@ export class HeaderComponent implements OnInit {
   }
 
   signOut() {
+    console.log('Sign out');
     this.session.signOut();
   }
 

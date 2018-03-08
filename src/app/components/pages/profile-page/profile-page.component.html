@@ -16,7 +16,7 @@
                     <div class="profile_name desc" >{{user.description}}</div>
                 </div>
             </div>
-            <div class="card hovercard_bottom">
+            <div class="card show_comment">
                 <a routerLink="/recipe/create">Add a new recipe</a>
                 <div class="recipe_text" *ngFor="let r of user['recipes']">
                   <a routerLink="/recipe/{{r._id}}">
@@ -25,6 +25,10 @@
                   <br>
                   <h4 class = "profile_desc">{{r.description}}</h4>
                 </div>
+            </div>
+            <div class="card hovercard_bottom">
+                <h3 style= "font-family: 'Lobster'">Comments</h3>
+                {{user.comments}}
             </div>
             <div class="card rating_box">
                 <div class="stars">
@@ -43,7 +47,7 @@
                 <h3 style= "font-family: 'Lobster'">Comment:</h3>
                 <div class="profile_comment">
                     <textarea class = "comment_box"rows="10" cols="80" ng-model="submitted.title"></textarea>
-                    <button class = "sub_button"ng-click="submitComment()">Submit</button>
+                    <button class = "sub_button" >Submit</button>
                 </div>
         </div>
     </div>

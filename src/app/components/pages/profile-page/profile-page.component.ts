@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { User } from '../../../models'
-
+import{ ApiService } from '../../../utils/apiService'
 @Component({
   selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',

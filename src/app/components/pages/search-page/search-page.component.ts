@@ -41,15 +41,7 @@ export class SearchPageComponent implements OnInit, OnDestroy {
 
 
     onSubmit() {
-        // this.api.getUser("shashank_odyssey").subscribe((res) => {
-        //     console.log(res);
-        // }, (err) => {
-        //     console.error(err.message);
-        // });
-        console.log(this.searchFilter.value.author);
-        console.log(this.searchFilter.value.name);
-        console.log(this.searchFilter.value.tag);
-
+        this.recipes = [];
         this.router.navigate(['/search'],
             {
                 queryParams: {
@@ -58,13 +50,19 @@ export class SearchPageComponent implements OnInit, OnDestroy {
                         tag: this.searchFilter.value.tag
                     }
             });
+
+            this.sub = this.route.queryParams.subscribe(params => {
+                this.api.getFilter(params['name'],params['author'],params['tag']).subscribe((res) => {
+                    for (let i = 0; i < res.length; i++) {
+                        this.recipes.push(new Recipe(res[i]));
+                    }
+                }, (err) => {
+                    console.error(err.message);
+                });
+            });
     }
 
     ngOnDestroy() {
         this.sub.unsubscribe();
     }
-
-    myFunction() {
-
-}
 }

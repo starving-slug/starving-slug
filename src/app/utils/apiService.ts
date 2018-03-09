@@ -22,8 +22,12 @@ export class ApiService {
 
   getSearch(name: string): Observable<any> {
     console.log(`Fetching recipe ${name}`);
-    // console.log("NAME HERE " + name);
     return this.http.get(`${apiurl}/search?name=${name}`);
+  }
+
+  getFilter(name: string, author: string, tag: string): Observable<any> {
+    console.log(`Fetching recipe ${name}`);
+    return this.http.get(`${apiurl}/search?name=${name}&author=${author}&tag=${tag}`);
   }
 
 }

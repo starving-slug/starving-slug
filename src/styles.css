@@ -146,20 +146,34 @@ hr {
     text-align: center;
     background-color: #FFFFFF;
     width: 100%;
-    height: 400px;
+    height: 25%;
     border-style: groove;
-    border-color:  #cc6600;
+    border-color:  none;
 }
 .hovercard_bottom {
     position: center;
     padding-top: 50px;
+    padding-bottom: 2rem;
+    margin-bottom: 20px;
     overflow: hidden;
     text-align: center;
-    background-color:#FFFFFF;
+    background-color:  #ffbb99;
     width: 100%;
-    height: 50%;
+    height: 80%;
     border-style: groove;
-    border-color:  #cc6600;
+    border-color: none;
+}
+
+.rating_box {
+    position: center;
+    padding-top: 50px;
+    overflow: hidden;
+    text-align: center;
+    background-color:#ffbb99;
+    width: 100%;
+    height: 550px;
+    border-style: groove;
+    border-color:  none;
 }
 
 .card.hovercard .cardheader {
@@ -393,8 +407,23 @@ hr {
 .recipe_text{
    text-align: left;
    font-size: 20px;
-   padding-left: 20px;
-   padding-top:20px;
+   margin-left: 20px;
+   margin-right: 20px;
+   margin-top:20px;
+   padding: 1rem;
+   border: 1px solid #111111;
+   box-shadow: rgba(0, 0, 0, 0.5) 0 5px 25px;
+}
+.comment_box{
+     background-color: #ff9966; 
+     border-style: inset; 
+     border-color: black
+}
+.profile_desc{
+    font-family: Comic Sans MS, cursive, sans-serif;
+}
+.profile_name{
+   font-family:lobster, sans-serif;
 }
 /* end Profile CSS */
 
@@ -419,12 +448,12 @@ hr {
     padding: 0.3em 0.8em;
     border-radius: 0.5em;
     cursor: pointer;
+    border: solid 1px #E33D26;
 }
 
 .recipe__button:hover {
     color: #E33D26;
     background-color: #FFFFFF;
-    border: solid 1px #E33D26;
 }
 
 .recipe__picture {
@@ -442,8 +471,8 @@ hr {
 }
 
 .recipe__ingredients-amount {
-    margin: 0 0.5em 0 2em;
-    width: 1.25em;
+    margin: 0 0.5em 0 1.5em;
+    width: 2em;
     text-align: right;
 }
 
@@ -468,7 +497,7 @@ hr {
 .recipe__tags a {
     margin-left: 1em;
 }
-/* End of Recipe Page CSS */
+/* End of Recipe page CSS */
 
 /* SearchPage CSS */
 .recipes {
@@ -521,3 +550,106 @@ ul.recipes {
 }
 
 /* End of Search Page CSS */
+
+/* Rating system CSS */
+.rating {
+    float:left;
+}
+
+/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+   follow these rules. Every browser that supports :checked also supports :not(), so
+   it doesn’t make the test unnecessarily selective */
+.rating:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0,0,0,0);
+}
+
+.rating:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:200%;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+div.stars {
+  width: 270px;
+  display: inline-block;
+}
+
+input.star { display: none; }
+
+label.star {
+  float: right;
+  padding: 10px;
+  font-size: 36px;
+  color: #444;
+  transition: all .2s;
+}
+
+input.star:checked ~ label.star:before {
+  content: '\f005';
+  color: #FD4;
+  transition: all .25s;
+}
+
+input.star-5:checked ~ label.star:before {
+  color: #FE7;
+  text-shadow: 0 0 20px #952;
+}
+
+input.star-1:checked ~ label.star:before { color: #F62; }
+
+label.star:hover { transform: rotate(-15deg) scale(1.3); }
+
+label.star:before {
+  content: '\f006';
+  font-family: FontAwesome;
+}
+
+.sub_button{
+    font-family:'lobster';
+    width:100px;height:50px;    
+    font-size: 20px;color: white;     
+    background: #E33D26;     
+    border-radius: 0.5em;
+    padding-top: 5px;
+    left:5px;
+}
+.profile_comment{
+    padding-left: 15px;
+    padding-bottom: 5px;
+    width:100%;
+}
+.button_box{
+    padding-top: 0px;
+    padding-left: 10px;
+    display: inline;
+    float:left;
+}
+
+/* End of Rating system CSS */
+
+/* Recipe Form CSS */
+.recipe-form__button {
+    margin: 0.5em 0 1.5em 0;
+    background: #E33D26;
+    color: white;
+    padding: 0.3em 0.8em;
+    border-radius: 0.5em;
+    cursor: pointer;
+    border: solid 1px #E33D26;
+}
+
+.recipe-form__button:hover {
+    color: #E33D26;
+    background-color: #FFFFFF;
+}
+
+/* End of Recipe Form CSS */

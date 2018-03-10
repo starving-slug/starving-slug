@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs'
+import { Observable } from 'rxjs';
 
 let apiurl = 'http://localhost:3000'
 
@@ -19,6 +19,10 @@ export class ApiService {
     console.log(`Fetching recipe ${name}`);
     return this.http.get(`${apiurl}/recipe/${id}`);
   }
+
+  createRecipe(res: Object[]): Observable<any> {
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    return this.http.post(`${apiurl}/recipe`, res, {headers: headers, responseType: 'text'});
 
   getSearch(name: string): Observable<any> {
     console.log(`Fetching recipe ${name}`);

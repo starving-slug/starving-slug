@@ -1,0 +1,93 @@
+<div class="container col-md-6 offset-md-3" id="signup__main">
+    <div class="card">
+        <div class="signup__card-header">
+            <h2>Add a new recipe</h2>
+        </div>
+        <div class="card-body">
+            <hr>
+            <form [formGroup]="recipeForm" novalidate (ngSubmit)="onSubmit(recipeForm)">
+                <p class="card-text">Recipe Name<span style="color: red">*</span></p>
+                <input type="text" class="form-control signup__info" formControlName="name" required>
+                <small *ngIf="!recipeForm.controls.name.valid" class="text-danger">Name is required.</small>
+
+                <p class="card-text">Description<span style="color: red">*</span></p>
+                <input type="text" class="form-control signup__info" formControlName="description">
+                <small *ngIf="!recipeForm.controls.description.valid" class="text-danger">Description is required.</small>
+
+                <p class="card-text">Add a photo</p>
+                <!--<input type="file" id="photo-input" class="form-control signup__info" accept="image/*" ngModel name="pic">-->
+                <input type="text" class="form-control signup__info" formControlName="photo" placeholder="Image url">
+                <br>
+
+                <p class="card-text">Recipe Cost<span style="color: red">*</span></p>
+                <div class="form-row">
+                  <span class="col-sm-1" style="text-align:right">$</span>
+                  <input type="text" class="form-control signup__info col-sm-11" formControlName="price">
+                </div>
+                <small *ngIf="!recipeForm.controls.price.valid" class="text-danger">Price is required.</small>
+
+                <p class="card-text">Ingredients<span style="color: red">*</span></p>
+                <div formArrayName="ingredients">
+                  <div *ngFor="let ing of recipeForm.controls.ingredients.controls; let i=index">
+                    <div [formGroupName]="i">
+                      <div class="form-row">
+                        <div class="form-group col-sm-2">
+                          <input type="text" id="iA" class="form-control" formControlName="amount" placeholder="#" maxlength="5">
+                        </div>
+                        <div class="form-group col-sm-9">
+                          <input type="text" class="form-control" formControlName="text" placeholder="Ingredient {{i+1}}">
+                        </div>
+                        <div class="form-group col-sm-1">
+                          <span *ngIf="recipeForm.controls.ingredients.controls.length > 1" (click)="removeIngredient(i)"><b>X</b></span>
+                        </div>
+                      </div>
+                      <small [hidden]="recipeForm.controls.ingredients.controls[i].controls.text.valid" class="text-danger">Ingredient is required.</small>
+                    </div>
+                  </div>
+                </div>
+                <button (click)="addIngredient()" type="button" class="recipe-form__button">Add another ingredient</button>
+
+                <p class="card-text">Directions<span style="color: red">*</span></p>
+                <div formArrayName="directions">
+                  <div *ngFor="let dir of recipeForm.controls.directions.controls; let i=index">
+                    <div class="form-row">
+                      <div class="form-group col-sm-11">
+                        <input type="text" class="form-control signup__info" formControlName="{{i}}" placeholder="Step {{i+1}}" required>
+                      </div>
+                      <div class="form-group col-sm-1">
+                        <span *ngIf="recipeForm.controls.directions.controls.length > 1" (click)="removeStep(i)">X</span>
+                      </div>
+                    </div>
+                    <small *ngIf="recipeForm.controls.directions.controls[i].value == ''" class="text-danger">Direction is required.</small>
+                  </div>
+                </div>
+                <button (click)="addStep()" type="button" class="recipe-form__button">Add another step</button>
+
+                <p class="card-text">Tags<span style="color: red">*</span></p>
+                <div formArrayName="tags">
+                  <div *ngFor="let tag of recipeForm.controls.tags.controls; let i=index">
+                    <div class="form-row">
+                      <div class="form-group col-sm-11">
+                        <input type="text" class="form-control signup__info" formControlName="{{i}}" placeholder="Tag {{i+1}}" required>
+                      </div>
+                      <div class="form-group col-sm-1">
+                        <span *ngIf="recipeForm.controls.tags.controls.length > 1" (click)="removeTag(i)">X</span>
+                      </div>
+                    </div>
+                    <small *ngIf="recipeForm.controls.tags.controls[i].value == ''" class="text-danger">Tag is required.</small>
+                  </div>
+                </div>
+                <button (click)="addTag()" type="button" class="recipe-form__button">Add another tag</button>
+                <br>
+
+                <button type="submit" class="recipe-form__button btn-lg" style="background:#1177EB">Add Recipe</button>
+                <button type="button" routerLink="/user/KevLoi" class="recipe-form__button btn-lg" style="background:#AAA">Cancel</button>
+            </form>
+            <hr>
+            <!--<pre>{{recipeForm.valid | json}}</pre>
+            <pre>{{recipeForm.value | json}}</pre>-->
+
+        </div>
+    </div>
+</div>
+

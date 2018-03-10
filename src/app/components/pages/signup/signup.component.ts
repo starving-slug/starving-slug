@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-import { SessionService } from '../../../utils/';
+import { SessionService, ApiService } from '../../../utils/';
 
 @Component({
   selector: 'app-signup',
@@ -23,7 +23,7 @@ export class SignupComponent implements OnInit {
     description: ''
   }
 
-  constructor(private session: SessionService, private fb: FormBuilder) {
+  constructor(private api: ApiService, private session: SessionService, private fb: FormBuilder) {
     this.session.googleUser$.subscribe((user) => {
       if(user) {
         console.log(user);
@@ -49,6 +49,7 @@ export class SignupComponent implements OnInit {
     // console.log(formValues);
 
     this.body = Object.assign(this.body, formValues);
+    this.api.updateProfile(this.body, "the cookie value needs to go here?")
     console.log(this.body);
     /* From here, send the formvalues {username, description} along with the
        post the username, the description, the two IDs to the endpoint.

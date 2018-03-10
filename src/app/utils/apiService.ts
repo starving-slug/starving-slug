@@ -16,13 +16,22 @@ export class ApiService {
   }
 
   getRecipe(id: string): Observable<any> {
-    console.log(`Fetching recipe ${id}`);
+    console.log(`Fetching recipe ${name}`);
     return this.http.get(`${apiurl}/recipe/${id}`);
   }
 
   createRecipe(res: Object[]): Observable<any> {
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
     return this.http.post(`${apiurl}/recipe`, res, {headers: headers, responseType: 'text'});
+
+  getSearch(name: string): Observable<any> {
+    console.log(`Fetching recipe ${name}`);
+    return this.http.get(`${apiurl}/search?name=${name}`);
+  }
+
+  getFilter(name: string, author: string, tag: string): Observable<any> {
+    console.log(`Fetching recipe ${name}`);
+    return this.http.get(`${apiurl}/search?name=${name}&author=${author}&tag=${tag}`);
   }
 
 }

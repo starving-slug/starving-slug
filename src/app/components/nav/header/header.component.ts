@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { GoogleSignInSuccess } from 'angular-google-signin';
 import { environment } from '../../../../environments/environment';
+import { Router } from '@angular/router';
+import { ApiService } from '../../../utils/apiService';
+import { SearchPageComponent } from '../../pages/search-page/search-page.component'
+import { Recipe } from '../../../models/recipe.model'
 
 @Component({
   selector: 'app-header',
@@ -12,8 +16,11 @@ export class HeaderComponent implements OnInit {
   testlogin: boolean = false;
   private myClientId = environment.GClientId;
 
-  constructor() {
-    console.log(environment)
+  search = '';
+
+  constructor(private api: ApiService,
+              private router: Router) {
+       console.log(environment)
   }
 
   ngOnInit() {
@@ -29,4 +36,9 @@ export class HeaderComponent implements OnInit {
     console.log('Name: ' + profile.getName());
   }
 
+  onSubmit(form: NgForm) {
+      this.search = JSON.stringify(form.value);
+      let searchField = JSON.parse(this.search);
+      this.router.navigate(['/search'], {queryParams: {name: searchField.name}});
+  }
 }

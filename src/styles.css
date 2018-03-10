@@ -432,6 +432,19 @@ hr {
      border-style: inset; 
      border-color: black
 }
+.comment_style{
+    font-family: Arial, cursive, sans-serif;
+    font-size: 15px;
+    float:left;
+    padding:20px;
+
+}
+.comment_style_title{
+    font-family: Arial, cursive, sans-serif;
+    font-size: 20px;
+    float:left;
+    padding:15px;
+}
 .profile_desc{
     font-family: Comic Sans MS, cursive, sans-serif;
 }

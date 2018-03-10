@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, NgForm } from '@angular/forms';
 import { GoogleSignInSuccess } from 'angular-google-signin';
 import { environment } from '../../../../environments/environment';
 import { Router } from '@angular/router';

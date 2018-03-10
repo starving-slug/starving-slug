@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+
+import { SessionService } from '../../../utils/';
 
 @Component({
   selector: 'app-signup',
@@ -7,23 +10,51 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  form: FormGroup;
 
-  ngOnInit() {
+  username: string;
+  description: string;
+
+  body = {
+    email: '',
+    username: '',
+    name: '',
+    image: '',
+    description: ''
   }
 
-  onSignIn(googleUser) {
-    // Useful data for your client-side scripts:
-    var profile = googleUser.getBasicProfile();
-    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-    console.log('Full Name: ' + profile.getName());
-    console.log('Given Name: ' + profile.getGivenName());
-    console.log('Family Name: ' + profile.getFamilyName());
-    console.log("Image URL: " + profile.getImageUrl());
-    console.log("Email: " + profile.getEmail());
+  constructor(private session: SessionService, private fb: FormBuilder) {
+    this.session.googleUser$.subscribe((user) => {
+      if(user) {
+        console.log(user);
+        this.body = {
+          email: user.getEmail(),
+          name: user.getName(),
+          image: user.getImageUrl(),
+          username: '',
+          description: '',
+        }
+      }
+    })
+  }
 
-    // The ID token you need to pass to your backend:
-    var id_token = googleUser.getAuthResponse().id_token;
-    console.log("ID Token: " + id_token);
+  ngOnInit() {
+    this.form = this.fb.group({
+      username: '',
+      description: ''
+    })
+  }
+
+  onSignIn(formValues) {
+    // console.log(formValues);
+
+    this.body = Object.assign(this.body, formValues);
+    console.log(this.body);
+    /* From here, send the formvalues {username, description} along with the
+       post the username, the description, the two IDs to the endpoint.
+       redirect back to the saved url
+    */
+
+    console.log(formValues);
   }
 }

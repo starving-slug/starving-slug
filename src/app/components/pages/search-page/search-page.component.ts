@@ -30,6 +30,7 @@ export class SearchPageComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.sub = this.route.queryParams.subscribe(params => {
             this.api.getSearch(params['name']).subscribe((res) => {
+                console.log(JSON.stringify(res, null, 4));
                 for (let i = 0; i < res.length; i++) {
                     this.recipes.push(new Recipe(res[i]));
                 }

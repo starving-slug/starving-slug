@@ -27,15 +27,15 @@
                         <li class="row">
                             <div class="col-md-8">
                                 <!-- TODO link to recipe page -->
-                                <h4><a href="#">{{recipe.name}}</a></h4>
+                                <h4><a routerLink="recipe/{{recipe._id}}">{{recipe.name}} {{recipe._id}}</a></h4>
                                 <!--  TODO link to profile page-->
-                                <small>Recipe by | <a href="#">{{recipe.author}}</a></small>
+                                <small>Recipe by | <a routerLink="/user/{{recipe.author}}">{{recipe.author}}</a></small>
                                 <p>Rating: {{recipe.getRating()}}</p>
                                 <p>{{recipe.description}}</p>
                             </div>
                             <div class="recipeImage col-md-4">
                                 <!-- TODO link to recipe page -->
-                                <a href="#"><img src="{{recipe.photo}}" height="100%" width="100%"></a>
+                                <a routerLink="recipe/{{recipe._id}}"><img src="{{recipe.photo}}" height="100%" width="100%"></a>
                             </div>
                         </li>
                     </ul>

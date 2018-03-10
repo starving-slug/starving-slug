@@ -22,29 +22,11 @@
                         </div>
                     </form>
                 </div>
-                <div *ngFor="let recipe of recipes" class="col-md-12 searchResults">
-                    <ul class="recipes">
-                        <li class="row">
-                            <div class="col-md-8">
-                                <!-- TODO link to recipe page -->
-                                <h4><a routerLink="recipe/{{recipe._id}}">{{recipe.name}} {{recipe._id}}</a></h4>
-                                <!--  TODO link to profile page-->
-                                <small>Recipe by | <a routerLink="/user/{{recipe.author}}">{{recipe.author}}</a></small>
-                                <p>Rating: {{recipe.getRating()}}</p>
-                                <p>{{recipe.description}}</p>
-                            </div>
-                            <div class="recipeImage col-md-4">
-                                <!-- TODO link to recipe page -->
-                                <a routerLink="recipe/{{recipe._id}}"><img src="{{recipe.photo}}" height="100%" width="100%"></a>
-                            </div>
-                        </li>
-                    </ul>
+                <div class="recipes">
+                    <app-recipe-card *ngFor="let recipe of recipes" [recipe]="recipe">
+                    </app-recipe-card>
                 </div>
-            </div>
+                </div>
         </div>
     </div>
 </div>
-
-<script>
-    alert('fuck you!');
-</script>

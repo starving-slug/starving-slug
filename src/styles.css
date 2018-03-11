@@ -536,12 +536,17 @@ input[type='checkbox']:checked + input[type='text'].nameFilter{
     float: right;
 }
 
-.recipeImage {
-    border: 3px solid black;
+div.recipeImage.col-md-4 {
     margin-top: 15px;
     margin-bottom: 15px;
-    width: 225px;
-    height: 225px;
+    width: 350px;
+    height: 200px;
+    padding: 0;
+}
+
+ul.recipes {
+    list-style: none;
+    padding: 0;
 }
 
 /* End of Search Page CSS */

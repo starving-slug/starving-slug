@@ -41,7 +41,6 @@ export class Recipe implements RecipeItem {
   }
 
   getRating(): string {
-    console.log(this.name, this.rating);
     let stars = "";
     for(let i = 0; i < this.rating; i++) {
       console.log(stars)
@@ -49,7 +48,6 @@ export class Recipe implements RecipeItem {
       if (i+1 !== this.rating)
         stars += " ";
     }
-    console.log(stars);
     return stars;
   }
 }

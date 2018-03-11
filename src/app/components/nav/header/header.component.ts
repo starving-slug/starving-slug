@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, NgForm } from '@angular/forms';
 import { GoogleSignInSuccess } from 'angular-google-signin';
 import { environment } from '../../../../environments/environment';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../../utils/apiService';
 import { SearchPageComponent } from '../../pages/search-page/search-page.component'
 import { Recipe } from '../../../models/recipe.model'
@@ -14,12 +14,15 @@ import { Recipe } from '../../../models/recipe.model'
 })
 export class HeaderComponent implements OnInit {
   testlogin: boolean = false;
+  private sub: any;
+
   private myClientId = environment.GClientId;
 
   search = '';
 
   constructor(private api: ApiService,
-              private router: Router) {
+              private router: Router,
+              private route: ActivatedRoute) {
        console.log(environment)
   }
 

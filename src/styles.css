@@ -500,6 +500,10 @@ hr {
 /* End of Recipe page CSS */
 
 /* SearchPage CSS */
+.hide {
+    display: none;
+}
+
 .recipes {
     border-top: 1px solid #e4e4e4;
     margin-top: 20px;
@@ -510,7 +514,6 @@ hr {
 .recipe-border{
     border-bottom: 1px solid lightgrey;
 }
-
 
 h4 {
     padding-top: 10px;

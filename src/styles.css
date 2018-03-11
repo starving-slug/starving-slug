@@ -71,6 +71,18 @@ hr {
 }
 
 /* navbar css */
+
+#profileImage{
+    border-radius: 100px;
+    border: 1px solid white;
+}
+
+#profileImage:hover{
+    cursor: pointer;
+    width: 45px;
+    length: 45px;
+}
+
 .bg-light {
     background-color: rgba(0,0,0,.35) !important;
     border: none;

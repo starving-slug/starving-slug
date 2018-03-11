@@ -10,9 +10,24 @@ export class ApiService {
 
     }
 
+    signIn(profile: gapi.auth2.BasicProfile, id_token: string) {
+      console.log(profile, id_token);
+      let body = {
+        id_token: id_token,
+        username: profile.getName(),
+        // image: profile.given_name
+      }
+      return this.http.post(`${apiurl}/users`, body);
+    }
+
+    updateProfile(profile: Object, permissions: string) {
+      console.log(profile, permissions);
+      return this.http.post(`${apiurl}/profile`, profile, {headers: {authorization: `Bearer ${permissions}`}});
+    }
+
     getUser(username: string): Observable<any> {
-        console.log(`Fetching user ${username}`)
-        return this.http.get(`${apiurl}/profile/${username}`);
+      console.log(`Fetching user ${username}`)
+      return this.http.get(`${apiurl}/profile/${username}`);
     }
 
     getRecipe(id: string): Observable<any> {

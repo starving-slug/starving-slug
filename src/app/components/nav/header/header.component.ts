@@ -5,7 +5,7 @@ import { GoogleSignInSuccess } from 'angular-google-signin';
 
 import { SessionService } from '../../../utils';
 import { environment } from '../../../../environments/environment';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../../utils/apiService';
 import { SearchPageComponent } from '../../pages/search-page/search-page.component'
 import { Recipe } from '../../../models/recipe.model'
@@ -17,6 +17,8 @@ import { Recipe } from '../../../models/recipe.model'
 })
 
 export class HeaderComponent implements OnInit {
+  testlogin: boolean = false;
+  private sub: any;
 
   private myClientId = environment.GClientId;
   private _user = null;
@@ -39,7 +41,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(private api: ApiService,
               private router: Router,
-              private session: SessionService) {
+              private session: SessionService,
+              private route: ActivatedRoute) {
        console.log(environment)
   }
 

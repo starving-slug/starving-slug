@@ -17,11 +17,12 @@ import { RecipePageComponent } from './components/pages/recipe-page/recipe-page.
 import { RecipeFormComponent } from './components/pages/recipe-form/recipe-form.component';
 import { RecipeCardComponent } from './components/ui/recipe-card/recipe-card.component';
 import { SearchPageComponent } from './components/pages/search-page/search-page.component';
+import { AboutPageComponent } from './components/pages/about-page/about-page.component';
 
 import { Recipe } from './models/recipe.model';
 import { User } from './models/user.model';
 import { UserResolver, RecipeResolver } from './utils';
-import { ApiService, SessionService } from './utils';
+import { ApiService, SessionService, StorageService } from './utils';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ApiService, SessionService } from './utils';
     RecipeCardComponent,
     RecipePageComponent,
     SearchPageComponent,
-    RecipeFormComponent
+    RecipeFormComponent,
+    AboutPageComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +54,7 @@ import { ApiService, SessionService } from './utils';
     RecipeResolver,
     ApiService,
     SessionService,
+    StorageService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,6 @@
 export * from './user.resolver';
 export * from './recipe.resolver';
+
 export * from './apiService';
-export * from './SessionService';
+export * from './sessionService';
+export * from './StorageService';

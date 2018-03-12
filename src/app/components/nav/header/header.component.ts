@@ -18,6 +18,7 @@ import { Recipe } from '../../../models/recipe.model'
 
 export class HeaderComponent implements OnInit {
   testlogin: boolean = false;
+  onHome: boolean = true;
   private sub: any;
 
   private myClientId = environment.GClientId;
@@ -47,6 +48,10 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  homePage(){
+      this.onHome = true;
   }
 
   // signIn(event: GoogleSignInSuccess) {
@@ -88,6 +93,7 @@ export class HeaderComponent implements OnInit {
   // }
 
   onSubmit(form: NgForm) {
+      this.onHome = false;
       this.search = JSON.stringify(form.value);
       let searchField = JSON.parse(this.search);
       this.router.navigate(['/search'], {queryParams: {name: searchField.name}});

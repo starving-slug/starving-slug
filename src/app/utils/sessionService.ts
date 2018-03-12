@@ -4,7 +4,7 @@ import { GoogleSignInSuccess } from 'angular-google-signin';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { ApiService } from './apiService';
-import { StorageService } from './StorageService';
+import { StorageService } from './storageService';
 
 @Injectable()
 export class SessionService {

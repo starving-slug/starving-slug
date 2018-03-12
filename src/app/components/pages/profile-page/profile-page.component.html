@@ -11,17 +11,19 @@
                 </div>
                 <div class="info">
                     <div class="title">
-                        <a target="_blank" class = "profile_name" href="http://scripteden.com/">{{user.name}}</a>
+                        <a target="_blank" class = "profile_name" href="http://scripteden.com/">{{user.username}}</a>
                     </div>
                     <div class="profile_name desc" >{{user.description}}</div>
                 </div>
             </div>
             <div class="card hovercard_bottom">
                 <a routerLink="/recipe/create">Add a new recipe</a>
-                <div class="recipe_text" *ngFor="let r of user['recipes']">
+                <div class="recipe_text" *ngFor="let r of user['recipes']; let i=index">
                   <a routerLink="/recipe/{{r._id}}">
                     <h2 class = "profile_name">{{r.name}}</h2>
-                 </a>
+                  </a>
+                  <!-- Delete should only appear if signed-in and on your own profile -->
+                  <button (click)="deleteRecipe(r.name, r._id)" id="{{i}}" type="button" class="btn btn-sm btn-danger">Delete Recipe</button>
                   <br>
                   <h4 class = "profile_desc">{{r.description}}</h4>
                 </div>

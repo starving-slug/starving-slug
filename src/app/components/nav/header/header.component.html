@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <!-- brand -->
-        <a routerLink="" class="navbar-brand">Starving Slug</a>
+        <a routerLink="" class="navbar-brand" (click)="homePage()">Starving Slug</a>
 
         <!-- hamburger -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,38 +18,28 @@
                     <a routerLink="notfound" class="nav-link"><i class="fas fa-phone"></i> Contact</a>
                 </li>
 
-                <form #f="ngForm">
-                    <li class="nav-item">
-                        <label>test login</label>
-                        <input type="checkbox" [(ngModel)]="testlogin" name="test">
-                    </li>
-                </form>
 
-
-          <li class="nav-item" *ngIf="!activeSession">
-            <google-signin
-              [clientId]="myClientId"
-              [width]="myWidth"
-              [theme]="myTheme"
-              [scope]="myScope"
-              [longTitle]="'Sign In With Google'"
-              (googleSignInSuccess)="signIn($event)">
-            </google-signin>
-          </li>
-
-          <li class="nav-item" *ngIf="activeSession">
-            <div>{{user.username}}</div>
-            <img src="{{user.image}}">
-            <button (click)="signOut()">Sign Out</button>
-          </li>
-
-
+                <li class="nav-item" *ngIf="!activeSession">
+                    <!-- <google-signin [clientId]="myClientId" [width]="myWidth" [theme]="myTheme" [scope]="myScope" [longTitle]="'Sign In With Google'" (googleSignInSuccess)="signIn($event)">
+                    </google-signin> -->
+                </li>
             </ul>
 
-            <form class="form-inline my-2 my-lg-0" (ngSubmit)="onSubmit(f)" #f="ngForm">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search recipes..." aria-label="Search" ngModel name="name">
-                <button routerLink="/search" routerLinkActive="hide" class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
-            </form>
+            <div>
+                <form class="form-inline my-2 my-lg-0" (ngSubmit)="onSubmit(f)" #f="ngForm" *ngIf="onHome">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search recipes..." aria-label="Search" ngModel name="name">
+                    <button routerLink="/search" class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
+                </form>
+            </div>
+
+
+            <div style="float: right;">
+                <li class="nav-item" *ngIf="activeSession">
+                    <!-- <span>{{user.username}}</span> -->
+                    <img id="profileImage" src="{{user.image}}" width="40px" length="40px">
+                    <button class="btn" (click)="signOut()">Sign Out</button>
+                </li>
+            </div>
 
         </div>
     </div>

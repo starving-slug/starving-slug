@@ -4,8 +4,8 @@ import { NgForm  } from '@angular/forms';
 import { FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { User } from '../../../models'
-import{ ApiService } from '../../../utils/apiService'
+import { User } from '../../../models';
+import { ApiService } from '../../../utils/apiService';
 
 @Component({
   selector: 'app-profile-page',
@@ -25,7 +25,16 @@ export class ProfilePageComponent implements OnInit {
 
   onSubmit(commentForm: NgForm) {
     let body = commentForm.value;
-    this.api.createComment(body).subscribe((res) => {
+    let time = new Date();
+    let date = (((time.getMonth()+1) < 10) ? "0" : "") + (time.getMonth()+1) + "/" + ((time.getDate() < 10) ? "0" : "") + time.getDate() + "/" + time.getFullYear();
+    body['author'] = this.route.snapshot.url[1].path; // This needs to change to the signed-in user once user sessions are done
+    body['post'] = date;
+    for (let i = 0; i < this.user.comments.length; i++) {
+      delete this.user.comments[i]['_id'];
+    }
+    this.user.comments.push(body);
+    console.log(this.user.comments);
+    this.api.createComment(this.user.comments).subscribe((res) => {
         console.log("Success!");
     }, (err) => {
       console.log("Error");

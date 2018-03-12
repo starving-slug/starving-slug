@@ -24,8 +24,10 @@ export class ApiService {
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
     return this.http.post(`${apiurl}/recipe`, res, {headers: headers, responseType: 'text'});
   }
+
   createComment(res: Object[]): Observable<any> {
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
-    return this.http.patch(`${apiurl}/profile-comment/${res['username']}`, res, {headers: headers, responseType: 'text'});
+    console.log(res);
+    return this.http.patch(`${apiurl}/profile-comment/${res[0]['author']}`, res, {headers: headers, responseType: 'text'});
   }
 }

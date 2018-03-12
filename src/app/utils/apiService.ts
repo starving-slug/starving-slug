@@ -55,4 +55,9 @@ export class ApiService {
     return this.http.delete(`${apiurl}/recipe/delete/${id}`);
   }
 
+  createComment(res: Object[]): Observable<any> {
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    console.log(res);
+    return this.http.patch(`${apiurl}/profile-comment/${res[0]['author']}`, res, {headers: headers, responseType: 'text'});
+  }
 }

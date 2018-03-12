@@ -25,9 +25,14 @@ export class SignupComponent implements OnInit {
   }
 
   constructor(private api: ApiService, private session: SessionService, private fb: FormBuilder, private router: Router) {
+    this.form = this.fb.group({
+      username: ['', Validators.required],
+      description: ['', Validators.required]
+    })
+
     this.session.googleUser$.subscribe((user) => {
+      console.log(user);
       if(user) {
-        console.log(user);
         this.body = {
           email: user.getEmail(),
           username: '',
@@ -40,13 +45,16 @@ export class SignupComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.form = this.fb.group({
-      username: ['', Validators.required],
-      description: ['', Validators.required]
-    })
   }
 
-  onSignIn(formValues, event) {
+  onSignIn() {
+    console.log(this.form);
+
+    let formValues = {
+      username: this.form.controls['username'].value;
+      description: this.form.controls['description'].value;
+    }
+
     console.log(formValues, event);
 
     this.body = Object.assign(this.body, formValues);
@@ -57,6 +65,6 @@ export class SignupComponent implements OnInit {
       // this.router.navigateByUrl('/profile/' + this.body.username);
     }, (err) => {
       console.log(err.message);
-    })
+    // })
   }
 }

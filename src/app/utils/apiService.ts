@@ -19,7 +19,7 @@ export class ApiService {
       username: profile.getName(),
       // image: profile.given_name
     }
-    return this.http.post(`${apiurl}/user`, body);
+    return this.http.post(`${apiurl}/users`, body);
   }
 
   updateProfile(profile: Object) {

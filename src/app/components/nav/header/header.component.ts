@@ -32,7 +32,6 @@ export class HeaderComponent implements OnInit {
   };
 
   get activeSession() {
-    console.log(this._user !== null);
     return this._user !== null;
   }
 

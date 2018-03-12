@@ -415,8 +415,8 @@ hr {
    box-shadow: rgba(0, 0, 0, 0.5) 0 5px 25px;
 }
 .comment_box{
-     background-color: #ff9966; 
-     border-style: inset; 
+     background-color: #ff9966;
+     border-style: inset;
      border-color: black
 }
 .profile_desc{
@@ -500,9 +500,19 @@ hr {
 /* End of Recipe page CSS */
 
 /* SearchPage CSS */
+.hide {
+    display: none;
+}
+
 .recipes {
     border-top: 1px solid #e4e4e4;
     margin-top: 20px;
+    width: 100%;
+    padding: 50px;
+}
+
+.recipe-border{
+    border-bottom: 1px solid lightgrey;
 }
 
 h4 {
@@ -536,12 +546,17 @@ input[type='checkbox']:checked + input[type='text'].nameFilter{
     float: right;
 }
 
-.recipeImage {
-    border: 3px solid black;
+div.recipeImage.col-md-4 {
     margin-top: 15px;
     margin-bottom: 15px;
-    width: 225px;
-    height: 225px;
+    width: 350px;
+    height: 200px;
+    padding: 0;
+}
+
+ul.recipes {
+    list-style: none;
+    padding: 0;
 }
 
 /* End of Search Page CSS */
@@ -551,7 +566,7 @@ input[type='checkbox']:checked + input[type='text'].nameFilter{
     float:left;
 }
 
-/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t
    follow these rules. Every browser that supports :checked also supports :not(), so
    it doesn’t make the test unnecessarily selective */
 .rating:not(:checked) > input {
@@ -610,9 +625,9 @@ label.star:before {
 
 .sub_button{
     font-family:'lobster';
-    width:100px;height:50px;    
-    font-size: 20px;color: white;     
-    background: #E33D26;     
+    width:100px;height:50px;
+    font-size: 20px;color: white;
+    background: #E33D26;
     border-radius: 0.5em;
     padding-top: 5px;
     left:5px;

@@ -21,7 +21,7 @@ import { SearchPageComponent } from './components/pages/search-page/search-page.
 import { Recipe } from './models/recipe.model';
 import { User } from './models/user.model';
 import { UserResolver, RecipeResolver } from './utils';
-import { ApiService } from './utils';
+import { ApiService, SessionService } from './utils';
 
 @NgModule({
   declarations: [
@@ -41,7 +41,7 @@ import { ApiService } from './utils';
     BrowserModule,
     RouterModule.forRoot(
       routes,
-      { enableTracing: true } // <-- debugging purposes only
+      { enableTracing: false } // <-- debugging purposes only
     ),
     FormsModule,
     ReactiveFormsModule,
@@ -51,6 +51,7 @@ import { ApiService } from './utils';
     UserResolver,
     RecipeResolver,
     ApiService,
+    SessionService,
   ],
   bootstrap: [AppComponent]
 })

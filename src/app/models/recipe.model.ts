@@ -31,7 +31,7 @@ export class Recipe implements RecipeItem {
       this.author = recipe.author;
       this.description = recipe.description;
       this.photo = recipe.photo;
-      this.recipe_id = recipe.recipe_id;
+      this.recipe_id = recipe.recipe_id || recipe._id;
       this.ingredients = recipe.ingredients;
       this.directions = recipe.directions;
       this.tags = recipe.tags;
@@ -41,7 +41,6 @@ export class Recipe implements RecipeItem {
   }
 
   getRating(): string {
-    console.log(this.name, this.rating);
     let stars = "";
     for(let i = 0; i < this.rating; i++) {
       console.log(stars)
@@ -49,7 +48,6 @@ export class Recipe implements RecipeItem {
       if (i+1 !== this.rating)
         stars += " ";
     }
-    console.log(stars);
     return stars;
   }
 }

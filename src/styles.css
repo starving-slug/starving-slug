@@ -159,9 +159,11 @@ hr {
     text-align: center;
     background-color:  #ffbb99;
     width: 100%;
-    height: 80%;
+    height: 40%;
     border-style: groove;
     border-color: none;
+    overflow: scroll;
+
 }
 .show_comment{
     position: center;

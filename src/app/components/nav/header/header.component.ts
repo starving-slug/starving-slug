@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, NgForm } from '@angular/forms';
-import { GoogleSignInSuccess } from 'angular-google-signin';
+// import { GoogleSignInSuccess } from 'angular-google-signin';
 // import { environment } from '../../../../environments/environment';
 
 import { SessionService } from '../../../utils';
@@ -66,9 +66,9 @@ export class HeaderComponent implements OnInit {
   //   this.api.signIn(profile.getName(), id_token);
   // }
 
-  signIn(event: any) {
-    this.session.signIn(event)
-  }
+  // signIn(event: any) {
+  //   this.session.signIn(event)
+  // }
 
   signOut() {
     console.log('Sign out');

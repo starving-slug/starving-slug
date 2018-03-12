@@ -31,7 +31,6 @@ export class SessionService {
         let prevRoute = this.route.snapshot;
         console.log('This is a first-time login!');
         this.router.navigate(['./signup']);
-
         // save the current url
         // redirect to the signup page, pass the old url as a query or something
       }

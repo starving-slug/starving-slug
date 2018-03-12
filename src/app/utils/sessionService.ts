@@ -10,7 +10,6 @@ import { StorageService } from './StorageService';
 export class SessionService {
 
   private _signedIn: boolean;
-  private _storage_name = 'starving-slug';
   signedIn$: BehaviorSubject<any>;
   googleUser$: BehaviorSubject<any>;
 

@@ -68,9 +68,7 @@ export class ApiService {
     signIn(profile: gapi.auth2.BasicProfile, id_token: string) {
       console.log(profile, id_token);
       let body = {
-        id_token: id_token,
-        username: profile.getName(),
-        // image: profile.given_name
+        id_token: id_token
       }
       return this.http.post(`${apiurl}/user`, body);
     }

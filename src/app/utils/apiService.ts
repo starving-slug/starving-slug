@@ -39,10 +39,10 @@ export class ApiService {
     return this.http.get(`${apiurl}/recipe/${id}`);
   }
 
-  createRecipe(res: Object[]): Observable<any> {
+  createRecipe(recipe: Object[]): Observable<any> {
       let permissions = this.storage.getTokenString()
       const headers = {token: permissions};
-      return this.http.post(`${apiurl}/recipe`, res, { headers: headers });
+      return this.http.post(`${apiurl}/recipe`, recipe, { headers: headers });
   }
 
   getSearch(name: string): Observable<any> {
@@ -66,6 +66,6 @@ export class ApiService {
     let permissions = this.storage.getTokenString()
     const headers = {token: permissions};
     console.log(comment);
-    return this.http.patch(`${apiurl}/profile-comment/${res[0]['author']}`, comment, {headers: headers});
+    return this.http.patch(`${apiurl}/profile-comment/${comment[0]['author']}`, comment, {headers: headers});
   }
 }

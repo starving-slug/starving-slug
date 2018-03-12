@@ -22,6 +22,7 @@ import { Recipe } from './models/recipe.model';
 import { User } from './models/user.model';
 import { UserResolver, RecipeResolver } from './utils';
 import { ApiService, SessionService } from './utils';
+import { AboutPageComponent } from './components/pages/about-page/about-page.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ApiService, SessionService } from './utils';
     RecipeCardComponent,
     RecipePageComponent,
     SearchPageComponent,
-    RecipeFormComponent
+    RecipeFormComponent,
+    AboutPageComponent
   ],
   imports: [
     BrowserModule,

@@ -30,6 +30,8 @@ export class SignupComponent implements OnInit {
       description: ['', Validators.required]
     })
 
+    this.form.valueChanges.subscribe(console.log);
+
     this.session.googleUser$.subscribe((user) => {
       console.log(user);
       if(user) {
@@ -51,8 +53,8 @@ export class SignupComponent implements OnInit {
     console.log(this.form);
 
     let formValues = {
-      username: this.form.controls['username'].value;
-      description: this.form.controls['description'].value;
+      username: this.form.controls['username'].value,
+      description: this.form.controls['description'].value,
     }
 
     console.log(formValues, event);

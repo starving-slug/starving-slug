@@ -55,4 +55,9 @@ export class ApiService {
     return this.http.delete(`${apiurl}/recipe/delete/${id}`);
   }
 
+  createRating(res: Object, id: string): Observable<any> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.patch(`${apiurl}/rating/${id}`, res, { headers: headers, responseType: 'text' });
+  }
+
 }

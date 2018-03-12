@@ -1,7 +1,9 @@
 <div class="recipe__container">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <div class="recipe__header row">
         <div class="col-sm-8">
             <h3>{{recipe.name}}</h3>
+            <div> {{recipe.rating.average}} out of 5.00 ({{recipe.rating.quantity}} ratings)</div>
             <a routerLink="/user/{{recipe.author}}"><h4>{{recipe.author}}</h4></a>
             <p>{{recipe.description}}</p>
             <button class="recipe__button">Save to Library</button>
@@ -34,5 +36,25 @@
     <div class="recipe__tags row">
         <h5>Categories</h5>
         <p *ngFor="let tag of recipe.tags"><a routerLink="/search/{{tag}}">{{tag}}</a></p>
+    </div>
+    <hr>
+    <div class="row">
+        <h4>Rate this Recipe</h4>
+        <br>
+        <div class="stars">
+            <form #ratingForm="ngForm" (ngSubmit)="submitRating(ratingForm)">
+                <input class="star star-5" id="star-5" type="radio" name="star" [value]="5" ngModel/>
+                <label class="star star-5" for="star-5"></label>
+                <input class="star star-4" id="star-4" type="radio" name="star" [value]="4" ngModel/>
+                <label class="star star-4" for="star-4"></label>
+                <input class="star star-3" id="star-3" type="radio" name="star" [value]="3" ngModel/>
+                <label class="star star-3" for="star-3"></label>
+                <input class="star star-2" id="star-2" type="radio" name="star" [value]="2" ngModel/>
+                <label class="star star-2" for="star-2"></label>
+                <input class="star star-1" id="star-1" type="radio" name="star" [value]="1" ngModel/>
+                <label class="star star-1" for="star-1"></label>
+                <button type="submit" class="btn btn-sm">Submit Rating</button>
+            </form>
+        </div>
     </div>
 </div>

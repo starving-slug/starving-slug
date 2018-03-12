@@ -23,7 +23,7 @@ export class RecipeFormComponent implements OnInit {
       description: ['', Validators.required],
       photo: [''],
       price: ['0.00'],
-      rating: 0,
+      rating: { average: 0, quantity: 0 },
       ingredients: this._fb.array([this.initIngredients()]),
       directions: this._fb.array([['', Validators.required]]),
       tags: this._fb.array([['', Validators.required]])
@@ -84,23 +84,27 @@ export class RecipeFormComponent implements OnInit {
       console.log(regex.test(body.price));
       if (!regex.test(body.price)) {
         console.log("Invalid price");
+        alert("Invalid price");
         return;
       }
+      body.price = "$" + body.price;
       for (let dir of body.directions) {
           if (dir == "") {
               console.log("Invalid Form");
+              alert("Invalid Form");
               return;
           }
       }
       console.log("Succesfully created recipe");
       this.api.createRecipe(body).subscribe((res) => {
-        this.router.navigate(['/user/KevLoi']);
+        this.router.navigate(['/user/theShaGu']);
       }, (err) => {
         console.log("Error");
         console.error(err.message);
       });
     }else {
       console.log("Invalid form");
+      alert("Invalid Form");
     }
   }
 

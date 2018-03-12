@@ -3,3 +3,4 @@ export * from './recipe.resolver';
 
 export * from './apiService';
 export * from './sessionService';
+export * from './StorageService';

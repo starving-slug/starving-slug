@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router'
 
 import { SessionService, ApiService } from '../../../utils/';
 
@@ -23,15 +24,15 @@ export class SignupComponent implements OnInit {
     description: ''
   }
 
-  constructor(private api: ApiService, private session: SessionService, private fb: FormBuilder) {
+  constructor(private api: ApiService, private session: SessionService, private fb: FormBuilder, private router: Router) {
     this.session.googleUser$.subscribe((user) => {
       if(user) {
         console.log(user);
         this.body = {
           email: user.getEmail(),
+          username: '',
           name: user.getName(),
           image: user.getImageUrl(),
-          username: '',
           description: '',
         }
       }
@@ -40,22 +41,22 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      username: '',
-      description: ''
+      username: ['', Validators.required],
+      description: ['', Validators.required]
     })
   }
 
-  onSignIn(formValues) {
-    // console.log(formValues);
+  onSignIn(formValues, event) {
+    console.log(formValues, event);
 
     this.body = Object.assign(this.body, formValues);
-    this.api.updateProfile(this.body, "the cookie value needs to go here?")
     console.log(this.body);
-    /* From here, send the formvalues {username, description} along with the
-       post the username, the description, the two IDs to the endpoint.
-       redirect back to the saved url
-    */
 
-    console.log(formValues);
+    this.api.updateProfile(this.body).subscribe((res) => {
+      console.log(res);
+      // this.router.navigateByUrl('/profile/' + this.body.username);
+    }, (err) => {
+      console.log(err.message);
+    })
   }
 }

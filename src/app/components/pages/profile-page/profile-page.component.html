@@ -56,13 +56,11 @@
                         <input class="star star-1" id="star-1" type="radio" name="star"/>
                         <label class="star star-1" for="star-1"></label>
                     </form>
-                <h3 style= "font-family: 'Lobster'">Comment:</h3>
+                <h3 style= "font-family: 'Lobster';float: left; padding-left: 10px">Comment:</h3>
                 <div class="profile_comment">
-                    <!--<textarea class = "comment_box"rows="10" cols="80"></textarea>
-                    <button class = "sub_button">Submit</button> -->
-                     <form #commentForm="ngForm" novalidate (ngSubmit)="onSubmit(commentForm)">
-                        <input type="text" class = "comment_box" rows="10" cols="80" ngModel name="comment">
-                        <button class = "sub_button" type="submit">Submit</button> 
+                     <form #commentForm="ngForm" novalidate (ngSubmit)="onSubmit(commentForm)" style= "width:800px; height: 800px">
+                        <input type="text" class = "comment_box" ngModel name="comment">
+                        <button class = "sub_button" type="submit" style = "float:right;">Submit</button> 
                     </form>
                 </div>
         </div>

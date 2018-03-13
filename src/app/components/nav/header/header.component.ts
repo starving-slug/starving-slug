@@ -23,10 +23,10 @@ export class HeaderComponent implements OnInit {
   private myClientId = environment.GClientId;
   private _user = null;
 
-  @Input() set user(user) {
-    console.log(user);
-    this._user = user;
-  };
+  // @Input() set user(user) {
+  //   console.log(user);
+  //   this._user = user;
+  // };
 
   get user() {
     return this._user;
@@ -43,6 +43,10 @@ export class HeaderComponent implements OnInit {
               private session: SessionService,
               private route: ActivatedRoute) {
        console.log(environment)
+       this.session.signedIn$.subscribe((user) => {
+         console.log(user);
+         this._user = user;
+       })
   }
 
   ngOnInit() {
@@ -50,6 +54,10 @@ export class HeaderComponent implements OnInit {
 
   homePage(){
       this.onHome = true;
+  }
+
+  signIn(event: any) {
+    this.session.signIn(event)
   }
 
   signOut() {

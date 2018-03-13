@@ -40,6 +40,12 @@
 
                     <button class="btn" (click)="signOut()">Sign Out</button>
                 </li>
+                <li class="nav-item" *ngIf="!activeSession">
+                  <div class="col-md-12">
+                      <google-signin [clientId]="myClientId" [width]="myWidth" [theme]="myTheme" [scope]="myScope" [longTitle]="'Sign In With Google'" (googleSignInSuccess)="signIn($event)">
+                      </google-signin>
+                  </div>
+                </li>
             </div>
 
         </div>

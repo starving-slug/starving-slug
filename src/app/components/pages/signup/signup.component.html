@@ -4,15 +4,15 @@
 		    <h2>Sign up to learn some recipes</h2>
 		 </div>
 		<div class="card-body">
-			<form [formGroup]="form">
+			<form (ngSubmit)="onSubmit(f)" #f="ngForm">
 		    <h4 class="signup__card-title">Please enter your desired display name and a short bio about yourself.</h4>
 		    <p class="card-text">Display Name</p>
-		    <input type="text" formControlName="username" class="form-control signup__info" placeholder="TopChef75">
+		    <input type="text" class="form-control signup__info" placeholder="TopChef75" ngModel name="username">
 		    <p class="card-text">Description</p>
-		    <textarea formControlName="description" placeholder="Tell us about yourself!"></textarea>
+		    <textarea placeholder="Tell us about yourself!" ngModel name="description"></textarea>
 				<hr>
+				<button type="submit" class="btn btn-primary btn-lg btn-block" style="color: black">Sign Me Up!</button>
 			</form>
-			<button type="submit" class="btn btn-primary btn-lg btn-block" style="color: black" (click)="onSignIn()">Sign Me Up!</button>
 			<br>
 		</div>
 	</div>

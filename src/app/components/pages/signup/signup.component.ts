@@ -50,30 +50,30 @@ export class SignupComponent implements OnInit {
     ngOnInit() {
     }
 
-    onSubmit(form: NgForm){
-        console.log(form.value.username);
-        console.log(form.value.description);
-    }
-
-    // onSignIn() {
-    //     console.log(this.form);
-    //
-    //     let formValues = {
-    //         username: this.form.controls['username'].value,
-    //         description: this.form.controls['description'].value,
-    //     }
-    //
-    //     console.log(formValues, event);
-    //
-    //     this.body = Object.assign(this.body, formValues);
-    //     console.log(this.body);
-    //
-    //     this.api.updateProfile(this.body).subscribe((res) => {
-    //         console.log(res);
-    //         // this.router.navigateByUrl('/profile/' + this.body.username);
-    //     }, (err) => {
-    //         console.log(err.message);
-    //         // })
-    //     },
+    // onSubmit(form: NgForm){
+    //     console.log(form.value.username);
+    //     console.log(form.value.description);
     // }
+
+    onSignIn(form : NgForm) {
+        console.log(form);
+
+        let formValues = {
+            username: form.value.username,
+            description: form.value.description
+        }
+
+        console.log(formValues, event);
+
+        this.body = Object.assign(this.body, formValues);
+        console.log(this.body);
+
+        this.api.updateProfile(this.body).subscribe((res) => {
+            console.log(res);
+            // this.router.navigateByUrl('/profile/' + this.body.username);
+        }, (err) => {
+            console.log(err.message);
+            // })
+        })
+    }
 }

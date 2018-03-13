@@ -10,11 +10,11 @@ export class AppComponent {
   title = 'app';
   user = null;
   constructor(private session: SessionService, private application: ApplicationRef) {
-    this.session.signedIn$.subscribe((user) => {
-      this.user = user;
-      // application.tick();
-      console.log(this.user);
-    })
+    // this.session.signedIn$.subscribe((user) => {
+    //   this.user = user;
+    //   // application.tick();
+    //   console.log(this.user);
+    // })
   }
 
 }

@@ -10,10 +10,6 @@
                     <div routerLink="/about" style="margin-bottom: 10px;" class="col-md-12">
                         <button class="btn btn-default btn-lg">Get started</button>
                     </div>
-                    <div class="col-md-12">
-                        <google-signin [clientId]="myClientId" [width]="myWidth" [theme]="myTheme" [scope]="myScope" [longTitle]="'Sign In With Google'" (googleSignInSuccess)="signIn($event)">
-                        </google-signin>
-                    </div>
                 </div>
             </div>
         </div>

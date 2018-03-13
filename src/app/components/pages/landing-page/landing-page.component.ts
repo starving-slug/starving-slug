@@ -18,8 +18,4 @@ export class LandingPageComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  signIn(event: any) {
-    this.session.signIn(event)
-  }
 }

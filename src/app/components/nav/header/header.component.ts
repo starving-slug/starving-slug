@@ -33,7 +33,6 @@ export class HeaderComponent implements OnInit {
   };
 
   get activeSession() {
-    console.log(this._user !== null);
     return this._user !== null;
   }
 
@@ -53,43 +52,10 @@ export class HeaderComponent implements OnInit {
       this.onHome = true;
   }
 
-  // signIn(event: GoogleSignInSuccess) {
-  //   let googleUser: gapi.auth2.GoogleUser = event.googleUser;
-  //   let id: string = googleUser.getId();
-  //   let id_token = googleUser.getAuthResponse().id_token;
-  //
-  //   let profile: gapi.auth2.BasicProfile = googleUser.getBasicProfile();
-  //   console.log(profile);
-  //   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  //   console.log('Name: ' + profile.getName());
-  //   this.api.signIn(profile.getName(), id_token);
-  // }
-
-  // signIn(event: any) {
-  //   this.session.signIn(event)
-  // }
-
   signOut() {
     console.log('Sign out');
     this.session.signOut();
   }
-
-  // onGoogleSignInSuccess(event: GoogleSignInSuccess) {
-  //   let googleUser: gapi.auth2.GoogleUser = event.googleUser;
-  //   let id: string = googleUser.getId();
-  //   let profile: gapi.auth2.BasicProfile = googleUser.getBasicProfile();
-  //   console.log('ID: ' +
-  //     profile
-  //       .getId()); // Do not send to your backend! Use an ID token instead.
-  //   console.log('Name: ' + profile.getName());
-  // }
-  //
-  // signOut() {
-  //   let auth2 = gapi.auth2.getAuthInstance();
-  //   auth2.signOut().then(() => {
-  //     console.log('Signed out');
-  //   })
-  // }
 
   onSubmit(form: NgForm) {
       console.log('onSubmit() called');

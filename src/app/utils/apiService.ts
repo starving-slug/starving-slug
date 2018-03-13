@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { StorageService } from './storageService';
 
 let apiurl = 'http://localhost:3000'
 
 @Injectable()
 export class ApiService {
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private storage: StorageService) {
 
   }
 
@@ -14,15 +16,17 @@ export class ApiService {
     console.log(profile, id_token);
     let body = {
       id_token: id_token,
-      username: profile.getName(),
+      email: profile.getEmail(),
       // image: profile.given_name
     }
     return this.http.post(`${apiurl}/users`, body);
   }
 
-  updateProfile(profile: Object, permissions: string) {
+  updateProfile(profile: Object) {
+    let permissions = this.storage.getTokenString();
     console.log(profile, permissions);
-    return this.http.post(`${apiurl}/profile`, profile, {headers: {authorization: `Bearer ${permissions}`}});
+    let headers = {token: permissions}
+    return this.http.post(`${apiurl}/setProfile`, profile, {headers: headers});
   }
 
   getUser(username: string): Observable<any> {
@@ -35,9 +39,10 @@ export class ApiService {
     return this.http.get(`${apiurl}/recipe/${id}`);
   }
 
-  createRecipe(res: Object[]): Observable<any> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post(`${apiurl}/recipe`, res, { headers: headers, responseType: 'text' });
+  createRecipe(recipe: Object[]): Observable<any> {
+      let permissions = this.storage.getTokenString()
+      const headers = {token: permissions};
+      return this.http.post(`${apiurl}/recipe`, recipe, { headers: headers });
   }
 
   getSearch(name: string): Observable<any> {
@@ -52,7 +57,20 @@ export class ApiService {
 
   deleteRecipe(id: string): Observable<any> {
     console.log(id);
-    return this.http.delete(`${apiurl}/recipe/delete/${id}`);
+    let permissions = this.storage.getTokenString()
+    const headers = {token: permissions};
+    return this.http.delete(`${apiurl}/recipe/delete/${id}`, {headers: headers});
   }
 
+  createRating(res: Object, id: string): Observable<any> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.patch(`${apiurl}/rating/${id}`, res, { headers: headers, responseType: 'text' });
+  }
+
+  createComment(comment: Object[]): Observable<any> {
+    let permissions = this.storage.getTokenString()
+    const headers = {token: permissions};
+    console.log(comment);
+    return this.http.patch(`${apiurl}/profile-comment/${comment[0]['author']}`, comment, {headers: headers});
+  }
 }

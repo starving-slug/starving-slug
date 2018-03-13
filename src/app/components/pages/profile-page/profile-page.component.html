@@ -50,6 +50,61 @@
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
                 </div>
             </div>
+=======
+                    <div class="profile_name desc" >{{user.description}}</div>
+                </div>
+            </div>
+
+            <div class="card show_comment">
+                <a routerLink="/recipe/create">Add a new recipe</a>
+                <div class="recipe_text" *ngFor="let r of user['recipes']; let i=index">
+                
+                  <a routerLink="/recipe/{{r._id}}">
+                    <h2 class = "profile_name">{{r.name}}</h2>
+                  </a>
+                  <!-- Delete should only appear if signed-in and on your own profile -->
+                  <h4 class = "profile_desc">{{r.description}}</h4>
+                  <button (click)="deleteRecipe(r.name, r._id)" id="{{i}}" type="button" class="btn btn-sm btn-danger delete_rec_btn">Delete</button>
+                </div>
+
+            </div>
+            <div class="card hovercard_bottom">
+                <h3 style= "font-family: 'Lobster'">Comments</h3>
+                <tr>
+                        <th class = "comment_style_title"></th>
+                        <th class = "comment_style_title"></th> 
+                </tr>
+                <div class = "comment_text"  *ngFor="let c of user['comments']">
+                    <tr>
+                        <th class = "comment_style_author" >{{c.author}}</th>
+                        <th class = "comment_style_post">{{c.post}}</th><br>
+                        <th class = "comment_style_comment">{{c.comment}}</th>
+                    </tr>
+                </div>
+            </div>
+            <div class="card rating_box">
+                <div class="stars">
+                    <form action="">
+                        <input class="star star-5" id="star-5" type="radio" name="star"/>
+                        <label class="star star-5" for="star-5"></label>
+                        <input class="star star-4" id="star-4" type="radio" name="star"/>
+                        <label class="star star-4" for="star-4"></label>
+                        <input class="star star-3" id="star-3" type="radio" name="star"/>
+                        <label class="star star-3" for="star-3"></label>
+                        <input class="star star-2" id="star-2" type="radio" name="star"/>
+                        <label class="star star-2" for="star-2"></label>
+                        <input class="star star-1" id="star-1" type="radio" name="star"/>
+                        <label class="star star-1" for="star-1"></label>
+                    </form>
+                <h3 style= "font-family: 'Lobster';float: left; padding-left: 10px">Comment:</h3>
+                <div class="profile_comment">
+                     <form #commentForm="ngForm" novalidate (ngSubmit)="onSubmit(commentForm)" style= "width:800px; height: 800px">
+                        <textarea ngModel name="comment" class = "comment_box"></textarea>
+                        <button class = "sub_button" type="submit" style = "float:right;">Submit</button> 
+                    </form>
+                </div>
+>>>>>>> 2e2a00c9eb32d5a42ecb4d6c80eeb4b9b56c1db8
         </div>

@@ -25,9 +25,11 @@ export class SessionService {
   signIn(event: GoogleSignInSuccess) {
     console.log('Signing In');
     let googleUser: gapi.auth2.GoogleUser = event.googleUser;
+
     let id: string = googleUser.getId();
     let profile: gapi.auth2.BasicProfile = googleUser.getBasicProfile();
     let id_token = googleUser.getAuthResponse().id_token;
+    let username = profile.getEmail();
 
     this.api.signIn(profile, id_token).subscribe((res) => {
       let jwt = res['token'];
@@ -35,15 +37,15 @@ export class SessionService {
 
       if (jwt) {
         this.storage.saveToken(jwt);
-        if (res['newLogin']) {
-          console.log(this.route.snapshot);
-          let prevRoute = this.route.snapshot;
-          console.log('This is a first-time login!');
-          this.router.navigate(['./signup']);
-
-          // save the current url
-          // redirect to the signup page, pass the old url as a query or something
-        }
+        // if (res['newLogin']) {
+        //   console.log(this.route.snapshot);
+        //   let prevRoute = this.route.snapshot;
+        //   console.log('This is a first-time login!');
+        //   this.router.navigate(['./signup']);
+        //
+        //   // save the current url
+        //   // redirect to the signup page, pass the old url as a query or something
+        // }
         // save the returned JWT to localstorage
         let session = {
           username: profile.getName(),
@@ -54,11 +56,11 @@ export class SessionService {
           this.signedIn$.next(session);
         });
       }
-
-
     }, (error) => {
       console.log(error.message);
     });
+
+      this.router.navigate([ `/user/${username}`])
 
     // console.log('ID: ' +
     //   profile

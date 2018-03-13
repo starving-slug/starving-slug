@@ -16,7 +16,7 @@ export class ApiService {
     console.log(profile, id_token);
     let body = {
       id_token: id_token,
-      username: profile.getName(),
+      email: profile.getEmail(),
       // image: profile.given_name
     }
     return this.http.post(`${apiurl}/users`, body);

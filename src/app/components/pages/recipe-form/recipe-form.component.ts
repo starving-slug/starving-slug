@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm  } from '@angular/forms';
 import { FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
-import { ApiService } from '../../../utils/apiService';
+import { ApiService, SessionService } from '../../../utils';
 import { Router } from '@angular/router';
 
 import { Recipe } from '../../../models';
@@ -13,8 +13,9 @@ import { Recipe } from '../../../models';
 })
 export class RecipeFormComponent implements OnInit {
   public recipeForm: FormGroup;
+  private _username: string;
 
-  constructor(private api: ApiService, private _fb: FormBuilder, private router: Router) { }
+  constructor(private api: ApiService, private _fb: FormBuilder, private router: Router, private session: SessionService) { }
 
   ngOnInit() {
     this.recipeForm = this._fb.group({
@@ -28,6 +29,14 @@ export class RecipeFormComponent implements OnInit {
       directions: this._fb.array([['', Validators.required]]),
       tags: this._fb.array([['', Validators.required]])
     });
+
+    this.session.signedIn$.subscribe((user) => {
+      if (user) {
+        this._username = user.username;
+      } else {
+        this._username = '';
+      }
+    })
   }
 
   initIngredients() {
@@ -97,7 +106,7 @@ export class RecipeFormComponent implements OnInit {
       }
       console.log("Succesfully created recipe");
       this.api.createRecipe(body).subscribe((res) => {
-        this.router.navigate(['/user/theShaGu']);
+        this.router.navigate(['/user', this._username]);
       }, (err) => {
         console.log("Error");
         console.error(err.message);

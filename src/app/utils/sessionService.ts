@@ -39,7 +39,7 @@ export class SessionService {
           console.log(this.route.snapshot);
           let prevRoute = this.route.snapshot;
           console.log('This is a first-time login!');
-          this.ngZone.run(() => {this.router.navigate(['./signup']);};
+          this.ngZone.run(() => {this.router.navigate(['./signup']);});
 
           // save the current url
           // redirect to the signup page, pass the old url as a query or something

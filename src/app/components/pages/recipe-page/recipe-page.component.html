@@ -1,38 +1,44 @@
-<div class="recipe__container">
-    <div class="recipe__header row">
-        <div class="col-sm-8">
-            <h3>{{recipe.name}}</h3>
-            <a routerLink="/user/{{recipe.author}}"><h4>{{recipe.author}}</h4></a>
-            <p>{{recipe.description}}</p>
-            <button class="recipe__button">Save to Library</button>
-        </div>
+<div class="container col-md-6 offset-md-3" id="signup__main">
+    <div class="card">
+        <div class="card-body">
+            <div class="recipe__container">
+                <div class="recipe__header row">
+                    <div class="col-sm-8">
+                        <h3>{{recipe.name}}</h3>
+                        <a routerLink="/user/{{recipe.author}}"><h4>{{recipe.author}}</h4></a>
+                        <p>{{recipe.description}}</p>
+                        <button class="recipe__button">Save to Library</button>
+                    </div>
 
-        <div class="col-sm-4">
-            <img [src]="recipe.photo" class="recipe__picture">
-        </div>
-    </div>
-    <div class="row">
-        <div class="recipe__ingredients col-sm-3">
-            <h4>Ingredients</h4>
-            <div class="row" *ngFor="let ingredient of recipe.ingredients">
-                <div class="recipe__ingredients-amount">
-                    <p>{{ingredient.amount}}</p>
+                    <div class="col-sm-4">
+                        <img [src]="recipe.photo" class="recipe__picture">
+                    </div>
                 </div>
-                <div>
-                    <p>{{ingredient.text}}</p>
+                <div class="row">
+                    <div class="recipe__ingredients col-sm-3">
+                        <h4>Ingredients</h4>
+                        <div class="row" *ngFor="let ingredient of recipe.ingredients">
+                            <div class="recipe__ingredients-amount">
+                                <p>{{ingredient.amount}}</p>
+                            </div>
+                            <div>
+                                <p>{{ingredient.text}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recipe__directions col-sm-8">
+                        <h4>Directions</h4>
+                        <div class="recipe__steps" *ngFor="let direction of recipe.directions; let i = index" [attr.data-index]="i">
+                            <h5>Step {{i + 1}}</h5>
+                            <p>{{direction}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="recipe__tags row">
+                    <h5>Categories</h5>
+                    <p *ngFor="let tag of recipe.tags"><a routerLink="/search/{{tag}}">{{tag}}</a></p>
                 </div>
             </div>
         </div>
-        <div class="recipe__directions col-sm-8">
-            <h4>Directions</h4>
-            <div class="recipe__steps" *ngFor="let direction of recipe.directions; let i = index" [attr.data-index]="i">
-                <h5>Step {{i + 1}}</h5>
-                <p>{{direction}}</p>
-            </div>
-        </div>
-    </div>
-    <div class="recipe__tags row">
-        <h5>Categories</h5>
-        <p *ngFor="let tag of recipe.tags"><a routerLink="/search/{{tag}}">{{tag}}</a></p>
     </div>
 </div>

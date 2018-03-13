@@ -20,7 +20,7 @@ export class RecipeCardComponent implements OnInit {
       this._recipe = r;
     }
   }
-  
+
   get recipe() {
     return this._recipe;
   }
@@ -39,5 +39,6 @@ export class RecipeCardComponent implements OnInit {
   }
 
   ngOnInit() {
+      console.log(this.recipe);
   }
 }

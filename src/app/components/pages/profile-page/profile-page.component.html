@@ -22,6 +22,7 @@
                   <a routerLink="/recipe/{{r._id}}">
                     <h2 class = "profile_name">{{r.name}}</h2>
                   </a>
+                  <button (click)="editRecipe(r._id)" type="button" class="btn btn-sm">Edit Recipe</button>
                   <!-- Delete should only appear if signed-in and on your own profile -->
                   <button (click)="deleteRecipe(r.name, r._id)" id="{{i}}" type="button" class="btn btn-sm btn-danger">Delete Recipe</button>
                   <br>

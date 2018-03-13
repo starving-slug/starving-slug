@@ -1,7 +1,8 @@
 <div class="container col-md-6 offset-md-3" id="signup__main">
     <div class="card">
         <div class="signup__card-header">
-            <h2>Add a new recipe</h2>
+            <h2 *ngIf="!recipe">Add a new recipe</h2>
+            <h2 *ngIf="recipe">Edit recipe "{{recipe.name}}"</h2>
         </div>
         <div class="card-body">
             <hr>
@@ -80,8 +81,9 @@
                 <button (click)="addTag()" type="button" class="recipe-form__button">Add another tag</button>
                 <br>
 
-                <button type="submit" class="recipe-form__button btn-lg" style="background:#1177EB">Add Recipe</button>
-                <button type="button" routerLink="/user/KevLoi" class="recipe-form__button btn-lg" style="background:#AAA">Cancel</button>
+                <button *ngIf="!recipe" type="submit" class="recipe-form__button btn-lg" style="background:#1177EB">Add Recipe</button>
+                <button *ngIf="recipe" type="submit" class="recipe-form__button btn-lg" style="background:#1177EB">Update Recipe</button>
+                <button type="button" routerLink="/user/theShaGu" class="recipe-form__button btn-lg" style="background:#AAA">Cancel</button>
             </form>
             <hr>
 

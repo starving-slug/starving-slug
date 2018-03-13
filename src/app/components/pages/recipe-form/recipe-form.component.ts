@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm  } from '@angular/forms';
 import { FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from '../../../utils/apiService';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Recipe } from '../../../models';
 
@@ -13,8 +13,16 @@ import { Recipe } from '../../../models';
 })
 export class RecipeFormComponent implements OnInit {
   public recipeForm: FormGroup;
+  recipe: Recipe;
 
-  constructor(private api: ApiService, private _fb: FormBuilder, private router: Router) { }
+  constructor(private api: ApiService, private _fb: FormBuilder, private router: Router, private route: ActivatedRoute) {
+    this.recipe = new Recipe();
+    
+    let routeData = route.data.subscribe((data) => {
+        this.recipe = data['recipe'];
+    });
+    console.log(this.recipe);
+  }
 
   ngOnInit() {
     this.recipeForm = this._fb.group({
@@ -28,6 +36,30 @@ export class RecipeFormComponent implements OnInit {
       directions: this._fb.array([['', Validators.required]]),
       tags: this._fb.array([['', Validators.required]])
     });
+    if (this.recipe) {
+      let body = this.recipe;
+      for (let i = 1; i < this.recipe.ingredients.length; i++) this.addIngredient();
+      for (let i = 1; i < this.recipe.directions.length; i++) this.addStep();
+      for (let i = 1; i < this.recipe.tags.length; i++) this.addTag();
+      const ingredients = this.recipe.ingredients.map(ingredient => this._fb.group({ amount: ingredient['amount'], text: ingredient['text']}));
+      const ingredientsFormArray = this._fb.array(ingredients);
+      this.recipeForm.setControl('ingredients', ingredientsFormArray);
+      const dir = this.recipe.directions.map(dir => this._fb.control(dir));
+      const directionsFormArray = this._fb.array(dir);
+      this.recipeForm.setControl('directions', directionsFormArray);
+      const tags = this.recipe.tags.map(tag => this._fb.control(tag));
+      const tagsFormArray = this._fb.array(tags);
+      this.recipeForm.setControl('tags', tagsFormArray);
+
+      this.recipeForm.patchValue({
+        name: [body.name],
+        author: [body.author],
+        description: [body.description],
+        photo: [body.photo],
+        price: [body.price.substring(1)],
+        rating: { average: body.rating['average'], quantity: body.rating['quantity'] }
+      });
+    }
   }
 
   initIngredients() {
@@ -70,24 +102,14 @@ export class RecipeFormComponent implements OnInit {
   onSubmit(recipeForm: NgForm) {
     if (recipeForm.valid) {
       let body = recipeForm.value;
-      /*let recipe = new Recipe({
-        name: body.name,
-        author: "theShaGu",
-        description: body.description,
-        photo: body.photo,
-        directions: body.directions,
-        ingredients: body.ingredients,
-        tags: body.tags
-      });*/
       console.log(body);
-      var regex  = /^\d+(?:\.\d{0,2})$/;
+      var regex  = /^\d+((\.\d{0,2})?)$/;
       console.log(regex.test(body.price));
       if (!regex.test(body.price)) {
         console.log("Invalid price");
         alert("Invalid price");
         return;
       }
-      body.price = "$" + body.price;
       for (let dir of body.directions) {
           if (dir == "") {
               console.log("Invalid Form");
@@ -95,13 +117,24 @@ export class RecipeFormComponent implements OnInit {
               return;
           }
       }
-      console.log("Succesfully created recipe");
-      this.api.createRecipe(body).subscribe((res) => {
-        this.router.navigate(['/user/theShaGu']);
-      }, (err) => {
-        console.log("Error");
-        console.error(err.message);
-      });
+      body.price = "$" + body.price;
+      if (!this.recipe) {
+        this.api.createRecipe(body).subscribe((res) => {
+          console.log("Succesfully created recipe");
+          this.router.navigate([`/user/${body['author']}`]);
+        }, (err) => {
+          console.log("Error");
+          console.error(err.message);
+        });
+      }else {
+        this.api.updateRecipe(this.route.snapshot.url[2].path, body).subscribe((res) => {
+          console.log("Succesfully updated recipe");
+          this.router.navigate([`/user/${this.recipe['author']}`]);
+        }, (err) => {
+          console.log("Error");
+          console.error(err.message);
+        });
+      }
     }else {
       console.log("Invalid form");
       alert("Invalid Form");

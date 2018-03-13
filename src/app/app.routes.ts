@@ -35,6 +35,13 @@ export const routes: Routes = [
 				component: RecipeFormComponent
 			},
 			{
+				path: 'recipe/edit/:id',
+				component: RecipeFormComponent,
+				resolve: {
+					recipe: RecipeResolver
+				}
+			},
+			{
 				path: 'recipe/:id',
 				component: RecipePageComponent,
 				resolve: {

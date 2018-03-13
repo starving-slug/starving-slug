@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../../utils/apiService';
 
 import { User } from '../../../models';
@@ -13,13 +13,17 @@ import { Recipe } from '../../../models'
 export class ProfilePageComponent implements OnInit {
   user: User;
 
-  constructor(private route: ActivatedRoute, private api: ApiService) { // this is all currently filler junk
+  constructor(private route: ActivatedRoute, private api: ApiService, private router: Router) {
     console.log(route.snapshot.data)
     this.user = route.snapshot.data['user'];
     console.log(this.user);
   }
 
   ngOnInit() {
+  }
+
+  editRecipe(id: string) {
+    this.router.navigate([`/recipe/edit/${id}`]);
   }
 
   deleteRecipe(name: string, id: string) {

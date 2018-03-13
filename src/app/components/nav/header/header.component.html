@@ -35,10 +35,9 @@
 
             <div style="float: right;">
                 <li class="nav-item" *ngIf="activeSession">
-                    <span>{{user.username}}</span>
-                    <a routerLink="/user/{{user.username}}">
-                      <img id="profileImage" src="{{user.image}}" width="40px" length="40px">
-                    </a>
+                    <!-- <span>{{user.username}}</span> -->
+                    <img routerLink="/user/{{user.username}}" id="profileImage" src="{{user.image}}" width="40px" length="40px">
+
                     <button class="btn" (click)="signOut()">Sign Out</button>
                 </li>
             </div>

@@ -5,8 +5,9 @@ import { SessionService } from '../../../utils';
 import { environment } from '../../../../environments/environment';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../../utils/apiService';
-import { SearchPageComponent } from '../../pages/search-page/search-page.component'
-import { Recipe } from '../../../models/recipe.model'
+import { SearchPageComponent } from '../../pages/search-page/search-page.component';
+import { Recipe } from '../../../models/recipe.model';
+import { User } from '../../../models/user.model';
 
 @Component({
   selector: 'app-header',
@@ -57,6 +58,8 @@ export class HeaderComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+      console.log('onSubmit() called');
+      console.log(this.user.username);
       this.onHome = false;
       this.search = JSON.stringify(form.value);
       let searchField = JSON.parse(this.search);

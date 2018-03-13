@@ -4,6 +4,7 @@ import { GoogleSignInSuccess } from 'angular-google-signin';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { ApiService } from './apiService';
+import { StorageService } from './storageService';
 
 @Injectable()
 export class SessionService {
@@ -12,7 +13,11 @@ export class SessionService {
   signedIn$: BehaviorSubject<any>;
   googleUser$: BehaviorSubject<any>;
 
-  constructor(private api: ApiService, private ngZone: NgZone, private router: Router, private route: ActivatedRoute) {
+  constructor(private api: ApiService,
+    private ngZone: NgZone,
+    private router: Router,
+    private route: ActivatedRoute,
+    private storage: StorageService) {
     this.signedIn$ = new BehaviorSubject(null);
     this.googleUser$ = new BehaviorSubject(null);
   }
@@ -25,24 +30,32 @@ export class SessionService {
     let id_token = googleUser.getAuthResponse().id_token;
 
     this.api.signIn(profile, id_token).subscribe((res) => {
-      console.log(res);
-      if (res['newLogin']) {
-        console.log(this.route.snapshot);
-        let prevRoute = this.route.snapshot;
-        console.log('This is a first-time login!');
-        this.router.navigate(['./signup']);
+      let jwt = res['token'];
+      console.log(jwt);
 
-        // save the current url
-        // redirect to the signup page, pass the old url as a query or something
+      if (jwt) {
+        this.storage.saveToken(jwt);
+        if (res['newLogin']) {
+          console.log(this.route.snapshot);
+          let prevRoute = this.route.snapshot;
+          console.log('This is a first-time login!');
+          this.ngZone.run(() => {this.router.navigate(['./signup']);});
+
+          // save the current url
+          // redirect to the signup page, pass the old url as a query or something
+        }
+        // save the returned JWT to localstorage
+        let session = {
+          username: profile.getName(),
+          image: profile.getImageUrl(),
+        }
+        this.ngZone.run(() => {
+          this.googleUser$.next(profile);
+          this.signedIn$.next(session);
+        });
       }
-      let session = {
-        username: profile.getName(),
-        image: profile.getImageUrl(),
-      }
-      this.ngZone.run(() => {
-        this.googleUser$.next(profile);
-        this.signedIn$.next(session);
-      });
+
+
     }, (error) => {
       console.log(error.message);
     });

@@ -8,7 +8,7 @@ export interface RecipeItem {
   tags: string[],
   directions: string[],
   recipe_id: string,
-  rating: number,
+  rating: Object,
   price: string
 }
 
@@ -19,7 +19,7 @@ export class Recipe implements RecipeItem {
   public photo: string;
   public recipe_id: string;
   public price: string;
-  public rating: number;
+  public rating: Object;
 
   public ingredients: Object[];
   public directions: string[];
@@ -42,10 +42,10 @@ export class Recipe implements RecipeItem {
 
   getRating(): string {
     let stars = "";
-    for(let i = 0; i < this.rating; i++) {
+    for(let i = 0; i < Math.round(this.rating['average']); i++) {
       console.log(stars)
       stars += "*";
-      if (i+1 !== this.rating)
+      if (i+1 !== Math.round(this.rating['average']))
         stars += " ";
     }
     return stars;

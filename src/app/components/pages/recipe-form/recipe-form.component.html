@@ -81,13 +81,14 @@
                 <br>
 
                 <button type="submit" class="recipe-form__button btn-lg" style="background:#1177EB">Add Recipe</button>
-                <button type="button" routerLink="/user/KevLoi" class="recipe-form__button btn-lg" style="background:#AAA">Cancel</button>
+                <button type="button" routerLink="/user/{{_username}}" class="recipe-form__button btn-lg" style="background:#AAA">Cancel</button>
             </form>
             <hr>
+
+            <!-- Uncomment to see current form values -->
             <!--<pre>{{recipeForm.valid | json}}</pre>
             <pre>{{recipeForm.value | json}}</pre>-->
 
         </div>
     </div>
 </div>
-

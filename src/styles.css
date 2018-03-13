@@ -52,7 +52,10 @@ html, body {
 .btn-default {
     border: none;
 }
-
+.delete_rec_btn{
+    float:right;
+    top:5px;
+}
 .btn-default:hover {
     color: white;
     background-color: rgba(0,0,0,.35);
@@ -162,7 +165,7 @@ hr {
     text-align: center;
     background-color: #FFFFFF;
     width: 100%;
-    height: 25%;
+    height: 18%;
     border-style: groove;
     border-color:  none;
 }
@@ -175,10 +178,10 @@ hr {
     text-align: center;
     background-color:  #ffbb99;
     width: 100%;
-    height: 40%;
+    height: 20%;
     border-style: groove;
     border-color: none;
-    overflow: scroll;
+    overflow: auto;
 
 }
 .show_comment{
@@ -190,11 +193,25 @@ hr {
     text-align: center;
     background-color:  #ffbb99;
     width: 100%;
-    height: 70%;
+    height: 28%;
     border-style: groove;
     border-color: none;
+    overflow: auto;
 }
 
+::-webkit-scrollbar{
+    width: 12px;
+}
+::-webkit-scrollbar-track {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb
+{
+    background-color:#ffa64d;
+    border-radius:10%;
+;
+}
 .rating_box {
     position: center;
     padding-top: 50px;
@@ -210,7 +227,7 @@ hr {
 .card.hovercard .cardheader {
     background:url("https://foodimentaryguy.files.wordpress.com/2011/06/background-pattern.gif");
     background-size: cover;
-    height: 200px;
+    height: 60%;
 }
 
 .card.hovercard .avatar img {
@@ -408,8 +425,8 @@ hr {
 }
 
 .card.hovercard .avatar img {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     max-width: 200px;
     max-height: 200px;
     -webkit-border-radius: 50%;
@@ -421,6 +438,8 @@ hr {
 .card.hovercard .info {
     padding: 4px 8px 10px;
 }
+
+
 
 .card.hovercard .info .title {
     margin-bottom: 4px;
@@ -445,6 +464,16 @@ hr {
    border: 1px solid #111111;
    box-shadow: rgba(0, 0, 0, 0.5) 0 5px 25px;
 }
+.comment_text{
+   text-align: left;
+   font-size: 20px;
+   margin-left: 20px;
+   margin-right: 20px;
+   margin-top:20px;
+   padding: 1rem;
+   border: 1px solid #111111;
+   box-shadow: rgba(0, 0, 0, 0.5) 0 5px 25px;
+}
 .comment_box{
      background-color: #ff9966; 
      border-style: inset; 
@@ -456,9 +485,29 @@ hr {
      text-align: left;
      line-height: normal;
 }
-.comment_style{
+textarea.comment_box{
+    font-size: 25px;
+}
+
+.comment_style_author{
     font-family: Arial, cursive, sans-serif;
-    font-size: 15px;
+    font-size: 20px;
+    font-weight: 900;
+    float:left;
+    padding:20px;
+
+}
+.comment_style_post{
+    font-family: Arial, cursive, sans-serif;
+    font-size: 20px;
+    float:left;
+    font-weight: 500;
+    padding:20px;
+
+}
+.comment_style_comment{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 20px;
     float:left;
     padding:20px;
 
@@ -474,7 +523,10 @@ hr {
 }
 .profile_name{
    font-family:lobster, sans-serif;
+   font-size: 45px;
 }
+.flexbox .stretch { flex: 1; }
+
 /* end Profile CSS */
 
 

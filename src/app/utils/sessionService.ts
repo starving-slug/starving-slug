@@ -36,23 +36,23 @@ export class SessionService {
       if (jwt) {
         this.storage.saveToken(jwt);
         if (res['newLogin']) {
-          console.log(this.route.snapshot);
-          let prevRoute = this.route.snapshot;
           console.log('This is a first-time login!');
+          this.ngZone.run(() => {
+            this.googleUser$.next(profile);
+          });
           this.ngZone.run(() => {this.router.navigate(['./signup']);});
+        } else if (res['username']) {
+          let session = {
+            username: res['username'],
+            image: profile.getImageUrl(),
+          }
+          this.ngZone.run(() => {
+            console.log('Emitting user');
+            this.googleUser$.next(profile);
+            this.signedIn$.next(session);
+          });
+        }
 
-          // save the current url
-          // redirect to the signup page, pass the old url as a query or something
-        }
-        // save the returned JWT to localstorage
-        let session = {
-          username: profile.getName(),
-          image: profile.getImageUrl(),
-        }
-        this.ngZone.run(() => {
-          this.googleUser$.next(profile);
-          this.signedIn$.next(session);
-        });
       }
 
 

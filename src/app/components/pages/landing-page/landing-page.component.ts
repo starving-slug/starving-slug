@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { GoogleSignInSuccess } from 'angular-google-signin';
+import { ApiService } from '../../../utils/apiService';
+import { SessionService } from '../../../utils';
+import { ActivatedRoute, Router } from '@angular/router'
+
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-landing-page',
@@ -7,9 +13,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingPageComponent implements OnInit {
 
-  constructor() { }
+  private myClientId = environment.GClientId;
+  constructor(private session: SessionService) { }
 
   ngOnInit() {
   }
 
+  signIn(event: any) {
+    this.session.signIn(event)
+  }
 }

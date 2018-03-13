@@ -1,8 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, NgForm } from '@angular/forms';
 import { GoogleSignInSuccess } from 'angular-google-signin';
-// import { environment } from '../../../../environments/environment';
-
 import { SessionService } from '../../../utils';
 import { environment } from '../../../../environments/environment';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -18,6 +16,7 @@ import { Recipe } from '../../../models/recipe.model'
 
 export class HeaderComponent implements OnInit {
   testlogin: boolean = false;
+  onHome: boolean = true;
   private sub: any;
 
   private myClientId = environment.GClientId;
@@ -33,7 +32,6 @@ export class HeaderComponent implements OnInit {
   };
 
   get activeSession() {
-    console.log(this._user !== null);
     return this._user !== null;
   }
 
@@ -49,6 +47,10 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  homePage(){
+      this.onHome = true;
+  }
+
   // signIn(event: GoogleSignInSuccess) {
   //   let googleUser: gapi.auth2.GoogleUser = event.googleUser;
   //   let id: string = googleUser.getId();
@@ -61,9 +63,9 @@ export class HeaderComponent implements OnInit {
   //   this.api.signIn(profile.getName(), id_token);
   // }
 
-  signIn(event: any) {
-    this.session.signIn(event)
-  }
+  // signIn(event: any) {
+  //   this.session.signIn(event)
+  // }
 
   signOut() {
     console.log('Sign out');
@@ -88,6 +90,7 @@ export class HeaderComponent implements OnInit {
   // }
 
   onSubmit(form: NgForm) {
+      this.onHome = false;
       this.search = JSON.stringify(form.value);
       let searchField = JSON.parse(this.search);
       this.router.navigate(['/search'], {queryParams: {name: searchField.name}});

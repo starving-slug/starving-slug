@@ -64,6 +64,7 @@ export class SignupComponent implements OnInit {
 
     this.api.updateProfile(this.body).subscribe((res) => {
       console.log(res);
+      this.session.setSignedIn(this.body);
       this.router.navigateByUrl('/user/' + this.body.username);
     }, (err) => {
       console.log(err.message);

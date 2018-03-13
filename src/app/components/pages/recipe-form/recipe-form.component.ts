@@ -18,9 +18,19 @@ export class RecipeFormComponent implements OnInit {
   constructor(private api: ApiService, private _fb: FormBuilder, private router: Router, private session: SessionService) { }
 
   ngOnInit() {
+
+    this.session.signedIn$.subscribe((user) => {
+      console.log(user);
+      if (user) {
+        this._username = user.username;
+      } else {
+        this._username = '';
+      }
+    })
+
     this.recipeForm = this._fb.group({
       name: ['', Validators.required],
-      author: ['theShaGu'],
+      author: [this._username],
       description: ['', Validators.required],
       photo: [''],
       price: ['0.00'],
@@ -29,14 +39,6 @@ export class RecipeFormComponent implements OnInit {
       directions: this._fb.array([['', Validators.required]]),
       tags: this._fb.array([['', Validators.required]])
     });
-
-    this.session.signedIn$.subscribe((user) => {
-      if (user) {
-        this._username = user.username;
-      } else {
-        this._username = '';
-      }
-    })
   }
 
   initIngredients() {
@@ -106,6 +108,7 @@ export class RecipeFormComponent implements OnInit {
       }
       console.log("Succesfully created recipe");
       this.api.createRecipe(body).subscribe((res) => {
+        console.log(this._username);
         this.router.navigate(['/user', this._username]);
       }, (err) => {
         console.log("Error");

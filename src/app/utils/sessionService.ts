@@ -77,4 +77,12 @@ export class SessionService {
       });
     })
   }
+
+  setSignedIn(profile) {
+    if(profile) {
+      this.ngZone.run(() => {
+        this.signedIn$.next(profile)
+      })
+    }
+  }
 }

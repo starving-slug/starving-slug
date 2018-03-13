@@ -208,7 +208,7 @@ hr {
 }
 ::-webkit-scrollbar-thumb
 {
-    background-color:#ffa64d;
+    background-color:#ff9966;
     border-radius:10%;
 ;
 }
@@ -219,9 +219,10 @@ hr {
     text-align: center;
     background-color:#ffbb99;
     width: 100%;
-    height: 550px;
+    height: 500px;
     border-style: groove;
     border-color:  none;
+
 }
 
 .card.hovercard .cardheader {
@@ -484,6 +485,7 @@ hr {
      box-sizing: border-box; 
      text-align: left;
      line-height: normal;
+     overflow: auto;
 }
 textarea.comment_box{
     font-size: 25px;

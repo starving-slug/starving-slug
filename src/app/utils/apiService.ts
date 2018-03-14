@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { StorageService } from './storageService';
 
-let apiurl = 'http://localhost:3000'
+let apiurl = 'https://starving-slug.appspot.com';
 
 @Injectable()
 export class ApiService {

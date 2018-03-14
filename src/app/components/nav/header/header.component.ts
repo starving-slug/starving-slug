@@ -71,6 +71,7 @@ export class HeaderComponent implements OnInit {
       this.onHome = false;
       this.search = JSON.stringify(form.value);
       let searchField = JSON.parse(this.search);
+      console.log(searchField.name);
       this.router.navigate(['/search'], {queryParams: {name: searchField.name}});
   }
 }

@@ -28,7 +28,7 @@
                             </a>
                             <!-- Delete should only appear if signed-in and on your own profile -->
                             <h4 class="profile_desc">{{r.description}}</h4>
-                            <button (click)="deleteRecipe(r.name, r._id)" id="{{i}}" type="button" class="btn btn-sm btn-danger delete_rec_btn">Delete</button>
+                            <button *ngIf="_username == user.username" (click)="deleteRecipe(r.name, r._id)" id="{{i}}" type="button" class="btn btn-sm btn-danger delete_rec_btn">Delete</button>
                         </div>
 
                     </div>

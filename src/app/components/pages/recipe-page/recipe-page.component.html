@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 
-<div class="container col-md-6 offset-md-3" id="signup__main">
+<div style="margin: 100px auto;" class="container col-md-8" id="signup__main">
     <div class="card">
         <div class="card-body">
             <div class="recipe__container">
@@ -37,7 +37,7 @@
                 </div>
                 <h4>Rate this Recipe</h4>
                 <br>
-                <div style="margin-bottom: 10px; margin-left: 50px;" class="stars">
+                <div style="margin-bottom: 10px; margin-left: 50px;"class="stars">
                     <form #ratingForm="ngForm" (ngSubmit)="submitRating(ratingForm)">
                         <input class="star star-5" id="star-5" type="radio" name="star" [value]="5" ngModel/>
                         <label class="star star-5" for="star-5"></label>

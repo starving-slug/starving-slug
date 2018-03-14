@@ -55,8 +55,8 @@ export class ProfilePageComponent implements OnInit {
       delete this.user.comments[i]['_id'];
     }
     this.user.comments.push(body);
-    console.log(this.user.comments);
-    this.api.createComment(this.user.comments).subscribe((res) => {
+    console.log(this.user.comments, this.route.snapshot.url[1].path);
+    this.api.createComment(this.user.comments, this.route.snapshot.url[1].path).subscribe((res) => {
         console.log("Success!");
     }, (err) => {
       console.log("Error");

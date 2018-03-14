@@ -73,10 +73,10 @@ export class ApiService {
     return this.http.patch(`${apiurl}/rating/${id}`, res, { headers: headers, responseType: 'text' });
   }
 
-  createComment(comment: Object[]): Observable<any> {
+  createComment(comment: Object[], user: string): Observable<any> {
     let permissions = this.storage.getTokenString()
     const headers = {token: permissions};
     console.log(comment);
-    return this.http.patch(`${apiurl}/profile-comment/${comment[0]['author']}`, comment, {headers: headers});
+    return this.http.patch(`${apiurl}/profile-comment/${user}`, comment, {headers: headers});
   }
 }

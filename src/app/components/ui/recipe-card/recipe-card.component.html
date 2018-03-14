@@ -4,8 +4,8 @@
         <h4><a routerLink="/recipe/{{recipe.recipe_id}}">{{recipe.name}}</a></h4>
         <!--  TODO link to profile page-->
         <small>Recipe by | <a routerLink="/user/{{recipe.author}}">{{recipe.author}}</a></small>
-        <!-- <div>{{recipe.rating.average}} / 5. ({{recipe.rating.quantity}})</div> -->
-        <!-- <p>Rating: {{recipe.getRating()}}</p> -->
+        <small> | Rating: {{recipe.rating.average}}</small>
+        <small> | Price: {{recipe.price}}</small>
         <p>{{recipe.description}}</p>
     </div>
     <div class="recipeImage col-md-4">

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <!-- brand -->
-        <a routerLink="" class="navbar-brand" (click)="homePage()">Starving Slug</a>
+        <a routerLink="" class="navbar-brand">Starving Slug</a>
 
         <!-- hamburger -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +26,7 @@
             </ul>
 
             <div>
-                <form class="form-inline my-2 my-lg-0" (ngSubmit)="onSubmit(f)" #f="ngForm" *ngIf="onHome">
+                <form class="form-inline my-2 my-lg-0" (ngSubmit)="onSubmit(f)" #f="ngForm" *ngIf="!onSearch">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search recipes..." aria-label="Search" ngModel name="name">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
                 </form>

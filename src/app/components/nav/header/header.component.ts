@@ -3,7 +3,7 @@ import { FormGroup, FormControl, NgForm } from '@angular/forms';
 import { GoogleSignInSuccess } from 'angular-google-signin';
 import { SessionService } from '../../../utils';
 import { environment } from '../../../../environments/environment';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { ApiService } from '../../../utils/apiService';
 import { SearchPageComponent } from '../../pages/search-page/search-page.component';
 import { Recipe } from '../../../models/recipe.model';
@@ -17,12 +17,19 @@ import { User } from '../../../models/user.model';
 
 export class HeaderComponent implements OnInit {
   testlogin: boolean = false;
-  onHome: boolean = true;
+
   private sub: any;
 
   private myClientId = environment.GClientId;
   private _user = null;
+  private _path = '';
 
+  get onSearch() {
+    const regx = /search/;
+
+    console.log(regx.test(this._path));
+      return /search/.test(this._path);
+  }
   // @Input() set user(user) {
   //   console.log(user);
   //   this._user = user;
@@ -42,18 +49,17 @@ export class HeaderComponent implements OnInit {
               private router: Router,
               private session: SessionService,
               private route: ActivatedRoute) {
-       console.log(environment)
        this.session.signedIn$.subscribe((user) => {
-         console.log(user);
          this._user = user;
+       })
+       router.events.subscribe((nav) => {
+         if (nav instanceof NavigationEnd) {
+           this._path = nav.urlAfterRedirects;
+         }
        })
   }
 
   ngOnInit() {
-  }
-
-  homePage(){
-      this.onHome = true;
   }
 
   signIn(event: any) {
@@ -67,10 +73,8 @@ export class HeaderComponent implements OnInit {
 
   onSubmit(form: NgForm) {
       console.log('onSubmit() called');
-      this.onHome = false;
       this.search = JSON.stringify(form.value);
       let searchField = JSON.parse(this.search);
-      console.log(searchField.name);
       this.router.navigate(['/search'], {queryParams: {name: searchField.name}});
   }
 }

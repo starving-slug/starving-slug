@@ -83,7 +83,7 @@
 
                 <button *ngIf="!recipe" type="submit" class="recipe-form__button btn-lg" style="background:#1177EB">Add Recipe</button>
                 <button *ngIf="recipe" type="submit" class="recipe-form__button btn-lg" style="background:#1177EB">Update Recipe</button>
-                <button type="button" routerLink="/user/theShaGu" class="recipe-form__button btn-lg" style="background:#AAA">Cancel</button>
+                <button type="button" routerLink="/user/{{_username}}" class="recipe-form__button btn-lg" style="background:#AAA">Cancel</button>
             </form>
             <hr>
 
@@ -94,4 +94,3 @@
         </div>
     </div>
 </div>
-

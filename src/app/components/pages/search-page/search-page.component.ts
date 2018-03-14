@@ -26,8 +26,9 @@ export class SearchPageComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+        this.recipes = [];
         this.sub = this.route.queryParams.subscribe(params => {
-            this.api.getSearch(params['name']).subscribe((res) => {
+            this.api.getFilter(params['name'], params['author'], params['tag']).subscribe((res) => {
                 for (let i = 0; i < res.length; i++) {
                     this.recipes.push(new Recipe(res[i]));
                 }
@@ -40,24 +41,12 @@ export class SearchPageComponent implements OnInit, OnDestroy {
 
     onSubmit() {
         this.recipes = [];
-        this.router.navigate(['/search'],
-            {
-                queryParams: {
-                    name: this.searchFilter.value.name,
-                    author: this.searchFilter.value.author,
-                    tag: this.searchFilter.value.tag
-                }
-            });
 
-        this.sub = this.route.queryParams.subscribe(params => {
-            this.api.getFilter(params['name'], params['author'], params['tag']).subscribe((res) => {
-                for (let i = 0; i < res.length; i++) {
-                    this.recipes.push(new Recipe(res[i]));
-                }
-            }, (err) => {
-                console.error(err.message);
+        this.api.getFilter(this.searchFilter.value.name, this.searchFilter.value.author, this.searchFilter.value.tag).subscribe((res) => {
+            res.forEach((recipe) => {
+                this.recipes.push(new Recipe(recipe));
             });
-        });
+        });       
     }
 
     ngOnDestroy() {

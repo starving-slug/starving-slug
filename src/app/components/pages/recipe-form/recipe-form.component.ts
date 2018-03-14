@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm  } from '@angular/forms';
-import { FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
-import { ApiService } from '../../../utils/apiService';
+import { NgForm, FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
+import { ApiService, SessionService } from '../../../utils';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Recipe } from '../../../models';
@@ -13,21 +12,32 @@ import { Recipe } from '../../../models';
 })
 export class RecipeFormComponent implements OnInit {
   public recipeForm: FormGroup;
+  private _username: string;
   recipe: Recipe;
 
-  constructor(private api: ApiService, private _fb: FormBuilder, private router: Router, private route: ActivatedRoute) {
+  constructor(private api: ApiService, private _fb: FormBuilder, private router: Router, private session: SessionService, private route: ActivatedRoute) {
     this.recipe = new Recipe();
     
     let routeData = route.data.subscribe((data) => {
-        this.recipe = data['recipe'];
+      this.recipe = data['recipe'];
     });
     console.log(this.recipe);
   }
 
   ngOnInit() {
+
+    this.session.signedIn$.subscribe((user) => {
+      console.log(user);
+      if (user) {
+        this._username = user.username;
+      } else {
+        this._username = '';
+      }
+    })
+
     this.recipeForm = this._fb.group({
       name: ['', Validators.required],
-      author: ['theShaGu'],
+      author: [this._username],
       description: ['', Validators.required],
       photo: [''],
       price: ['0.00'],
@@ -118,10 +128,11 @@ export class RecipeFormComponent implements OnInit {
           }
       }
       body.price = "$" + body.price;
+
       if (!this.recipe) {
         this.api.createRecipe(body).subscribe((res) => {
           console.log("Succesfully created recipe");
-          this.router.navigate([`/user/${body['author']}`]);
+          this.router.navigate([`/user/${this._username}`]);
         }, (err) => {
           console.log("Error");
           console.error(err.message);

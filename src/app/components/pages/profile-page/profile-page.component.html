@@ -1,53 +1,64 @@
+<div style="margin: 100px auto;" class="container col-md-8" id="signup__main">
+    <div class="card-body">
+        <div class="container">
+            <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 
-<div class="container">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-
-    <div class="row">
-        <div class="col-lg-12 col-sm-12">
-            <div class="card hovercard">
-                <div class="cardheader"></div>
-                <div class="avatar">
-                    <img alt="" src="{{user.image}}">
-                </div>
-                <div class="info">
-                    <div class="title">
-                        <a target="_blank" class = "profile_name" href="http://scripteden.com/">{{user.username}}</a>
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                    <div class="card hovercard">
+                        <div class="cardheader"></div>
+                        <div class="avatar">
+                            <img alt="" src="{{user.image}}">
+                        </div>
+                        <div class="info">
+                            <div class="title">
+                                <h2 style="font-family: 'Lobster';">{{user.username}}</h2>
+                            </div>
+                            <div style="font-family: 'Roboto';" class="profile_name desc">{{user.description}}</div>
+                        </div>
                     </div>
-                    <div class="profile_name desc" >{{user.description}}</div>
+
+
+                    <div class="card show_comment">
+                        <a routerLink="/recipe/create">Add a new recipe</a>
+                        <div class="recipe_text" *ngFor="let r of user['recipes']; let i=index">
+
+                            <a routerLink="/recipe/{{r._id}}">
+                                <h2 class="profile_name">{{r.name}}</h2>
+                            </a>
+
+                            <h4 style="font-family: 'Roboto';" class="profile_desc">{{r.description}}</h4>
+                            <button *ngIf="_username == user.username" (click)="deleteRecipe(r.name, r._id)" id="{{i}}" type="button" class="btn btn-sm btn-danger delete_rec_btn">Delete</button>
+                            <button *ngIf="_username == user.username" (click)="editRecipe(r._id)" id="{{i}}" type="button" class="btn btn-sm delete_rec_btn">Edit</button>
+
+                        </div>
+
+                    </div>
+                    <div class="card hovercard_bottom">
+                        <h3 style="font-family: 'Lobster';">Comments</h3>
+                        <tr>
+                            <th class="comment_style_title"></th>
+                            <th class="comment_style_title"></th>
+                        </tr>
+                        <div class="comment_text" *ngFor="let c of user['comments']">
+                            <tr>
+                                <th class="comment_style_author">{{c.author}}</th>
+                                <th class="comment_style_post">{{c.post}}</th><br>
+                                <th class="comment_style_comment">{{c.comment}}</th>
+                            </tr>
+                        </div>
+                    </div>
+                    <div class="card rating_box">
+                        <h3 style="font-family: 'Lobster';float: left; padding-left: 10px">Comment</h3>
+                        <div class="profile_comment">
+                            <form #commentForm="ngForm" novalidate (ngSubmit)="onSubmit(commentForm)" style="width:800px; height: 800px">
+                                <textarea ngModel name="comment" class="comment_box"></textarea>
+                                <button class="sub_button" type="submit" style="float:left;">Submit</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="card hovercard_bottom">
-                <a routerLink="/recipe/create">Add a new recipe</a>
-                <div class="recipe_text" *ngFor="let r of user['recipes']; let i=index">
-                  <a routerLink="/recipe/{{r._id}}">
-                    <h2 class = "profile_name">{{r.name}}</h2>
-                  </a>
-                  <button (click)="editRecipe(r._id)" type="button" class="btn btn-sm">Edit Recipe</button>
-                  <!-- Delete should only appear if signed-in and on your own profile -->
-                  <button (click)="deleteRecipe(r.name, r._id)" id="{{i}}" type="button" class="btn btn-sm btn-danger">Delete Recipe</button>
-                  <br>
-                  <h4 class = "profile_desc">{{r.description}}</h4>
-                </div>
-            </div>
-            <div class="card rating_box">
-                <div class="stars">
-                    <form action="">
-                        <input class="star star-5" id="star-5" type="radio" name="star"/>
-                        <label class="star star-5" for="star-5"></label>
-                        <input class="star star-4" id="star-4" type="radio" name="star"/>
-                        <label class="star star-4" for="star-4"></label>
-                        <input class="star star-3" id="star-3" type="radio" name="star"/>
-                        <label class="star star-3" for="star-3"></label>
-                        <input class="star star-2" id="star-2" type="radio" name="star"/>
-                        <label class="star star-2" for="star-2"></label>
-                        <input class="star star-1" id="star-1" type="radio" name="star"/>
-                        <label class="star star-1" for="star-1"></label>
-                    </form>
-                <h3 style= "font-family: 'Lobster'">Comment:</h3>
-                <div class="profile_comment">
-                    <textarea class = "comment_box"rows="10" cols="80" ng-model="submitted.title"></textarea>
-                    <button class = "sub_button"ng-click="submitComment()">Submit</button>
-                </div>
         </div>
     </div>
 </div>

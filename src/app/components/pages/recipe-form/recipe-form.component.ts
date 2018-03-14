@@ -32,6 +32,8 @@ export class RecipeFormComponent implements OnInit {
         this._username = user.username;
       } else {
         this._username = '';
+        this.router.navigate([`/`]);
+        alert("Sign in to create or edit a recipe");
       }
     })
 
@@ -47,6 +49,10 @@ export class RecipeFormComponent implements OnInit {
       tags: this._fb.array([['', Validators.required]])
     });
     if (this.recipe) {
+      if (this._username != this.recipe.author) {
+        this.router.navigate([`/`]);
+        alert("You are not allowed to edit this recipe!");
+      }
       let body = this.recipe;
       for (let i = 1; i < this.recipe.ingredients.length; i++) this.addIngredient();
       for (let i = 1; i < this.recipe.directions.length; i++) this.addStep();

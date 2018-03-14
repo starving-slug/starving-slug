@@ -20,7 +20,7 @@
 
 
                     <div class="card show_comment">
-                        <a routerLink="/recipe/create">Add a new recipe</a>
+                        <a *ngIf="_username == user.username" routerLink="/recipe/create">Add a new recipe</a>
                         <div class="recipe_text" *ngFor="let r of user['recipes']; let i=index">
 
                             <a routerLink="/recipe/{{r._id}}">

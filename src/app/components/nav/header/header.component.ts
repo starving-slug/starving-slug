@@ -73,10 +73,8 @@ export class HeaderComponent implements OnInit {
 
   onSubmit(form: NgForm) {
       console.log('onSubmit() called');
-      console.log(this.user.username);
       this.search = JSON.stringify(form.value);
       let searchField = JSON.parse(this.search);
-      console.log(searchField.name);
       this.router.navigate(['/search'], {queryParams: {name: searchField.name}});
   }
 }

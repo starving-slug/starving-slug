@@ -67,7 +67,6 @@ export class HeaderComponent implements OnInit {
 
   onSubmit(form: NgForm) {
       console.log('onSubmit() called');
-      console.log(this.user.username);
       this.onHome = false;
       this.search = JSON.stringify(form.value);
       let searchField = JSON.parse(this.search);

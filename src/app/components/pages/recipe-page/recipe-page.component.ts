@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NgForm  } from '@angular/forms';
 
 import { Recipe } from '../../../models'
-import { ApiService } from '../../../utils/apiService';
+import { ApiService, SessionService } from '../../../utils';
 
 @Component({
   selector: 'app-recipe-page',
@@ -12,8 +12,9 @@ import { ApiService } from '../../../utils/apiService';
 })
 export class RecipePageComponent implements OnInit {
   recipe: Recipe
+  private _username: string;
 
-  constructor(private route: ActivatedRoute, private api: ApiService) {
+  constructor(private route: ActivatedRoute, private api: ApiService, private session: SessionService) {
     this.recipe = new Recipe();
     
     let routeData = route.data.subscribe((data) => {
@@ -22,6 +23,14 @@ export class RecipePageComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.session.signedIn$.subscribe((user) => {
+      console.log(user);
+      if (user) {
+        this._username = user.username;
+      } else {
+        this._username = '';
+      }
+    });
   }
 
   submitRating(form: NgForm) {

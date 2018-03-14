@@ -21,15 +21,15 @@
 
                     <div class="card show_comment">
                         <a *ngIf="_username == user.username" routerLink="/recipe/create">Add a new recipe</a>
-                        <div class="recipe_text" *ngFor="let r of user['recipes']; let i=index">
+                        <div class="recipe_text" *ngFor="let r of user['recipes']">
 
                             <a routerLink="/recipe/{{r._id}}">
                                 <h2 class="profile_name">{{r.name}}</h2>
                             </a>
 
                             <h4 style="font-family: 'Roboto';" class="profile_desc">{{r.description}}</h4>
-                            <button *ngIf="_username == user.username" (click)="deleteRecipe(r.name, r._id)" id="{{i}}" type="button" class="btn btn-sm btn-danger delete_rec_btn">Delete</button>
-                            <button *ngIf="_username == user.username" (click)="editRecipe(r._id)" id="{{i}}" type="button" class="btn btn-sm delete_rec_btn">Edit</button>
+                            <button *ngIf="_username == user.username" (click)="deleteRecipe(r.name, r._id)" type="button" class="btn btn-sm btn-danger delete_rec_btn">Delete</button>
+                            <button *ngIf="_username == user.username" routerLink="/recipe/edit/{{r._id}}" type="button" class="btn btn-sm delete_rec_btn">Edit</button>
 
                         </div>
 
@@ -49,8 +49,9 @@
                         </div>
                     </div>
                     <div class="card rating_box">
-                        <h3 style="font-family: 'Lobster';float: left; padding-left: 10px">Comment</h3>
-                        <div class="profile_comment">
+                        <h3 style="font-family: 'Lobster';float: left; padding-left: 10px">Leave a Comment</h3>
+                        <p *ngIf="_username == ''">Sign in to comment.</p>
+                        <div *ngIf="_username != ''" class="profile_comment">
                             <form #commentForm="ngForm" novalidate (ngSubmit)="onSubmit(commentForm)" style="width:800px; height: 800px">
                                 <textarea ngModel name="comment" class="comment_box"></textarea>
                                 <button class="sub_button" type="submit" style="float:left;">Submit</button>

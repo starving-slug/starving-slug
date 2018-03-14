@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { NgForm, FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
 
-import { Recipe } from '../../../models'
-import { NgForm  } from '@angular/forms';
-import { FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
-
-import { User } from '../../../models';
+import { User, Recipe } from '../../../models';
 import { ApiService, SessionService } from '../../../utils';
 
 @Component({
@@ -17,7 +14,7 @@ export class ProfilePageComponent implements OnInit {
   user: User;
   private _username: string;
 
-  constructor(private route: ActivatedRoute, private api: ApiService, private session: SessionService, private router: Router) {
+  constructor(private route: ActivatedRoute, private api: ApiService, private session: SessionService) {
     console.log(route.snapshot.data)
     this.user = route.snapshot.data['user'];
     console.log(this.user);
@@ -31,10 +28,6 @@ export class ProfilePageComponent implements OnInit {
         this._username = '';
       }
     });
-  }
-
-  editRecipe(id: string) {
-    this.router.navigate([`/recipe/edit/${id}`]);
   }
 
   deleteRecipe(name: string, id: string) {

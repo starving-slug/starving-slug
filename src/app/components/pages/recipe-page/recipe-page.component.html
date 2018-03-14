@@ -36,9 +36,9 @@
                         </div>
                     </div>
                 </div>
-                <h4>Rate this Recipe</h4>
-                <br>
-                <div style="margin-bottom: 10px; margin-left: 50px;" class="stars">
+                <h4 style="margin-left:1em">Rate this Recipe</h4>
+                <p *ngIf="_username == ''" style="margin-bottom: 10px; margin-left: 50px;">Sign in to rate this recipe.</p>
+                <div *ngIf="_username != ''" style="margin-bottom: 10px; margin-left: 50px;" class="stars">
                     <form #ratingForm="ngForm" (ngSubmit)="submitRating(ratingForm)">
                         <input class="star star-5" id="star-5" type="radio" name="star" [value]="5" ngModel/>
                         <label class="star star-5" for="star-5"></label>

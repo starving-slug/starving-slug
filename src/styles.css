@@ -394,14 +394,6 @@ hr {
     background-color: #ffffff;
 }
 
-.card.people .card-top.green {
-    background-color: #53a93f;
-}
-
-.card.people .card-top.blue {
-    background-color: #427fed;
-}
-
 .card.people .card-info {
     position: absolute;
     top: 150px;

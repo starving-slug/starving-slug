@@ -13,17 +13,17 @@
                         <!--<button class="recipe__button">Save to Library</button>-->
                     </div>
                     <div class="col-sm-4">
-                        <img [src]="recipe.photo" class="recipe__picture">
+                        <img [src]="recipe.photo" onError="this.src='../../../../assets/photos/logo.png'" class="recipe__picture">
                     </div>
                 </div>
                 <div class="row">
                     <div class="recipe__ingredients col-sm-3">
                         <h4>Ingredients</h4>
                         <div class="row" *ngFor="let ingredient of recipe.ingredients">
-                            <div class="recipe__ingredients-amount">
+                            <div class="recipe__ingredients-amount" style="display:inline-block">
                                 <p>{{ingredient.amount}}</p>
                             </div>
-                            <div>
+                            <div style="width:9vw">
                                 <p>{{ingredient.text}}</p>
                             </div>
                         </div>

@@ -12,12 +12,12 @@
                 <small *ngIf="!recipeForm.controls.name.valid" class="text-danger">Name is required.</small>
 
                 <p class="card-text">Description<span style="color: red">*</span></p>
-                <input type="text" class="form-control signup__info" formControlName="description">
+                <textarea rows="3" class="form-control signup__info" formControlName="description"></textarea>
                 <small *ngIf="!recipeForm.controls.description.valid" class="text-danger">Description is required.</small>
 
                 <p class="card-text">Add a photo</p>
                 <!--<input type="file" id="photo-input" class="form-control signup__info" accept="image/*" ngModel name="pic">-->
-                <input type="text" class="form-control signup__info" formControlName="photo" placeholder="Image url">
+                <input type="text" class="form-control signup__info" formControlName="photo" placeholder="Image url, e.g. https://www.ucsc.edu/parents/images/fiat-slug.png">
                 <br>
 
                 <p class="card-text">Recipe Cost<span style="color: red">*</span></p>
@@ -36,7 +36,7 @@
                           <input type="text" id="iA" class="form-control" formControlName="amount" placeholder="#" maxlength="5">
                         </div>
                         <div class="form-group col-sm-9">
-                          <input type="text" class="form-control" formControlName="text" placeholder="Ingredient {{i+1}}">
+                          <textarea rows="2" class="form-control" formControlName="text" placeholder="Ingredient {{i+1}}"></textarea>
                         </div>
                         <div class="form-group col-sm-1">
                           <span *ngIf="recipeForm.controls.ingredients.controls.length > 1" (click)="removeField(i, 'ingredients')"><b>X</b></span>
@@ -53,7 +53,7 @@
                   <div *ngFor="let dir of recipeForm.controls.directions.controls; let i=index">
                     <div class="form-row">
                       <div class="form-group col-sm-11">
-                        <textarea class="form-control signup__info" formControlName="{{i}}" placeholder="Step {{i+1}}" required></textarea>
+                        <textarea rows="3" class="form-control signup__info" formControlName="{{i}}" placeholder="Step {{i+1}}" required></textarea>
                       </div>
                       <div class="form-group col-sm-1">
                         <span *ngIf="recipeForm.controls.directions.controls.length > 1" (click)="removeField(i, 'directions')">X</span>

@@ -587,7 +587,7 @@ textarea.comment_box{
 }
 
 .recipe__ingredients {
-    margin-left: 2.7em;
+    margin-left: 2.5em;
     padding: 1em 0 2em 0;
 }
 
@@ -597,7 +597,7 @@ textarea.comment_box{
 
 .recipe__ingredients-amount {
     margin: 0 0.5em 0 1.5em;
-    width: 2em;
+    width: 2.1em;
     text-align: right;
 }
 

@@ -13,7 +13,7 @@
                         <!--<button class="recipe__button">Save to Library</button>-->
                     </div>
                     <div class="col-sm-4">
-                        <img [src]="recipe.photo" class="recipe__picture">
+                        <img [src]="recipe.photo" onError="this.src='../../../../assets/photos/logo.png'" class="recipe__picture">
                     </div>
                 </div>
                 <div class="row">

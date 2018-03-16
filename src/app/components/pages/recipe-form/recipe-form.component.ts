@@ -54,6 +54,7 @@ export class RecipeFormComponent implements OnInit {
         alert("You are not allowed to edit this recipe!");
       }
       let body = this.recipe;
+      if (body.photo == "../../../../assets/photos/logo.png") body.photo = "";
       for (let i = 1; i < this.recipe.ingredients.length; i++) this.addIngredient();
       for (let i = 1; i < this.recipe.directions.length; i++) this.addStep();
       for (let i = 1; i < this.recipe.tags.length; i++) this.addTag();
@@ -100,39 +101,50 @@ export class RecipeFormComponent implements OnInit {
     control.push(this._fb.control(['']));
   }
 
-  removeIngredient(i: number) {
-    const control = <FormArray>this.recipeForm.controls['ingredients'];
+  removeField(i: number, key: string) {
+    const control = <FormArray>this.recipeForm.controls[key];
     control.removeAt(i);
   }
 
-  removeStep(i: number) {
-    const control = <FormArray>this.recipeForm.controls['directions'];
-    control.removeAt(i);
+  testField(field: string[]) {
+    for (let entry of field) {
+      if (entry == "") {
+        console.log("Invalid Form");
+        alert("Invalid Form");
+        return false;
+      }
+    }
+    return true;
   }
 
-  removeTag(i: number) {
-    const control = <FormArray>this.recipeForm.controls['tags'];
-    control.removeAt(i);
+  imageUrl(url) {
+    let img = new Image();
+    img.src = url;
+    if (!img.complete) return false;
+    return true;
   }
 
   onSubmit(recipeForm: NgForm) {
     if (recipeForm.valid) {
       let body = recipeForm.value;
+      if (body.photo == "") { body.photo = "../../../../assets/photos/logo.png"; }
+      else {
+        let imgExists = this.imageUrl(body.photo);
+        if (!imgExists) {
+          alert("Invalid image URL. Leave field blank for the default image.");
+          return;
+        }
+      }
       console.log(body);
+
       var regex  = /^\d+((\.\d{0,2})?)$/;
-      console.log(regex.test(body.price));
       if (!regex.test(body.price)) {
         console.log("Invalid price");
         alert("Invalid price");
         return;
       }
-      for (let dir of body.directions) {
-          if (dir == "") {
-              console.log("Invalid Form");
-              alert("Invalid Form");
-              return;
-          }
-      }
+      if (!this.testField(body.directions)) return;
+      if (!this.testField(body.tags)) return;
       body.price = "$" + body.price;
 
       if (!this.recipe) {

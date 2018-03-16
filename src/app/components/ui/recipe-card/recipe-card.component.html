@@ -10,7 +10,7 @@
     </div>
     <div class="recipeImage col-md-4">
         <!-- TODO link to recipe page -->
-        <a routerLink="/recipe/{{recipe.recipe_id}}"><img src="{{recipe.photo}}" height="100%" width="100%"></a>
+        <a routerLink="/recipe/{{recipe.recipe_id}}"><img src="{{recipe.photo}}" onError="this.src='../../../../assets/photos/logo.png'" height="100%" width="100%"></a>
     </div>
 </div>
 

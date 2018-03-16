@@ -39,7 +39,7 @@
                           <input type="text" class="form-control" formControlName="text" placeholder="Ingredient {{i+1}}">
                         </div>
                         <div class="form-group col-sm-1">
-                          <span *ngIf="recipeForm.controls.ingredients.controls.length > 1" (click)="removeIngredient(i)"><b>X</b></span>
+                          <span *ngIf="recipeForm.controls.ingredients.controls.length > 1" (click)="removeField(i, 'ingredients')"><b>X</b></span>
                         </div>
                       </div>
                       <small [hidden]="recipeForm.controls.ingredients.controls[i].controls.text.valid" class="text-danger">Ingredient is required.</small>
@@ -53,10 +53,10 @@
                   <div *ngFor="let dir of recipeForm.controls.directions.controls; let i=index">
                     <div class="form-row">
                       <div class="form-group col-sm-11">
-                        <input type="text" class="form-control signup__info" formControlName="{{i}}" placeholder="Step {{i+1}}" required>
+                        <textarea class="form-control signup__info" formControlName="{{i}}" placeholder="Step {{i+1}}" required></textarea>
                       </div>
                       <div class="form-group col-sm-1">
-                        <span *ngIf="recipeForm.controls.directions.controls.length > 1" (click)="removeStep(i)">X</span>
+                        <span *ngIf="recipeForm.controls.directions.controls.length > 1" (click)="removeField(i, 'directions')">X</span>
                       </div>
                     </div>
                     <small *ngIf="recipeForm.controls.directions.controls[i].value == ''" class="text-danger">Direction is required.</small>
@@ -72,7 +72,7 @@
                         <input type="text" class="form-control signup__info" formControlName="{{i}}" placeholder="Tag {{i+1}}" required>
                       </div>
                       <div class="form-group col-sm-1">
-                        <span *ngIf="recipeForm.controls.tags.controls.length > 1" (click)="removeTag(i)">X</span>
+                        <span *ngIf="recipeForm.controls.tags.controls.length > 1" (click)="removeField(i, 'tags')">X</span>
                       </div>
                     </div>
                     <small *ngIf="recipeForm.controls.tags.controls[i].value == ''" class="text-danger">Tag is required.</small>
@@ -88,8 +88,8 @@
             <hr>
 
             <!-- Uncomment to see current form values -->
-            <!--<pre>{{recipeForm.valid | json}}</pre>
-            <pre>{{recipeForm.value | json}}</pre>-->
+            <pre>{{recipeForm.valid | json}}</pre>
+            <pre>{{recipeForm.value | json}}</pre>
 
         </div>
     </div>

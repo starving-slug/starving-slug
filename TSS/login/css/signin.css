@@ -9,9 +9,9 @@ body {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-
-
+  background-color: inherit;
 }
+
 .card-header {
   text-align: center;
 }
